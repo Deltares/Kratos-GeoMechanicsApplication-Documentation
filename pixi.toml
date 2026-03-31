@@ -2,7 +2,7 @@
 authors = ["Walter Austmann <walter.austmann@deltares.nl>"]
 channels = ["conda-forge"]
 name = "Kratos-GeoMechanicsApplication-Documentation"
-platforms = ["win-64"]
+platforms = ["win-64", "linux-64"]
 version = "0.1.0"
 
 [tasks]
