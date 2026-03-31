@@ -24,4 +24,4 @@ jobs:
           cache: true
           cache-write: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
       
-      - run: pixi run mkdocs gh-deploy --config-file ./kratos-docs --force
+      - run: pixi run mkdocs gh-deploy --config-file ./kratos-docs/mkdocs.yml --force
