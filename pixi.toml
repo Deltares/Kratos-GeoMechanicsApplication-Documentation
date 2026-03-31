@@ -1,0 +1,12 @@
+[workspace]
+authors = ["Walter Austmann <walter.austmann@deltares.nl>"]
+channels = ["conda-forge"]
+name = "Kratos-GeoMechanicsApplication-Documentation"
+platforms = ["win-64"]
+version = "0.1.0"
+
+[tasks]
+build-docs = "mkdocs build"
+
+[dependencies]
+mkdocs = ">=1.6.1,<2"
