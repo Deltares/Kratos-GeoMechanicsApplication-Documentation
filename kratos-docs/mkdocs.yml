@@ -1,4 +1,6 @@
 site_name: Kratos GeoMechanicsApplication Documentation
+theme:
+  name: readthedocs
 repo_url: https://github.com/Deltares/Kratos-GeoMechanicsApplication-Documentation/
 repo_name: Deltares/Kratos-GeoMechanicsApplication-Documentation/
 extra:
