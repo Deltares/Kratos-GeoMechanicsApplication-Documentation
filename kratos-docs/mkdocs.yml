@@ -1,4 +1,4 @@
-site_name: Kratos GeoMechanicsApplication Documentation
+site_name: Kratos Geo Mechanics Application Documentation
 theme:
   name: readthedocs
 repo_url: https://github.com/Deltares/Kratos-GeoMechanicsApplication-Documentation/
@@ -6,7 +6,7 @@ repo_name: Deltares/Kratos-GeoMechanicsApplication-Documentation/
 extra:
   authoremail: kratos@deltares.nl
   social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/Deltares/Kratos-GeoMechanicsApplication-Documentation/
-      name: Source code
+    icon: fontawesome/brands/github
+    link: https://github.com/Deltares/Kratos-GeoMechanicsApplication-Documentation/
+    name: Kratos Geo Mechanics Application Documentation
 copyright: Copyright &copy; 2026 Deltares
