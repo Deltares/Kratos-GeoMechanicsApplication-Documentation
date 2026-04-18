@@ -27,6 +27,25 @@ cd %KRATOS_REPO_PARENT_DIR%
 git clone https://github.com/KratosMultiphysics/Kratos.git
 ```
 
+You are advised to set up a dedicated Python `venv` for your KRATOS build:
+
+```sh
+cd Kratos
+python -m venv .venv
+.\.venv\Scripts\activate
+```
+
+Then update `pip` and install a few additional Python packages:
+
+```sh
+python -m pip install --upgrade pip
+python -m pip install matplotlib
+python -m pip install numpy
+python -m pip install parameterized
+python -m pip install pefile
+python -m pip install platformdirs
+```
+
 When all of the above is in-place, we can actually start to build the application as explained in the next section.
 
 
