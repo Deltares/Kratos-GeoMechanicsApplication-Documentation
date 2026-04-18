@@ -26,3 +26,53 @@ Subsequently, you will need to clone the KRATOS repository to your machine.  Fir
 cd %KRATOS_REPO_PARENT_DIR%
 git clone https://github.com/KratosMultiphysics/Kratos.git
 ```
+
+When all of the above is in-place, we can actually start to build the application as explained in the next section.
+
+
+### Building the GeoMechanicsApplication
+
+The instructions given in this section assume a Windows platform with a Visual Studio Professional compiler.  First, you need to launch a Command Prompt, navigate to the `Tools` directory of the Visual Studio installation, and run the `VsDevCmd.bat` script:
+
+```sh
+.\VsDevCmd.bat -arch=amd64
+```
+
+The following table shows the absolute paths to the `Tools` directory for two recent versions of Visual Studio Professional.
+
+| MS VS Version | Default MS VS tools directory |
+|---------------|-------------------------------|
+| Visual Studio 2022 | `C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\Tools` |
+| Visual Studio 2026 | `C:\Program Files\Microsoft Visual Studio\18\Professional\Common7\Tools` |
+
+Then we set the following two environment variables that define the compilers that we would like to use:
+
+```sh
+set CC=cl.exe
+set CXX=cl.exe
+```
+
+Next, we need to set some more environment variables to make sure that CMake can be run successfully:
+
+```sh
+set BOOST_ROOT=C:\Users\Bob\boost_1_86_0
+```
+
+Here, `BOOST_ROOT` should be set to the top-level directory where you have extracted Boost to.  This directory contains amongst others the Boost license file, `INSTALL`, and `README.md`.
+
+Once the Command Prompt has been properly set up, we can configure the build by executing the following command:
+
+```sh
+cmake ^
+    -S <source_dir> ^
+    -B <build_dir> ^
+    -G Ninja ^
+    -DCMAKE_BUILD_TYPE=Debug ^
+    -DUSE_EIGEN_MKL=OFF ^
+    -DKRATOS_GENERATE_PYTHON_STUBS=ON ^
+    -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ^
+    -DKRATOS_SHARED_MEMORY_PARALLELIZATION=None ^
+    -DCMAKE_UNITY_BUILD=OFF ^
+    -DCMAKE_C_COMPILER=%CC% ^
+    -DCMAKE_CXX_COMPILER=%CXX%
+```
