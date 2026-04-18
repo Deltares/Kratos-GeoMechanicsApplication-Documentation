@@ -78,40 +78,40 @@ cmake ^
 ```
 
 
-# External Developer Documentation
+## External Developer Documentation
 
 This section contains links to the relevant external developer documentation of the GeoMechanicsApplication.
 
-## Custom Elements
+### Custom Elements
 
 [This document](https://github.com/KratosMultiphysics/Kratos/blob/master/applications/GeoMechanicsApplication/custom_elements/README.md) describes the specific finite element types that are available for geotechnical analysis.  Some of these elements use so-called ["contribution calculators"](https://github.com/KratosMultiphysics/Kratos/blob/master/applications/GeoMechanicsApplication/custom_elements/contribution_calculators/README.md), to control which contributions are taken into account when the left hand side (LHS) matrix and the right hand side (RHS) vector of the element are calculated.  Several of the geotechnical elements use the "Strategy" design pattern (also known as "Policy" design pattern) to gain control and configurability for the element functionality.  The available policies are described [here](https://github.com/KratosMultiphysics/Kratos/blob/master/applications/GeoMechanicsApplication/custom_elements/Policies.md).
 
 
-## Custom Boundary Conditions
+### Custom Boundary Conditions
 
 [This document](https://github.com/KratosMultiphysics/Kratos/blob/master/applications/GeoMechanicsApplication/custom_conditions/README.md) presents the various boundary condition types that are available for geotechnical analysis.
 
 
-## Custom Geometries
+### Custom Geometries
 
 [This document](https://github.com/KratosMultiphysics/Kratos/blob/master/applications/GeoMechanicsApplication/custom_geometries/README.md) presents the various U-Pw interface geometries that have been developed for geotechnical analysis.  These custom geometries are used by our geotechnical U-Pw interface element types.
 
 
-## Custom Constitutive Laws
+### Custom Constitutive Laws
 
 [This document](https://github.com/KratosMultiphysics/Kratos/blob/master/applications/GeoMechanicsApplication/custom_constitutive/README.md) presents the various constitutive laws that are available for geotechnical analysis.
 
 
-## Custom Strategies
+### Custom Strategies
 
 [This document](https://github.com/KratosMultiphysics/Kratos/blob/master/applications/GeoMechanicsApplication/custom_strategies/schemes/README.md) describes the time integration schemes as well as a load stepping scheme that are available for geotechnical analysis.  And [this document](https://github.com/KratosMultiphysics/Kratos/blob/master/applications/GeoMechanicsApplication/custom_strategies/strategies/README.md) presents a custom Newton-Raphson process for backward erosion piping.
 
 
-## Custom Processes
+### Custom Processes
 
 [This document](https://github.com/KratosMultiphysics/Kratos/blob/master/applications/GeoMechanicsApplication/custom_processes/README.md) describes the various processes that can be used to control the geotechnical analysis.
 
 
-## Test Documentation
+### Test Documentation
 
 Several geotechnical [tests](https://github.com/KratosMultiphysics/Kratos/blob/master/applications/GeoMechanicsApplication/tests/README.md) have been documented.  Those that have been documented, have a dedicated `README.md` file in the corresponding test directory.  Note that some tests can also produce plots depending on the shell environment in which they are run.
