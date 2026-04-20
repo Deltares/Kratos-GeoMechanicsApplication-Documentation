@@ -2,7 +2,7 @@
 
 **Note: The user is responsible for giving all material parameters a consistent set of parameters.**
 
-## Constitutive law: LinearElasticPlaneStrainK02DLaw
+## Constitutive law: GeoLinearElasticPlaneStrain2DLaw
 
 | Parameters | Description |
 | --- | --- |
@@ -41,17 +41,6 @@
 | `"MINIMUM_RELATIVE_PERMEABILITY":` | Minimum relative permeability |
 | `"Tables": {}` | Optional tables |
 
-## Constitutive law: GeoLinearElasticPlaneStrain2DLaw
-
-### Parameters for elasticity and weight
-
-| Parameters | Description |
-| --- | --- |
-| `"YOUNG_MODULUS":` | Young Modulus (kPa) or (MPa) |
-| `"POISSON_RATIO":` | Poisson Ratio |
-| `"DENSITY_SOLID":` | The density of soil (kg/m<sup>3</sup>) or (Mg/m<sup>3</sup> = g/cm<sup>3</sup>) as non-porous material |
-| `"DENSITY_WATER":` | The density of water, input: `1000` (kg/m<sup>3</sup>) or `1` (Mg/m<sup>3</sup> = g/cm<sup>3</sup>) |
-| `"POROSITY":` | Porosity ratio |
 
 ### Parameters for K0 procedure
 
