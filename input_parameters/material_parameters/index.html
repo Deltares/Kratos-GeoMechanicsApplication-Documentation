@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>MaterialParameters.json file description - Kratos Geo Mechanics Application Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "MaterialParameters.json file description";
+        var mkdocs_page_input_path = "input_parameters/material_parameters.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Kratos Geo Mechanics Application Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../getting_started/">Getting Started</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../theory/">Theory</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../user_documentation/">User Documentation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../examples_and_tutorials/">Examples and Tutorials</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../validation_and_verification/">Validation and Verification</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../developer_documentation/">Developer Documentation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Kratos Geo Mechanics Application Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">MaterialParameters.json file description</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Deltares/Kratos-GeoMechanicsApplication-Documentation/edit/master/docs/input_parameters/material_parameters.md">Edit on Deltares/Kratos-GeoMechanicsApplication-Documentation/</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="materialparametersjson-file-description">MaterialParameters.json file description</h1>
+<p><strong>Note: The user is responsible for giving all material parameters a consistent set of parameters.</strong></p>
+<h2 id="constitutive-law-geolinearelasticplanestrain2dlaw">Constitutive law: GeoLinearElasticPlaneStrain2DLaw</h2>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>{ "properties": [{</code></td>
+<td>Start of the properties list</td>
+</tr>
+<tr>
+<td><code>"model_part_name":</code></td>
+<td>Name of your material</td>
+</tr>
+<tr>
+<td><code>"properties_id":</code></td>
+<td>ID number assigned to your material</td>
+</tr>
+<tr>
+<td><code>"Material": {</code></td>
+<td>Start of material description</td>
+</tr>
+<tr>
+<td><code>"constitutive_law": {</code></td>
+<td>Define soil constitutive law</td>
+</tr>
+<tr>
+<td><code>"name":</code></td>
+<td>Name of soil constitutive law</td>
+</tr>
+<tr>
+<td><code>"Variables": {</code></td>
+<td>Begin of material variables</td>
+</tr>
+<tr>
+<td><code>"IGNORE_UNDRAINED":</code></td>
+<td>If <code>true</code>: keeps all the pressure field unchanged</td>
+</tr>
+<tr>
+<td><code>"YOUNG_MODULUS":</code></td>
+<td>Young Modulus (kPa)</td>
+</tr>
+<tr>
+<td><code>"POISSON_RATIO":</code></td>
+<td>Poisson Ratio</td>
+</tr>
+<tr>
+<td><code>"DENSITY_SOLID":</code></td>
+<td>The density of soil (kg/m<sup>3</sup>) or (Mg/m<sup>3</sup> = g/cm<sup>3</sup>) as non-porous material</td>
+</tr>
+<tr>
+<td><code>"DENSITY_WATER":</code></td>
+<td>The density of water, input: <code>1000</code> (kg/m<sup>3</sup>) or <code>1</code> (Mg/m<sup>3</sup> = g/cm<sup>3</sup>)</td>
+</tr>
+<tr>
+<td><code>"POROSITY":</code></td>
+<td>Porosity ratio</td>
+</tr>
+<tr>
+<td><code>"BULK_MODULUS_SOLID":</code></td>
+<td>The measure of the decrease in solid volume with an increase in pressure (N/m<sup>2</sup>)</td>
+</tr>
+<tr>
+<td><code>"BULK_MODULUS_FLUID":</code></td>
+<td>The measure of the decrease in fluid volume with an increase in pressure (N/m<sup>2</sup>), for water input: 2.2x10<sup>9</sup></td>
+</tr>
+<tr>
+<td><code>"PERMEABILITY_XX":</code></td>
+<td>Intrinsic permeability in the XX direction (m<sup>2</sup>)</td>
+</tr>
+<tr>
+<td><code>"PERMEABILITY_YY":</code></td>
+<td>Intrinsic permeability in the YY direction (m<sup>2</sup>)</td>
+</tr>
+<tr>
+<td><code>"PERMEABILITY_XY":</code></td>
+<td>Intrinsic permeability in the XY direction (m<sup>2</sup>)</td>
+</tr>
+<tr>
+<td><code>"PERMEABILITY_CHANGE_INVERSE_FACTOR":</code></td>
+<td>If &gt; 0 the permeability will be updated depending on the volumetric strain</td>
+</tr>
+<tr>
+<td><code>"DYNAMIC_VISCOSITY":</code></td>
+<td>Dynamic viscosity (kg/m.s)</td>
+</tr>
+<tr>
+<td><code>"THICKNESS":</code></td>
+<td>Not specified in source document</td>
+</tr>
+<tr>
+<td><code>"K0_MAIN_DIRECTION":</code></td>
+<td>Input <code>0</code> for X, <code>1</code> for Y, and <code>2</code> for Z direction</td>
+</tr>
+<tr>
+<td><code>"K0_VALUE_XX":</code></td>
+<td>K0 value in the XX direction</td>
+</tr>
+<tr>
+<td><code>"K0_VALUE_YY":</code></td>
+<td>K0 value in the YY direction</td>
+</tr>
+<tr>
+<td><code>"K0_VALUE_ZZ":</code></td>
+<td>K0 value in the ZZ direction</td>
+</tr>
+<tr>
+<td><code>"BIOT_COEFFICIENT":</code></td>
+<td>Biot alpha coefficient</td>
+</tr>
+<tr>
+<td><code>"RETENTION_LAW":</code></td>
+<td>Water retention law: <code>SaturatedLaw</code>, <code>VanGenuchtenLaw</code>, <code>SaturatedBelowPheraticLevelLaw</code></td>
+</tr>
+<tr>
+<td><code>"SATURATED_SATURATION":</code></td>
+<td>Maximum pore fill by water (0 to 1), higher than <code>RESIDUAL_SATURATION</code></td>
+</tr>
+<tr>
+<td><code>"RESIDUAL_SATURATION":</code></td>
+<td>Minimum pore fill trapped in the soil (0 to 1), lower than <code>SATURATED_SATURATION</code></td>
+</tr>
+<tr>
+<td><code>"VAN_GENUCHTEN_AIR_ENTRY_PRESSURE":</code></td>
+<td>Coefficient for Van Genuchten curve</td>
+</tr>
+<tr>
+<td><code>"VAN_GENUCHTEN_GN":</code></td>
+<td>Coefficient for Van Genuchten curve</td>
+</tr>
+<tr>
+<td><code>"VAN_GENUCHTEN_GL":</code></td>
+<td>Coefficient for Van Genuchten curve</td>
+</tr>
+<tr>
+<td><code>"MINIMUM_RELATIVE_PERMEABILITY":</code></td>
+<td>Minimum relative permeability</td>
+</tr>
+<tr>
+<td><code>"Tables": {}</code></td>
+<td>Optional tables</td>
+</tr>
+</tbody>
+</table>
+<h3 id="parameters-for-k0-procedure">Parameters for K0 procedure</h3>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"K0_MAIN_DIRECTION":</code></td>
+<td>Input <code>0</code> for X, <code>1</code> for Y, and <code>2</code> for Z direction. Direction (v) from which stress in perpendicular directions (h) is derived: <code>sigma_hh = K0 * sigma_vv</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="3-alternatives-for-the-input-of-the-k0-value">3 alternatives for the input of the K0 value</h4>
+<p>See: https://publicwiki.deltares.nl/x/joSHDw</p>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"K0_NC":</code></td>
+<td>K0 value for normal consolidation</td>
+</tr>
+<tr>
+<td><code>"INDEX_OF_UMAT_PHI_PARAMETER":</code></td>
+<td>The index of phi in the UMAT parameters</td>
+</tr>
+<tr>
+<td><code>"K0_VALUE_XX":</code></td>
+<td>K0 value in XX direction</td>
+</tr>
+<tr>
+<td><code>"K0_VALUE_YY":</code></td>
+<td>K0 value in YY direction</td>
+</tr>
+<tr>
+<td><code>"K0_VALUE_ZZ":</code></td>
+<td>K0 value in ZZ direction</td>
+</tr>
+<tr>
+<td><code>"OCR": &gt;= 1</code> (optional)</td>
+<td>Over consolidation ratio</td>
+</tr>
+<tr>
+<td><code>"POISSON_UNLOADING_RELOADING": (-1 to 0.5)</code> (optional)</td>
+<td>Poisson's ratio under unloading and reloading</td>
+</tr>
+</tbody>
+</table>
+<h3 id="parameters-for-water-flow">Parameters for water flow</h3>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"PERMEABILITY_XX":</code></td>
+<td>Intrinsic permeability in the XX direction (m<sup>2</sup>)</td>
+</tr>
+<tr>
+<td><code>"PERMEABILITY_YY":</code></td>
+<td>Intrinsic permeability in the YY direction (m<sup>2</sup>)</td>
+</tr>
+<tr>
+<td><code>"PERMEABILITY_XY":</code></td>
+<td>Intrinsic permeability in the XY direction (m<sup>2</sup>)</td>
+</tr>
+<tr>
+<td><code>"DYNAMIC_VISCOSITY":</code></td>
+<td>Dynamic viscosity (kg/m.s) or (kPa.s)</td>
+</tr>
+<tr>
+<td><code>"RETENTION_LAW":</code></td>
+<td>Water retention law: <code>SaturatedLaw</code>, <code>VanGenuchtenLaw</code>, <code>SaturatedBelowPheraticLevelLaw</code></td>
+</tr>
+<tr>
+<td><code>"SATURATED_SATURATION":</code></td>
+<td>Maximum pore fill by water (0 to 1), higher than <code>RESIDUAL_SATURATION</code></td>
+</tr>
+<tr>
+<td><code>"RESIDUAL_SATURATION":</code></td>
+<td>Minimum pore fill trapped in the soil (0 to 1), lower than <code>SATURATED_SATURATION</code></td>
+</tr>
+<tr>
+<td><code>"VAN_GENUCHTEN_AIR_ENTRY_PRESSURE":</code></td>
+<td>Coefficient for Van Genuchten curve</td>
+</tr>
+<tr>
+<td><code>"VAN_GENUCHTEN_GN":</code></td>
+<td>Coefficient for Van Genuchten curve</td>
+</tr>
+<tr>
+<td><code>"VAN_GENUCHTEN_GL":</code></td>
+<td>Coefficient for Van Genuchten curve</td>
+</tr>
+<tr>
+<td><code>"MINIMUM_RELATIVE_PERMEABILITY":</code></td>
+<td>Minimum relative permeability</td>
+</tr>
+</tbody>
+</table>
+<h3 id="parameters-for-soil-water-interaction">Parameters for soil-water interaction</h3>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"IGNORE_UNDRAINED":</code></td>
+<td>If <code>true</code>: keeps all the pressure field unchanged</td>
+</tr>
+<tr>
+<td><code>"BULK_MODULUS_SOLID":</code></td>
+<td>The measure of the decrease in solid volume with an increase in pressure (N/m<sup>2</sup>)</td>
+</tr>
+<tr>
+<td><code>"BULK_MODULUS_FLUID":</code></td>
+<td>The measure of the decrease in fluid volume with an increase in pressure (N/m<sup>2</sup>), for water input: 2.2x10<sup>9</sup></td>
+</tr>
+<tr>
+<td><code>"BIOT_COEFFICIENT":</code></td>
+<td>Biot alpha coefficient</td>
+</tr>
+<tr>
+<td><code>"PERMEABILITY_CHANGE_INVERSE_FACTOR":</code></td>
+<td>If &gt; 0 the permeability will be updated depending on the volumetric strain</td>
+</tr>
+<tr>
+<td><code>"THICKNESS":</code></td>
+<td>Not specified in source document</td>
+</tr>
+</tbody>
+</table>
+<h2 id="constitutive-law-smallstrainudsm2dplanestrainlaw">Constitutive law: SmallStrainUDSM2DPlaneStrainLaw</h2>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"UDSM_NAME":</code></td>
+<td>Name of the UDSM (<code>.dll</code>) soil file</td>
+</tr>
+<tr>
+<td><code>"UDSM_NUMBER":</code></td>
+<td>Set to <code>1</code></td>
+</tr>
+<tr>
+<td><code>"IS_FORTRAN_UDSM":</code></td>
+<td>Set <code>true</code> if the UDSM file is in Fortran</td>
+</tr>
+<tr>
+<td><code>"UMAT_PARAMETERS"</code> (for abc-Isotache natural strains)</td>
+<td><code>a</code>: modified natural swelling index; <code>b</code>: modified natural compression index; <code>c</code>: modified natural secondary compression constant; <code>t</code>: time = 1.0; <code>OCR</code>: overconsolidation ratio</td>
+</tr>
+<tr>
+<td><code>"UMAT_PARAMETERS"</code> (for Mohr-Coulomb model in <code>MohrCoulomb64.dll</code>)</td>
+<td><code>1: E</code> Young's modulus (kN/m<sup>2</sup>), <code>2: Nu</code> Poisson's ratio unloading/reloading, <code>3: C</code> cohesion (kN/m<sup>2</sup>), <code>4: Phi</code> friction angle (degrees), <code>5: Psi</code> dilation angle (degrees), <code>6: Tens</code> allowable tensile stress (kN/m<sup>2</sup>), <code>7: Yield</code> yield function index (1 for Mohr-Coulomb), <code>8: Nu_undr</code> undrained Poisson's ratio</td>
+</tr>
+<tr>
+<td><code>"UMAT_PARAMETERS"</code> (for Mohr-Coulomb model in <code>example64.dll</code>)</td>
+<td><code>1: G</code> shear modulus (kN/m<sup>2</sup>), <code>2: Nu</code> Poisson's ratio unloading/reloading, <code>3: C</code> cohesion (kN/m<sup>2</sup>), <code>4: Phi</code> friction angle (degrees), <code>5: Psi</code> dilation angle (degrees), <code>6: Tens</code> allowable tensile stress (kN/m<sup>2</sup>)</td>
+</tr>
+<tr>
+<td><code>"USE_HENCKY_STRAIN":</code></td>
+<td>If <code>true</code>: use Hencky strain measure (natural/logarithmic strain). Should be used together with <code>move_mesh_flag</code> in ProjectParameters.json and have the same value</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2026 Deltares</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Deltares/Kratos-GeoMechanicsApplication-Documentation/" class="fa fa-code-fork" style="color: #fcfcfc"> Deltares/Kratos-GeoMechanicsApplication-Documentation/</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

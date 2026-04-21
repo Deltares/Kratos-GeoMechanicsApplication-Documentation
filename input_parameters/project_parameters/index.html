@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>ProjectParameter.json file description - Kratos Geo Mechanics Application Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "ProjectParameter.json file description";
+        var mkdocs_page_input_path = "input_parameters/project_parameters.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Kratos Geo Mechanics Application Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../getting_started/">Getting Started</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../theory/">Theory</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../user_documentation/">User Documentation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../examples_and_tutorials/">Examples and Tutorials</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../validation_and_verification/">Validation and Verification</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../developer_documentation/">Developer Documentation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Kratos Geo Mechanics Application Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">ProjectParameter.json file description</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Deltares/Kratos-GeoMechanicsApplication-Documentation/edit/master/docs/input_parameters/project_parameters.md">Edit on Deltares/Kratos-GeoMechanicsApplication-Documentation/</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="projectparameterjson-file-description">ProjectParameter.json file description</h1>
+<p><strong>Note: The user is responsible for giving all material parameters a consistent set of parameters.</strong></p>
+<h2 id="process-description-template">Process description template</h2>
+<pre><code class="language-json">{
+  &quot;python_module&quot;: &quot;Python_module_name&quot;,
+  &quot;kratos_module&quot;: &quot;Kratos_module_name&quot;,
+  &quot;process_name&quot;: &quot;C++_process_name&quot;,
+  &quot;Parameters&quot;: {
+    &quot;List_of_all_process_parameters&quot;: &quot;...&quot;
+  }
+}
+</code></pre>
+<h2 id="main-projectparameters-structure">Main ProjectParameters structure</h2>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"problem_data": {</code></td>
+<td>Problem data</td>
+</tr>
+<tr>
+<td><code>"problem_name": "DSettlement_stage0"</code></td>
+<td>Name of this problem case</td>
+</tr>
+<tr>
+<td><code>"start_time": -1E-06</code></td>
+<td>Start time of this stage in seconds</td>
+</tr>
+<tr>
+<td><code>"end_time": 0.0</code></td>
+<td>End time of this stage in seconds</td>
+</tr>
+<tr>
+<td><code>"echo_level": 1</code></td>
+<td>Level of logging</td>
+</tr>
+<tr>
+<td><code>"parallel_type": "OpenMP"</code></td>
+<td>Method of parallel computation</td>
+</tr>
+<tr>
+<td><code>"number_of_threads": 1</code></td>
+<td>Number of threads for parallel computation</td>
+</tr>
+<tr>
+<td><code>"solver_settings": {</code></td>
+<td>Steering parameters of the analysis</td>
+</tr>
+<tr>
+<td><code>"solver_type": "U_Pw"</code></td>
+<td>Analysis type (OpenMP: u_pw/geomechanics_u_pw_solver/twophase/pw/geomechanics_pw_solver/dynamic/scipy, MPI: dynamic)</td>
+</tr>
+<tr>
+<td><code>"model_part_name": "PorousDomain"</code></td>
+<td>Selection of model parts to use for computation</td>
+</tr>
+<tr>
+<td><code>"domain_size": 2</code></td>
+<td>Working space dimension</td>
+</tr>
+<tr>
+<td><code>"model_import_settings": { "input_type": "mdpa", "input_filename": "mesh_stage0" }</code></td>
+<td>Model input format and file</td>
+</tr>
+<tr>
+<td><code>"material_import_settings": { "materials_filename": "MaterialParameters.json" }</code></td>
+<td>Material parameter file</td>
+</tr>
+<tr>
+<td><code>"time_stepping": { ... }</code></td>
+<td>Time-stepping information</td>
+</tr>
+<tr>
+<td><code>"time_step"</code></td>
+<td>Initial time step size</td>
+</tr>
+<tr>
+<td><code>"max_delta_time_factor"</code></td>
+<td>Maximum scaling factor for next time step</td>
+</tr>
+<tr>
+<td><code>"minimum_allowable_value"</code></td>
+<td>Tolerance to avoid very small final time steps</td>
+</tr>
+<tr>
+<td><code>"buffer_size": 2</code></td>
+<td>Number of solution vectors to keep</td>
+</tr>
+<tr>
+<td><code>"clear_storage": false</code></td>
+<td>Solver storage behavior</td>
+</tr>
+<tr>
+<td><code>"compute_reactions": false</code></td>
+<td>Compute stress/internal/reaction forces</td>
+</tr>
+<tr>
+<td><code>"move_mesh_flag": false</code></td>
+<td>Update nodal positions with displacement</td>
+</tr>
+<tr>
+<td><code>"reform_dofs_at_each_step": false</code></td>
+<td>Rebuild system at each step</td>
+</tr>
+<tr>
+<td><code>"block_builder": true</code></td>
+<td>Builder and solver block mode</td>
+</tr>
+<tr>
+<td><code>"solution_type": "K0-Procedure"</code></td>
+<td>Calculation type: quasi_static, dynamic, k0_procedure, transient_groundwater_flow, steady_state_groundwater_flow</td>
+</tr>
+<tr>
+<td><code>"scheme_type": "Newmark"</code></td>
+<td>Time integration scheme: newmark, backward_euler</td>
+</tr>
+<tr>
+<td><code>"reset_displacements": true</code></td>
+<td>Reset total displacements/rotations at stage start</td>
+</tr>
+<tr>
+<td><code>"strategy_type": "line_search"</code></td>
+<td>Iterative strategy: newton_raphson, newton_raphson_with_piping, line_search, arc_length</td>
+</tr>
+<tr>
+<td><code>"convergence_criterion": "displacement_criterion"</code></td>
+<td>Convergence criterion type</td>
+</tr>
+<tr>
+<td><code>"water_pressure_relative_tolerance"</code></td>
+<td>Relative tolerance</td>
+</tr>
+<tr>
+<td><code>"water_pressure_absolute_tolerance"</code></td>
+<td>Absolute tolerance</td>
+</tr>
+<tr>
+<td><code>"displacement_relative_tolerance"</code></td>
+<td>Relative tolerance</td>
+</tr>
+<tr>
+<td><code>"displacement_absolute_tolerance"</code></td>
+<td>Absolute tolerance</td>
+</tr>
+<tr>
+<td><code>"residual_relative_tolerance"</code></td>
+<td>Relative tolerance</td>
+</tr>
+<tr>
+<td><code>"residual_absolute_tolerance"</code></td>
+<td>Absolute tolerance</td>
+</tr>
+<tr>
+<td><code>"min_iterations": 6</code></td>
+<td>Increase next step if converged below this iteration count</td>
+</tr>
+<tr>
+<td><code>"max_iterations": 15</code></td>
+<td>Maximum number of iterations</td>
+</tr>
+<tr>
+<td><code>"number_cycles": 100</code></td>
+<td>Maximum number of scaled-down retry cycles</td>
+</tr>
+<tr>
+<td><code>"reduction_factor": 0.5</code></td>
+<td>Time-step reduction factor</td>
+</tr>
+<tr>
+<td><code>"increase_factor": 2.0</code></td>
+<td>Time-step increase factor</td>
+</tr>
+<tr>
+<td><code>"desired_iterations": 4</code></td>
+<td>Arc-length parameter</td>
+</tr>
+<tr>
+<td><code>"max_radius_factor": 10.0</code></td>
+<td>Arc-length parameter</td>
+</tr>
+<tr>
+<td><code>"min_radius_factor": 0.1</code></td>
+<td>Arc-length parameter</td>
+</tr>
+<tr>
+<td><code>"calculate_reactions": true</code></td>
+<td>Reaction calculation toggle</td>
+</tr>
+<tr>
+<td><code>"max_line_search_iterations": 5</code></td>
+<td>Line-search parameter</td>
+</tr>
+<tr>
+<td><code>"first_alpha_value": 0.5</code></td>
+<td>Line-search parameter</td>
+</tr>
+<tr>
+<td><code>"second_alpha_value": 1.0</code></td>
+<td>Line-search parameter</td>
+</tr>
+<tr>
+<td><code>"min_alpha": 0.1</code></td>
+<td>Line-search parameter</td>
+</tr>
+<tr>
+<td><code>"max_alpha": 2.0</code></td>
+<td>Line-search parameter</td>
+</tr>
+<tr>
+<td><code>"line_search_tolerance": 0.5</code></td>
+<td>Line-search parameter</td>
+</tr>
+<tr>
+<td><code>"rotation_dofs": true</code></td>
+<td>Include rotational degrees of freedom</td>
+</tr>
+<tr>
+<td><code>"linear_solver_settings": { ... }</code></td>
+<td>Linear equation solver settings</td>
+</tr>
+<tr>
+<td><code>"linear_solver_settings.solver_type": "LinearSolversApplication.sparse_lu"</code></td>
+<td>Supported options include amgcl, bicgstab, cg, sparse_lu, sparse_qr, tfqmr and others</td>
+</tr>
+<tr>
+<td><code>"linear_solver_settings.scaling": true</code></td>
+<td>Solver scaling setting</td>
+</tr>
+<tr>
+<td><code>"problem_domain_sub_model_part_list"</code></td>
+<td>List of elements (soil, beams, anchors, interfaces)</td>
+</tr>
+<tr>
+<td><code>"processes_sub_model_part_list"</code></td>
+<td>List of conditions (BCs, loads, water conditions, etc.)</td>
+</tr>
+<tr>
+<td><code>"body_domain_sub_model_part_list"</code></td>
+<td>List of body elements</td>
+</tr>
+<tr>
+<td><code>"newmark_beta": 0.25</code></td>
+<td>Newmark parameter</td>
+</tr>
+<tr>
+<td><code>"newmark_gamma": 0.5</code></td>
+<td>Newmark parameter</td>
+</tr>
+<tr>
+<td><code>"newmark_theta": 0.5</code></td>
+<td>Time integration parameter for water pressure DOF</td>
+</tr>
+<tr>
+<td><code>"rayleigh_m": 0.0</code></td>
+<td>Mass contribution to damping</td>
+</tr>
+<tr>
+<td><code>"rayleigh_k": 0.0</code></td>
+<td>Stiffness contribution to damping</td>
+</tr>
+<tr>
+<td><code>"output_processes": {</code></td>
+<td>Post-process settings</td>
+</tr>
+<tr>
+<td><code>"gid_output": [...]</code></td>
+<td>Write output files for GiD postprocessor</td>
+</tr>
+<tr>
+<td><code>"GiDPostMode": "GiD_PostAscii"</code></td>
+<td>Write results in GiD binary or ASCII</td>
+</tr>
+<tr>
+<td><code>"nodal_results": [...]</code></td>
+<td>Nodal output results</td>
+</tr>
+<tr>
+<td><code>"gauss_point_results": [...]</code></td>
+<td>Gauss-point output results</td>
+</tr>
+<tr>
+<td><code>"processes": {</code></td>
+<td>Begin process lists</td>
+</tr>
+<tr>
+<td><code>"constraints_process_list": [...]</code></td>
+<td>Constraint process list</td>
+</tr>
+<tr>
+<td><code>"loads_process_list": [...]</code></td>
+<td>Load process list</td>
+</tr>
+<tr>
+<td><code>"auxiliar_process_list": [...]</code></td>
+<td>Auxiliary process list</td>
+</tr>
+</tbody>
+</table>
+<h2 id="displacement-boundary-conditions-process">Displacement boundary conditions process</h2>
+<p>Placed in <code>constraints_process_list</code>.</p>
+<p>Used for displacement boundary conditions such as fixities, sliders, rollers, and hinges.</p>
+<pre><code class="language-json">{
+  &quot;python_module&quot;: &quot;apply_vector_constraint_table_process&quot;,
+  &quot;kratos_module&quot;: &quot;KratosMultiphysics.GeoMechanicsApplication&quot;,
+  &quot;process_name&quot;: &quot;ApplyVectorConstraintTableProcess&quot;,
+  &quot;Parameters&quot;: {
+    &quot;model_part_name&quot;: &quot;PorousDomain.xxx&quot;,
+    &quot;variable_name&quot;: &quot;DISPLACEMENT&quot;,
+    &quot;active&quot;: [true, true, true],
+    &quot;is_fixed&quot;: [true, true, true],
+    &quot;value&quot;: [0.0, 0.0, 0.0],
+    &quot;table&quot;: [0, 0, 0]
+  }
+}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>model_part_name</code></td>
+<td>Body part to apply the process to. <code>PorousDomain.</code> is required</td>
+</tr>
+<tr>
+<td><code>variable_name</code></td>
+<td>Kratos vector variable</td>
+</tr>
+<tr>
+<td><code>active</code></td>
+<td>Activation per vector component (X, Y, Z)</td>
+</tr>
+<tr>
+<td><code>is_fixed</code></td>
+<td>Fix/free per vector component (X, Y, Z)</td>
+</tr>
+<tr>
+<td><code>value</code></td>
+<td>Prescribed value per component</td>
+</tr>
+<tr>
+<td><code>table</code></td>
+<td>Time-table reference per component</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hydrostatic-water-pressure-boundary-conditions-process">Hydrostatic water pressure boundary conditions process</h2>
+<p>Placed in <code>constraints_process_list</code>.</p>
+<p>Used for pore water pressure boundary conditions with hydrostatic increase in depth direction.</p>
+<pre><code class="language-json">{
+  &quot;python_module&quot;: &quot;apply_scalar_constraint_table_process&quot;,
+  &quot;kratos_module&quot;: &quot;KratosMultiphysics.GeoMechanicsApplication&quot;,
+  &quot;process_name&quot;: &quot;ApplyScalarConstraintTableProcess&quot;,
+  &quot;Parameters&quot;: {
+    &quot;model_part_name&quot;: &quot;PorousDomain.xxx&quot;,
+    &quot;variable_name&quot;: &quot;WATER_PRESSURE&quot;,
+    &quot;is_fixed&quot;: true,
+    &quot;fluid_pressure_type&quot;: &quot;Hydrostatic&quot;,
+    &quot;gravity_direction&quot;: 1,
+    &quot;reference_coordinate&quot;: -25.0,
+    &quot;table&quot;: 0,
+    &quot;pressure_tension_cut_off&quot;: 0.0,
+    &quot;specific_weight&quot;: 9810.0
+  }
+}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>model_part_name</code></td>
+<td>Body part to apply the process to. <code>PorousDomain.</code> is required</td>
+</tr>
+<tr>
+<td><code>variable_name</code></td>
+<td>Kratos scalar variable</td>
+</tr>
+<tr>
+<td><code>is_fixed</code></td>
+<td>Dirichlet (<code>true</code>) or initial value (<code>false</code>)</td>
+</tr>
+<tr>
+<td><code>fluid_pressure_type</code></td>
+<td><code>Hydrostatic</code>, <code>Uniform</code>, etc.</td>
+</tr>
+<tr>
+<td><code>gravity_direction</code></td>
+<td>0, 1, 2 for X, Y, Z</td>
+</tr>
+<tr>
+<td><code>reference_coordinate</code></td>
+<td>Phreatic surface coordinate in gravity direction</td>
+</tr>
+<tr>
+<td><code>table</code></td>
+<td>Time-table reference</td>
+</tr>
+<tr>
+<td><code>pressure_tension_cut_off</code></td>
+<td>Threshold value to eliminate suction</td>
+</tr>
+<tr>
+<td><code>specific_weight</code></td>
+<td>Density of water times gravity</td>
+</tr>
+</tbody>
+</table>
+<h2 id="gravity-load-process">Gravity load process</h2>
+<p>Placed in <code>loads_process_list</code>.</p>
+<p>Used for gravity/self-weight/body-acceleration loads.</p>
+<pre><code class="language-json">{
+  &quot;python_module&quot;: &quot;apply_vector_constraint_table_process&quot;,
+  &quot;kratos_module&quot;: &quot;KratosMultiphysics.GeoMechanicsApplication&quot;,
+  &quot;process_name&quot;: &quot;ApplyVectorConstraintTableProcess&quot;,
+  &quot;Parameters&quot;: {
+    &quot;model_part_name&quot;: &quot;PorousDomain.xxx&quot;,
+    &quot;variable_name&quot;: &quot;VOLUME_ACCELERATION&quot;,
+    &quot;active&quot;: [false, true, false],
+    &quot;value&quot;: [0.0, -9.81, 0.0],
+    &quot;table&quot;: [0, 0, 0]
+  }
+}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>model_part_name</code></td>
+<td>Body part to apply load conditions to</td>
+</tr>
+<tr>
+<td><code>variable_name</code></td>
+<td>Kratos vector variable</td>
+</tr>
+<tr>
+<td><code>active</code></td>
+<td>Activation per component (X, Y, Z)</td>
+</tr>
+<tr>
+<td><code>value</code></td>
+<td>Prescribed value per component</td>
+</tr>
+<tr>
+<td><code>table</code></td>
+<td>Time-table reference per component</td>
+</tr>
+</tbody>
+</table>
+<h2 id="k0-procedure-process">K0 procedure process</h2>
+<p>Placed in <code>auxiliar_process_list</code>.</p>
+<p>Used for K0 procedure after stress initialization.</p>
+<pre><code class="language-json">{
+  &quot;python_module&quot;: &quot;apply_k0_procedure_process&quot;,
+  &quot;kratos_module&quot;: &quot;KratosMultiphysics.GeoMechanicsApplication&quot;,
+  &quot;process_name&quot;: &quot;ApplyK0ProcedureProcess&quot;,
+  &quot;Parameters&quot;: {
+    &quot;model_part_name&quot;: &quot;PorousDomain.xxx&quot;,
+    &quot;variable_name&quot;: &quot;CAUCHY_STRESS_TENSOR&quot;
+  }
+}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>model_part_name</code></td>
+<td>Body part to apply the K0 procedure to</td>
+</tr>
+<tr>
+<td><code>variable_name</code></td>
+<td>Kratos tensor variable for K0, usually <code>CAUCHY_STRESS_TENSOR</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="references">References</h2>
+<p>More general information can be found on the Kratos website:</p>
+<ul>
+<li>https://github.com/KratosMultiphysics/Kratos/wiki/Kratos-input-files-and-IO#3-the-project-parameters-file</li>
+</ul>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2026 Deltares</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Deltares/Kratos-GeoMechanicsApplication-Documentation/" class="fa fa-code-fork" style="color: #fcfcfc"> Deltares/Kratos-GeoMechanicsApplication-Documentation/</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
