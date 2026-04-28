@@ -27,7 +27,7 @@ The strucal format of the ProjectParameter.json is described on the Kratos websi
   "problem_name": "DSettlement_stage0",  # (1)!
   "start_time": -1E-06,  # (2)!
   "end_time": 0.0,  # (3)!
-  "echo_level": 1,  # (4)!
+  "echo_level": 1, # (4)!
   "parallel_type": "OpenMP",  # (5)!
   "number_of_threads": 1  # (6)!
 }
@@ -36,11 +36,9 @@ The strucal format of the ProjectParameter.json is described on the Kratos websi
 1. Name of this problem case
 2. The start time of this stage in seconds
 3. The end time of this stage in seconds
-4. echo_level Level of logging
+4. echo_level[^echo_level] or [echo_level][echo_level]
 5. Method of parallel computation: "OpenMP"
 6. Number of threads for parallel computation
-
-
 
 ### solver_settings block structure format
 
@@ -331,4 +329,6 @@ More general information can be found on the Kratos website:
 - https://github.com/KratosMultiphysics/Kratos/wiki/Kratos-input-files-and-IO#3-the-project-parameters-file
 
 
-*[echo_level]: Level of logging
+[^echo_level]: Level of logging.
+
+  [echo_level]: . "Level of logging."

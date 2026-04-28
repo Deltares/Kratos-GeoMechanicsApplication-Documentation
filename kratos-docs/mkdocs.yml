@@ -9,6 +9,7 @@ theme:
     - content.tabs.link
     - content.code.copy
     - content.tooltips
+    - content.footnote.tooltips
 repo_url: https://github.com/Deltares/Kratos-GeoMechanicsApplication-Documentation/
 repo_name: Deltares/Kratos-GeoMechanicsApplication-Documentation/
 extra:
@@ -19,4 +20,5 @@ markdown_extensions:
   - attr_list
   - md_in_html
   - pymdownx.superfences
+  - footnotes
 copyright: Copyright &copy; 2026 Deltares
