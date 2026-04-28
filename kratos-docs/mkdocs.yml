@@ -3,13 +3,10 @@ site_url: http://127.0.0.1:8000/
 theme:
   name: material
   icon:
-    annotation: material/arrow-right-circle
+    annotation: material/arrow-right-circle-outline
   features:
     - content.code.annotate
-    - content.tabs.link
     - content.code.copy
-    - content.tooltips
-    - content.footnote.tooltips
 repo_url: https://github.com/Deltares/Kratos-GeoMechanicsApplication-Documentation/
 repo_name: Deltares/Kratos-GeoMechanicsApplication-Documentation/
 extra:
@@ -17,14 +14,10 @@ extra:
   annotate:
     json: [.s2]
 markdown_extensions:
-  - attr_list
-  - md_in_html
   - pymdownx.superfences
-  - footnotes
 plugins:
-  - search
   - macros:
       include_yaml:
-        - docs/input_parameters/constants.yml
+        - docs/input_parameters/shared_parameters.yml
 
 copyright: Copyright &copy; 2026 Deltares
