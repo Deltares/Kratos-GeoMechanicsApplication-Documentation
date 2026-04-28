@@ -16,7 +16,7 @@ The strucal format of the ProjectParameter.json is described on the Kratos websi
 ```
 
 1. General settings for the Kratos run. [Details](./#problem_data-block-structure-format)
-2. Settings for the solvers, like analysis type, linear solver, etc. [Details](./#problem_data-block-structure-format)
+2. Settings for the solvers, like analysis type, linear solver, etc. [Details](./#solver_settings-block-structure-format)
 3. Processes to e.g. apply boundary conditions.
 4. Settings for the output 
 
