@@ -1,21 +1,22 @@
 site_name: Kratos Geo Mechanics Application Documentation
+site_url: http://127.0.0.1:8000/
 theme:
-  name: readthedocs
-nav:
-  - Home: index.md
-  - Getting Started: getting_started.md
-  - Theory: theory.md
-  - User Documentation: user_documentation.md
-  - Examples and Tutorials: examples_and_tutorials.md
-  - Validation and Verification: validation_and_verification.md
-  - Developer Documentation: developer_documentation.md
-  - About: about.md
+  name: material
+  icon:
+    annotation: material/arrow-right-circle
+  features:
+    - content.code.annotate
+    - content.tabs.link
+    - content.code.copy
+    - content.tooltips
 repo_url: https://github.com/Deltares/Kratos-GeoMechanicsApplication-Documentation/
 repo_name: Deltares/Kratos-GeoMechanicsApplication-Documentation/
 extra:
   authoremail: kratos@deltares.nl
-  social:
-    icon: fontawesome/brands/github
-    link: https://github.com/Deltares/Kratos-GeoMechanicsApplication-Documentation/
-    name: Kratos Geo Mechanics Application Documentation
+  annotate:
+    json: [.s2]
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - pymdownx.superfences
 copyright: Copyright &copy; 2026 Deltares

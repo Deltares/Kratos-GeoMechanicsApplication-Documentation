@@ -1,19 +1,133 @@
 # ProjectParameter.json file description
 
-**Note: The user is responsible for giving all material parameters a consistent set of parameters.**
+The project parameters json-file contains as description of the input of the Kratos simulation. More information can be found on the [Kratos website](https://github.com/KratosMultiphysics/Kratos/wiki/Kratos-input-files-and-IO#3-the-project-parameters-file).
+The user is responsible for giving all material parameters a consistent set of parameters.
 
-## Process description template
+## ProjectParameter.json structure format
+The strucal format of the ProjectParameter.json is described on the Kratos website:
 
-```json
+```python
 {
-  "python_module": "Python_module_name",
-  "kratos_module": "Kratos_module_name",
-  "process_name": "C++_process_name",
-  "Parameters": {
-    "List_of_all_process_parameters": "..."
-  }
+  "problem_data": { },  # (1)!
+  "solver_settings": { },  # (2)!
+  "output_processes": { },  # (3)!
+  "processes": { }  # (4)!
 }
 ```
+
+1. General settings for the Kratos run. [Details](./#problem_data-block-structure-format)
+2. Settings for the solvers, like analysis type, linear solver, etc. [Details](./#problem_data-block-structure-format)
+3. Processes to e.g. apply boundary conditions.
+4. Settings for the output 
+
+### problem_data block structure format
+
+```python
+"problem_data": {
+  "problem_name": "DSettlement_stage0",  # (1)!
+  "start_time": -1E-06,  # (2)!
+  "end_time": 0.0,  # (3)!
+  "echo_level": 1,  # (4)!
+  "parallel_type": "OpenMP",  # (5)!
+  "number_of_threads": 1  # (6)!
+}
+```
+
+1. Name of this problem case
+2. The start time of this stage in seconds
+3. The end time of this stage in seconds
+4. echo_level Level of logging
+5. Method of parallel computation: "OpenMP"
+6. Number of threads for parallel computation
+
+
+
+### solver_settings block structure format
+
+```python
+"solver_settings": {
+    "solver_type": "Pw",  # (1)!
+    "model_part_name": "PorousDomain",  # (2)!
+    "domain_size": 2,  # (3)!
+    "model_import_settings": {
+      "input_type": "mdpa",
+      "input_filename": "mesh"
+    },
+    "material_import_settings": {
+      "materials_filename": "MaterialParameters.json"
+    },
+    "time_stepping": {
+      "time_step": 1.0,
+      "max_delta_time_factor": 1e9
+    },
+    "buffer_size": 2,
+    "echo_level": 1, # (4)!
+    "compute_reactions": false,
+    "move_mesh_flag": false,
+    "reform_dofs_at_each_step": true,
+    "block_builder": true,
+    "solution_type": "Steady-State-Groundwater-Flow",
+    "scheme_type": "Backward_Euler",
+    "reset_displacements": false,
+    "newmark_beta": 0.25,
+    "newmark_gamma": 0.5,
+    "newmark_theta": 0.5,
+    "rayleigh_m": 0.0,
+    "rayleigh_k": 0.0,
+    "strategy_type": "newton_raphson",
+    "max_piping_iterations": 500,
+    "convergence_criterion": "water_pressure_criterion",
+    "water_pressure_relative_tolerance": 1.0E-4,
+    "water_pressure_absolute_tolerance": 1.0E-9,
+    "min_iterations": 6,
+    "max_iterations": 15,
+    "number_cycles": 10,
+    "reduction_factor": 0.5,
+    "increase_factor": 2.0,
+    "calculate_reactions": true,
+    "max_line_search_iterations": 5,
+    "first_alpha_value": 0.5,
+    "second_alpha_value": 1.0,
+    "min_alpha": 0.1,
+    "max_alpha": 2.0,
+    "line_search_tolerance": 0.5,
+    "linear_solver_settings": {
+      "solver_type": "LinearSolversApplication.sparse_lu",
+      "scaling": true
+    },
+    "problem_domain_sub_model_part_list": [
+      "Soil-0",
+      "Soil-1",
+      "Soil-2",
+      "Soil-3",
+      "Soil-4",
+      "Soil-5"
+    ],
+    "body_domain_sub_model_part_list": [
+      "Soil-0",
+      "Soil-1",
+      "Soil-2",
+      "Soil-3",
+      "Soil-4",
+      "Soil-5"
+    ]
+  },
+```
+
+1. Analysis type, here denoted as solver type: </br>
+If "OpenMP": `u_pw == geomechanics_u_pw_solver == twophase`, `pw==geomechanics_pw_solver`, dynamic, scipy </br>
+If "MPI": dynamic
+2. Selection of model parts to use for the computation.
+3. Working space dimension
+4. echo_level
+
+echo_level
+
+
+
+# <<<<<<<<<<<< OLD BELOW HERE >>>>>>>>>>>>
+
+# ProjectParameter.json file description
 
 ## Main ProjectParameters structure
 
@@ -215,3 +329,6 @@ Used for K0 procedure after stress initialization.
 More general information can be found on the Kratos website:
 
 - https://github.com/KratosMultiphysics/Kratos/wiki/Kratos-input-files-and-IO#3-the-project-parameters-file
+
+
+*[echo_level]: Level of logging

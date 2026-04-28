@@ -10,3 +10,4 @@ build-docs = "mkdocs build"
 
 [dependencies]
 mkdocs = ">=1.6.1,<2"
+mkdocs-material = ">=9.7.6,<10"
