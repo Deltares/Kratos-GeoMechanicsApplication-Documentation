@@ -21,4 +21,10 @@ markdown_extensions:
   - md_in_html
   - pymdownx.superfences
   - footnotes
+plugins:
+  - search
+  - macros:
+      include_yaml:
+        - docs/input_parameters/constants.yml
+
 copyright: Copyright &copy; 2026 Deltares

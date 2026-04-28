@@ -36,7 +36,7 @@ The strucal format of the ProjectParameter.json is described on the Kratos websi
 1. Name of this problem case
 2. The start time of this stage in seconds
 3. The end time of this stage in seconds
-4. echo_level[^echo_level] or [echo_level][echo_level]
+4. {{ echo_level }}
 5. Method of parallel computation: "OpenMP"
 6. Number of threads for parallel computation
 
@@ -117,11 +117,7 @@ If "OpenMP": `u_pw == geomechanics_u_pw_solver == twophase`, `pw==geomechanics_p
 If "MPI": dynamic
 2. Selection of model parts to use for the computation.
 3. Working space dimension
-4. echo_level
-
-echo_level
-
-
+4. {{ echo_level }}
 
 # <<<<<<<<<<<< OLD BELOW HERE >>>>>>>>>>>>
 
@@ -327,8 +323,3 @@ Used for K0 procedure after stress initialization.
 More general information can be found on the Kratos website:
 
 - https://github.com/KratosMultiphysics/Kratos/wiki/Kratos-input-files-and-IO#3-the-project-parameters-file
-
-
-[^echo_level]: Level of logging.
-
-  [echo_level]: . "Level of logging."
