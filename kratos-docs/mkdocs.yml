@@ -15,6 +15,11 @@ extra:
     json: [.s2]
 markdown_extensions:
   - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 plugins:
   - macros:
       include_yaml:
