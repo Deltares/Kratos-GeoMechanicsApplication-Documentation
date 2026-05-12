@@ -1,4 +1,7 @@
 site_name: Kratos Geo Mechanics Application Documentation
+repo_url: https://github.com/Deltares/Kratos-GeoMechanicsApplication-Documentation/
+repo_name: Deltares/Kratos-GeoMechanicsApplication-Documentation/
+
 theme:
   name: material
   favicon: img/favicon.ico
@@ -19,29 +22,40 @@ theme:
   features:
     - content.code.annotate
     - content.code.copy
+    - toc.integrate
+
 nav:
   - Home: index.md
-  - Getting Started: getting_started.md
-  - Theory: theory.md
-  - User Documentation: user_documentation.md
-  - Examples and Tutorials: examples_and_tutorials.md
-  - Validation and Verification: validation_and_verification.md
-  - Developer Documentation: developer_documentation.md
-  - About: about.md
-repo_url: https://github.com/Deltares/Kratos-GeoMechanicsApplication-Documentation/
-repo_name: Deltares/Kratos-GeoMechanicsApplication-Documentation/
+  - 'getting_started.md'
+  - 'theory.md'
+  - User Documentation:
+      - Overview: 'user_documentation.md'
+      - "File Descriptions":
+        - input_parameters/material_parameters.md
+        - input_parameters/mesh_file_description.md
+        - input_parameters/project_parameters.md
+  - 'examples_and_tutorials.md'
+  - 'validation_and_verification.md'
+  - 'developer_documentation.md'
+  - 'about.md'
+
 extra:
   authoremail: kratos@deltares.nl
   annotate:
     json: [.s2]
+  scope: /
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
 markdown_extensions:
   - pymdownx.superfences
   - pymdownx.arithmatex:
       generic: true
-extra_javascript:
-  - javascripts/mathjax.js
-  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
 plugins:
+  - search
   - macros:
       include_yaml:
         - docs/input_parameters/shared_parameters.yml

@@ -15,9 +15,9 @@ The strucal format of the ProjectParameter.json is described on the Kratos websi
 }
 ```
 
-1. General settings for the Kratos run. [Details](./#problem_data-block-structure-format)
-2. Settings for the solvers, like analysis type, linear solver, etc. [Details](./#solver_settings-block-structure-format)
-3. Settings for the output  [Details](./#output_processes-block-structure-format)
+1. General settings for the Kratos run. [Details](#problem_data-block-structure-format)
+2. Settings for the solvers, like analysis type, linear solver, etc. [Details](#solver_settings-block-structure-format)
+3. Settings for the output  [Details](#output_processes-block-structure-format)
 4. Processes to e.g. apply boundary conditions.
 
 
@@ -214,9 +214,9 @@ If "MPI": dynamic
   },
 ```
 
-1. Constraint process list [Details](./#constraints_process_list-block-structure-format)
-2. Load process list [Details](./#loads_process_list-block-structure-format)
-3. Auxiliary process list [Details](./#auxiliar_process_list-block-structure-format)
+1. Constraint process list [Details](#constraints_process_list-block-structure-format)
+2. Load process list [Details](#loads_process_list-block-structure-format)
+3. Auxiliary process list [Details](#auxiliar_process_list-block-structure-format)
 
 #### constraints_process_list block structure format
 
