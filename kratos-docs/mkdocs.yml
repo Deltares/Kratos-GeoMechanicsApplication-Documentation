@@ -1,12 +1,22 @@
 site_name: Kratos Geo Mechanics Application Documentation
-site_url: http://127.0.0.1:8000/
 theme:
   name: material
+  favicon: img\favicon.ico
+  logo: img\favicon.ico
   icon:
     annotation: material/arrow-right-circle-outline
   features:
     - content.code.annotate
     - content.code.copy
+nav:
+  - Home: index.md
+  - Getting Started: getting_started.md
+  - Theory: theory.md
+  - User Documentation: user_documentation.md
+  - Examples and Tutorials: examples_and_tutorials.md
+  - Validation and Verification: validation_and_verification.md
+  - Developer Documentation: developer_documentation.md
+  - About: about.md
 repo_url: https://github.com/Deltares/Kratos-GeoMechanicsApplication-Documentation/
 repo_name: Deltares/Kratos-GeoMechanicsApplication-Documentation/
 extra:
