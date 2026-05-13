@@ -32,3 +32,31 @@ Since the analysis will be using linear elastic material models only (which won'
 In file `staged_construction.json`, search for `"input_filename"` and modify the corresponding value `"crow_validation_gid"`. Subsequently, in the same file, find all occurrences of `"materials_filename"` (seven in total) and replace the corresponding values by `"linear_elastic_materials.json"`.
 
 Now that we have prepared the input files, the next step is to write a Python script that can actually run the simulation.
+
+```py
+import sys
+from pathlib import Path
+
+import KratosMultiphysics as Kratos
+from KratosMultiphysics.project import Project
+
+def _main():
+    with open(Path("staged_construction.json")) as analysis_file:
+        analysis_parameters = Kratos.Parameters(analysis_file.read())
+
+    try:
+        project = Project(analysis_parameters)
+        orchestrator_reg_entry = Kratos.Registry[project.GetSettings()["orchestrator"]["name"].GetString()]
+        orchestrator_module = importlib.import_module(orchestrator_reg_entry["ModuleName"])
+        orchestrator_class = getattr(orchestrator_module, orchestrator_reg_entry["ClassName"])
+        orchestrator_instance = orchestrator_class(project)
+        orchestrator_instance.Run()
+    except Exception as e:
+        print(f"Error: {str(e)}")
+        return 1
+
+    return 0
+
+if __name__ == "__main__":
+    sys.exit(_main())
+```
