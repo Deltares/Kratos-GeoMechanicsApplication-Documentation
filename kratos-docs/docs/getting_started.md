@@ -23,9 +23,9 @@ Once Kratos has been installed, we can proceed as follows to run the first geome
 
 First, we need a set of input files, which consists of a model file (`.mdpa`), an analysis file (`.json`) and a material properties file (`.json`). For demonstration purposes, we will analyse the staged construction of a building pit, known as the CROW case. Create a folder where you will store the input files, e.g. `CROW_case`, and save the following files there:
 
-- [`crow_validation_gid.mdpa`](../CROW_case_input/crow_validation_gid.mdpa)
-- [`staged_construction.json`](../CROW_case_input/staged_construction.json)
-- [`linear_elastic_materials.json`](../CROW_case_input/linear_elastic_materials.json)
+- [`crow_validation_gid.mdpa`](examples/crow_case/KratosCROW_7Stage_LinearElastic/crow_validation_gid.mdpa)
+- [`staged_construction.json`](examples/crow_case/KratosCROW_7Stage_LinearElastic/staged_construction.json)
+- [`linear_elastic_materials.json`](examples/crow_case/KratosCROW_7Stage_LinearElastic/linear_elastic_materials.json)
 
 Now that we have the input files in-place, the next step is to write a Python script that can actually run the simulation.
 
