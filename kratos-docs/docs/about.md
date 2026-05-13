@@ -28,6 +28,10 @@ This documentation provides guidance for users and developers working with the G
 
 The aim is to support efficient adoption while maintaining alignment with ongoing developments within both Kratos Multiphysics and Deltares geotechnical tooling.
 
+## License
+
+Kratos GeoMechanics Application is available under the following [license](https://github.com/KratosMultiphysics/Kratos/blob/geo/crow/applications/GeoMechanicsApplication/license.txt)
+
 ## Contact
 
 Please contact the [Kratos team](mailto: {{authoremail}}) for questions about Kratos GeoMechanics Application or post your question on the [Kratos discussion forum](https://github.com/KratosMultiphysics/Kratos/discussions).
