@@ -1,21 +1,63 @@
 site_name: Kratos Geo Mechanics Application Documentation
-theme:
-  name: readthedocs
-nav:
-  - Home: index.md
-  - Getting Started: getting_started.md
-  - Theory: theory.md
-  - User Documentation: user_documentation.md
-  - Examples and Tutorials: examples_and_tutorials.md
-  - Validation and Verification: validation_and_verification.md
-  - Developer Documentation: developer_documentation.md
-  - About: about.md
 repo_url: https://github.com/Deltares/Kratos-GeoMechanicsApplication-Documentation/
 repo_name: Deltares/Kratos-GeoMechanicsApplication-Documentation/
+
+theme:
+  name: material
+  favicon: img/favicon.ico
+  logo: img/favicon.ico
+  palette: 
+    # Palette toggle for light mode
+    - primary: light blue
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  icon:
+    annotation: material/arrow-right-circle-outline
+  features:
+    - content.code.annotate
+    - content.code.copy
+    - toc.integrate
+
+nav:
+  - Home: index.md
+  - 'getting_started.md'
+  - 'theory.md'
+  - User Documentation:
+      - Overview: 'user_documentation.md'
+      - "File Descriptions":
+        - input_parameters/material_parameters.md
+        - input_parameters/mesh_file_description.md
+        - input_parameters/project_parameters.md
+  - 'examples_and_tutorials.md'
+  - 'validation_and_verification.md'
+  - 'developer_documentation.md'
+  - 'about.md'
+
 extra:
   authoremail: kratos@deltares.nl
-  social:
-    icon: fontawesome/brands/github
-    link: https://github.com/Deltares/Kratos-GeoMechanicsApplication-Documentation/
-    name: Kratos Geo Mechanics Application Documentation
+  annotate:
+    json: [.s2]
+  scope: /
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+
+plugins:
+  - search
+  - macros:
+      include_yaml:
+        - docs/input_parameters/shared_parameters.yml
+
 copyright: Copyright &copy; 2026 Deltares
