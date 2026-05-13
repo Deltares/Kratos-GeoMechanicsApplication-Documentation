@@ -34,6 +34,7 @@ In file `staged_construction.json`, search for `"input_filename"` and modify the
 Now that we have prepared the input files, the next step is to write a Python script that can actually run the simulation.
 
 ```py
+import importlib
 import sys
 from pathlib import Path
 
