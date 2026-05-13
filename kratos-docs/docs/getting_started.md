@@ -83,3 +83,5 @@ def _main():
 if __name__ == "__main__":
     sys.exit(_main())
 ```
+
+Save the above Python code in a file that is located in the same folder as the input files, e.g. `run_simulation.py`. Then, you can run the simulation from the Command Prompt by executing `python run_simulation.py`.
