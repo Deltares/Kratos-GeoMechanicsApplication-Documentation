@@ -27,3 +27,7 @@ This documentation provides guidance for users and developers working with the G
 - Practical guidance for setting up simulations
 
 The aim is to support efficient adoption while maintaining alignment with ongoing developments within both Kratos Multiphysics and Deltares geotechnical tooling.
+
+## Contact
+
+Please contact the [Kratos team](mailto: {{authoremail}}) for questions about Kratos GeoMechanics Application or post your question on the [Kratos discussion forum](https://github.com/KratosMultiphysics/Kratos/discussions).
