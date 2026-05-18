@@ -8,10 +8,10 @@ The strucal format of the ProjectParameter.json is described on the Kratos websi
 
 ```json
 {
-  "problem_data": { },  // (1)!
-  "solver_settings": { },  // (2)!
-  "output_processes": { },  // (3)!
-  "processes": { }  // (4)!
+  "problem_data": { },  //(1)!
+  "solver_settings": { },  //(2)!
+  "output_processes": { },  //(3)!
+  "processes": { }  //(4)!
 }
 ```
 
@@ -25,12 +25,12 @@ The strucal format of the ProjectParameter.json is described on the Kratos websi
 
 ```json
 "problem_data": {
-  "problem_name": "DSettlement_stage0",  // (1)!
-  "start_time": -1E-06,  // (2)!
-  "end_time": 0.0,  // (3)!
-  "echo_level": 1, // (4)!
-  "parallel_type": "OpenMP",  // (5)!
-  "number_of_threads": 1  // (6)!
+  "problem_name": "DSettlement_stage0",  //(1)!
+  "start_time": -1E-06,  //(2)!
+  "end_time": 0.0,  //(3)!
+  "echo_level": 1, //(4)!
+  "parallel_type": "OpenMP",  //(5)!
+  "number_of_threads": 1  //(6)!
 }
 ```
 
@@ -43,70 +43,70 @@ The strucal format of the ProjectParameter.json is described on the Kratos websi
 
 ### solver_settings block structure format
 
-```python
+```json
 "solver_settings": {
-    "solver_type": "Pw",  # (1)!
-    "model_part_name": "PorousDomain",  # (2)!
-    "domain_size": 2,  # (3)!
+    "solver_type": "Pw",  //(1)!
+    "model_part_name": "PorousDomain",  //(2)!
+    "domain_size": 2,  //(3)!
     "model_import_settings": {
-      "input_type": "mdpa",  # (4)!
-      "input_filename": "mesh"  # (5)!
+      "input_type": "mdpa",  //(4)!
+      "input_filename": "mesh"  //(5)!
     },
     "material_import_settings": {
-      "materials_filename": "MaterialParameters.json"  # (6)!
+      "materials_filename": "MaterialParameters.json"  //(6)!
     },
-    "time_stepping": {  # (7)!
-      "time_step": 1.0,  # (8)!
-      "max_delta_time_factor": 1e9  # (9)!
-	  "minimum_allowable_value": 0.001  # (10)!
+    "time_stepping": {  //(7)!
+      "time_step": 1.0,  //(8)!
+      "max_delta_time_factor": 1e9  //(9)!
+	  "minimum_allowable_value": 0.001  //(10)!
     },
-    "buffer_size": 2,  # (11)!
-    "echo_level": 1, # (12)!
-	"clear_storage": false,  # (13)!
-    "compute_reactions": false, # (14)!
-    "move_mesh_flag": false, # (15)!
-    "reform_dofs_at_each_step": true, # (16)!
-    "block_builder": true, # (17)!
-    "solution_type": "K0-Procedure", # (18)!
-    "scheme_type": "Newmark", # (19)!
-    "reset_displacements": false, # (20)!
-	"strategy_type": "line_search", #(21)!
-	"convergence_criterion": "displacement_criterion", #(22)!
-    "water_pressure_relative_tolerance": 1.0E-4, #(23)!
-    "water_pressure_absolute_tolerance": 1.0E-9, #(24)!
-	"displacement_relative_tolerance": 1.0E-4, #(25)!
-    "displacement_absolute_tolerance": 1.0E-9, #(26)!
-	"residual_relative_tolerance": 1.0E-4, #(27)!
-    "residual_absolute_tolerance": 1.0E-9, #(28)!
-	"min_iterations": 6, #(29)!
-    "max_iterations": 15, #(30)!
-    "number_cycles": 10, #(31)!
-    "reduction_factor": 0.5, #(32)!
-    "increase_factor": 2.0, #(33)!
-	"desired_iterations": 4, #(34)!
-	"max_radius_factor": 10.0 #(35)!
-	"min_radius_factor": 0.1 #(36)!
-	"calculate_reactions": true, #(37)!
-	"max_line_search_iterations": 5, #(38)!
-	"first_alpha_value": 0.5, #(39)!
-	"second_alpha_value": 1.0, #(40)!
-	"min_alpha": 0.1, #(41)!
-	"max_alpha": 2.0, #(42)!
-	"line_search_tolerance": 0.5, #(43)!
-	"rotation_dofs": true, #(44)!
-	"linear_solver_settings": { #(45)!
-      "solver_type": "LinearSolversApplication.sparse_lu", #(46)!
-      "scaling": true #(47)!
+    "buffer_size": 2,  //(11)!
+    "echo_level": 1, //(12)!
+	"clear_storage": false,  //(13)!
+    "compute_reactions": false, //(14)!
+    "move_mesh_flag": false, //(15)!
+    "reform_dofs_at_each_step": true, //(16)!
+    "block_builder": true, //(17)!
+    "solution_type": "K0-Procedure", //(18)!
+    "scheme_type": "Newmark", //(19)!
+    "reset_displacements": false, //(20)!
+	"strategy_type": "line_search", //(21)!
+	"convergence_criterion": "displacement_criterion", //(22)!
+    "water_pressure_relative_tolerance": 1.0E-4, //(23)!
+    "water_pressure_absolute_tolerance": 1.0E-9, //(24)!
+	"displacement_relative_tolerance": 1.0E-4, //(25)!
+    "displacement_absolute_tolerance": 1.0E-9, //(26)!
+	"residual_relative_tolerance": 1.0E-4, //(27)!
+    "residual_absolute_tolerance": 1.0E-9, //(28)!
+	"min_iterations": 6, //(29)!
+    "max_iterations": 15, //(30)!
+    "number_cycles": 10, //(31)!
+    "reduction_factor": 0.5, //(32)!
+    "increase_factor": 2.0, //(33)!
+	"desired_iterations": 4, //(34)!
+	"max_radius_factor": 10.0 //(35)!
+	"min_radius_factor": 0.1 //(36)!
+	"calculate_reactions": true, //(37)!
+	"max_line_search_iterations": 5, //(38)!
+	"first_alpha_value": 0.5, //(39)!
+	"second_alpha_value": 1.0, //(40)!
+	"min_alpha": 0.1, //(41)!
+	"max_alpha": 2.0, //(42)!
+	"line_search_tolerance": 0.5, //(43)!
+	"rotation_dofs": true, //(44)!
+	"linear_solver_settings": { //(45)!
+      "solver_type": "LinearSolversApplication.sparse_lu", //(46)!
+      "scaling": true //(47)!
     },
-	"problem_domain_sub_model_part_list": [ ],  #(48)!
-	"processes_sub_model_part_list": [ ],  #(49)!
-	"body_domain_sub_model_part_list": [ ],  #(50)!
-	"newmark_beta": 0.25,   #(51)!
-    "newmark_gamma": 0.5,   #(52)!
-    "newmark_theta": 0.5,   #(53)!
-    "rayleigh_m": 0.0,   #(54)!
-    "rayleigh_k": 0.0 },  #(55)!
-	"max_piping_iterations": 500,  #(56)!
+	"problem_domain_sub_model_part_list": [ ],  //(48)!
+	"processes_sub_model_part_list": [ ],  //(49)!
+	"body_domain_sub_model_part_list": [ ],  //(50)!
+	"newmark_beta": 0.25,   //(51)!
+    "newmark_gamma": 0.5,   //(52)!
+    "newmark_theta": 0.5,   //(53)!
+    "rayleigh_m": 0.0,   //(54)!
+    "rayleigh_k": 0.0 },  //(55)!
+	"max_piping_iterations": 500,  //(56)!
   },
 ```
 
@@ -170,9 +170,9 @@ If "MPI": dynamic
 56. Maximum number of piping iterations
 
 ### output_processes block structure format
-```python
+```json
 "output_processes": {
-    "gid_output": [	 #(1)!
+    "gid_output": [	 //(1)!
 	    "python_module": "gid_output_process",
         "kratos_module": "KratosMultiphysics",
         "process_name": "GiDOutputProcess",
@@ -184,7 +184,7 @@ If "MPI": dynamic
               "gidpost_flags": {
                 "WriteDeformedMeshFlag": "WriteUndeformed",
                 "WriteConditionsFlag": "WriteElementsOnly",
-                "GiDPostMode": "GiD_PostAscii", #(2)!
+                "GiDPostMode": "GiD_PostAscii", //(2)!
                 "MultiFileFlag": "SingleFile"
               },
               "file_label": "step",
@@ -193,8 +193,8 @@ If "MPI": dynamic
               "body_output": true,
               "node_output": false,
               "skin_output": false,
-              "nodal_results": [ ],  #(3)!
-              "gauss_point_results": [ ]  #(4)!
+              "nodal_results": [ ],  //(3)!
+              "gauss_point_results": [ ]  //(4)!
 		
 	]
   },
@@ -206,11 +206,11 @@ If "MPI": dynamic
 4. Gauss-point output results
 
 ### processes block structure format
-```python
+```json
 "output_processes": {
-    "constraints_process_list": [ ] #(1)!
-    "loads_process_list": [ ] #(2)!
-    "auxiliar_process_list": [ ] #(3)!
+    "constraints_process_list": [ ] //(1)!
+    "loads_process_list": [ ] //(2)!
+    "auxiliar_process_list": [ ] //(3)!
   },
 ```
 
@@ -222,18 +222,18 @@ If "MPI": dynamic
 
 Displacement boundary conditions processes are used for displacement boundary conditions such as fixities, sliders, rollers, and hinges.
 
-```python
+```json
 {
   "python_module": "apply_vector_constraint_table_process",
   "kratos_module": "KratosMultiphysics.GeoMechanicsApplication",
   "process_name": "ApplyVectorConstraintTableProcess",
   "Parameters": {
-    "model_part_name": "PorousDomain.xxx", #(1)!
-    "variable_name": "DISPLACEMENT", #(2)!
-    "active": [true, true, true], #(3)!
-    "is_fixed": [true, true, true], #(4)!
-    "value": [0.0, 0.0, 0.0], #(5)!
-    "table": [0, 0, 0] #(6)!
+    "model_part_name": "PorousDomain.xxx", //(1)!
+    "variable_name": "DISPLACEMENT", //(2)!
+    "active": [true, true, true], //(3)!
+    "is_fixed": [true, true, true], //(4)!
+    "value": [0.0, 0.0, 0.0], //(5)!
+    "table": [0, 0, 0] //(6)!
   }
 }
 ```
@@ -247,21 +247,21 @@ Displacement boundary conditions processes are used for displacement boundary co
 
 Hydrostatic water pressure boundary conditions process are used for pore water pressure boundary conditions with hydrostatic increase in depth direction.
 
-```python
+```json
 {
   "python_module": "apply_scalar_constraint_table_process",
   "kratos_module": "KratosMultiphysics.GeoMechanicsApplication",
   "process_name": "ApplyScalarConstraintTableProcess",
   "Parameters": {
-    "model_part_name": "PorousDomain.xxx", #(1)!
-    "variable_name": "WATER_PRESSURE", #(2)!
-    "is_fixed": true, #(3)!
-    "fluid_pressure_type": "Hydrostatic", #(5)!
-    "gravity_direction": 1, #(4)!
-    "reference_coordinate": -25.0, #(6)!
-    "table": 0, #(7)!
-    "pressure_tension_cut_off": 0.0, #(8)!
-    "specific_weight": 9810.0 #(9)!
+    "model_part_name": "PorousDomain.xxx", //(1)!
+    "variable_name": "WATER_PRESSURE", //(2)!
+    "is_fixed": true, //(3)!
+    "fluid_pressure_type": "Hydrostatic", //(5)!
+    "gravity_direction": 1, //(4)!
+    "reference_coordinate": -25.0, //(6)!
+    "table": 0, //(7)!
+    "pressure_tension_cut_off": 0.0, //(8)!
+    "specific_weight": 9810.0 //(9)!
   }
 }
 ```
@@ -281,17 +281,17 @@ Hydrostatic water pressure boundary conditions process are used for pore water p
 
 Gravity load process are used for gravity/self-weight/body-acceleration loads.
 
-```python
+```json
 {
   "python_module": "apply_vector_constraint_table_process",
   "kratos_module": "KratosMultiphysics.GeoMechanicsApplication",
   "process_name": "ApplyVectorConstraintTableProcess",
   "Parameters": {
-    "model_part_name": "PorousDomain.xxx", #(1)!
-    "variable_name": "VOLUME_ACCELERATION", #(2)!
-    "active": [false, true, false], #(3)!
-    "value": [0.0, -9.81, 0.0], #(4)!
-    "table": [0, 0, 0] #(5)!
+    "model_part_name": "PorousDomain.xxx", //(1)!
+    "variable_name": "VOLUME_ACCELERATION", //(2)!
+    "active": [false, true, false], //(3)!
+    "value": [0.0, -9.81, 0.0], //(4)!
+    "table": [0, 0, 0] //(5)!
   }
 }
 ```
@@ -306,14 +306,14 @@ Gravity load process are used for gravity/self-weight/body-acceleration loads.
 
 K0 procedure process is used for K0 procedure after stress initialization.
 
-```python
+```json
 {
   "python_module": "apply_k0_procedure_process",
   "kratos_module": "KratosMultiphysics.GeoMechanicsApplication",
   "process_name": "ApplyK0ProcedureProcess",
   "Parameters": {
-    "model_part_name": "PorousDomain.xxx", #(1)!
-    "variable_name": "CAUCHY_STRESS_TENSOR" #(2)!
+    "model_part_name": "PorousDomain.xxx", //(1)!
+    "variable_name": "CAUCHY_STRESS_TENSOR" //(2)!
   }
 }
 ```

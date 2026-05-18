@@ -27,7 +27,9 @@ theme:
 nav:
   - Home: index.md
   - 'getting_started.md'
-  - 'theory.md'
+  - Theory:
+     - Overview: 'theory.md'
+     - Soil Models: theory/soil_models.md
   - User Documentation:
       - Overview: 'user_documentation.md'
       - "File Descriptions":
@@ -55,7 +57,8 @@ markdown_extensions:
       generic: true
 
 plugins:
-  - search
+  - search:
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
   - macros:
       include_yaml:
         - docs/input_parameters/shared_parameters.yml
