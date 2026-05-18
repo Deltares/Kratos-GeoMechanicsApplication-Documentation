@@ -30,7 +30,7 @@ The aim is to support efficient adoption while maintaining alignment with ongoin
 
 ## License
 
-Kratos GeoMechanics Application is available under the following [license](https://github.com/KratosMultiphysics/Kratos/blob/geo/crow/applications/GeoMechanicsApplication/license.txt)
+Kratos GeoMechanics Application is available under the following [license](https://github.com/KratosMultiphysics/Kratos/blob/master/applications/GeoMechanicsApplication/license.txt)
 
 ## Contact
 
