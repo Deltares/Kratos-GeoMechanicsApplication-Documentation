@@ -1,0 +1,7 @@
+echo_level: "Level of logging."
+model_part_name: "Body part to apply the process to. `PorousDomain.XXX` is required."
+variable_name: "Kratos vector variable."
+active: "Activation per vector component (X, Y, Z)"
+is_fixed: "Fix/free per vector component (X, Y, Z)"
+value: "Prescribed value per component"
+table: "Time-table reference per component"

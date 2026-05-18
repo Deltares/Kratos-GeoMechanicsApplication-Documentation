@@ -1,0 +1,1286 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../mesh_file_description/">
+      
+      
+        <link rel="next" href="../../examples_and_tutorials/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>ProjectParameter.json file description - Kratos Geo Mechanics Application Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M6%2013v-2h8l-3.5-3.5%201.42-1.42L17.84%2012l-5.92%205.92-1.42-1.42L14%2013zm16-1a10%2010%200%200%201-10%2010A10%2010%200%200%201%202%2012%2010%2010%200%200%201%2012%202a10%2010%200%200%201%2010%2010m-2%200a8%208%200%200%200-8-8%208%208%200%200%200-8%208%208%208%200%200%200%208%208%208%208%200%200%200%208-8%22/%3E%3C/svg%3E');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#projectparameterjson-file-description" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Kratos Geo Mechanics Application Documentation" class="md-header__button md-logo" aria-label="Kratos Geo Mechanics Application Documentation" data-md-component="logo">
+      
+  <img src="../../img/favicon.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Kratos Geo Mechanics Application Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ProjectParameter.json file description
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Deltares/Kratos-GeoMechanicsApplication-Documentation/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Deltares/Kratos-GeoMechanicsApplication-Documentation/
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Kratos Geo Mechanics Application Documentation" class="md-nav__button md-logo" aria-label="Kratos Geo Mechanics Application Documentation" data-md-component="logo">
+      
+  <img src="../../img/favicon.ico" alt="logo">
+
+    </a>
+    Kratos Geo Mechanics Application Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Deltares/Kratos-GeoMechanicsApplication-Documentation/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Deltares/Kratos-GeoMechanicsApplication-Documentation/
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theory
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Theory
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/soil_models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Soil Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user_documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File Descriptions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    File Descriptions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../material_parameters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MaterialParameters.json file description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mesh_file_description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mesh.mdpa file description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ProjectParameter.json file description
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ProjectParameter.json file description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#projectparameterjson-structure-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ProjectParameter.json structure format
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ProjectParameter.json structure format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem_data-block-structure-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        problem_data block structure format
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solver_settings-block-structure-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        solver_settings block structure format
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output_processes-block-structure-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        output_processes block structure format
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#processes-block-structure-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        processes block structure format
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="processes block structure format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constraints_process_list-block-structure-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        constraints_process_list block structure format
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loads_process_list-block-structure-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        loads_process_list block structure format
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auxiliar_process_list-block-structure-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        auxiliar_process_list block structure format
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples_and_tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples and Tutorials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../validation_and_verification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validation and Verification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="projectparameterjson-file-description">ProjectParameter.json file description</h1>
+<p>The project parameters json-file contains as description of the input of the Kratos simulation. More information can be found on the <a href="https://github.com/KratosMultiphysics/Kratos/wiki/Kratos-input-files-and-IO#3-the-project-parameters-file">Kratos website</a>.
+The user is responsible for giving all material parameters a consistent set of parameters.</p>
+<h2 id="projectparameterjson-structure-format">ProjectParameter.json structure format</h2>
+<p>The strucal format of the ProjectParameter.json is described on the Kratos website:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;problem_data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w">  </span><span class="c1">//(1)!</span>
+<span class="w">  </span><span class="nt">&quot;solver_settings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w">  </span><span class="c1">//(2)!</span>
+<span class="w">  </span><span class="nt">&quot;output_processes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w">  </span><span class="c1">//(3)!</span>
+<span class="w">  </span><span class="nt">&quot;processes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w">  </span><span class="c1">//(4)!</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>General settings for the Kratos run. <a href="#problem_data-block-structure-format">Details</a></li>
+<li>Settings for the solvers, like analysis type, linear solver, etc. <a href="#solver_settings-block-structure-format">Details</a></li>
+<li>Settings for the output  <a href="#output_processes-block-structure-format">Details</a></li>
+<li>Processes to e.g. apply boundary conditions.</li>
+</ol>
+<h3 id="problem_data-block-structure-format">problem_data block structure format</h3>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;problem_data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;problem_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DSettlement_stage0&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">//(1)!</span>
+<span class="w">  </span><span class="nt">&quot;start_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-1E-06</span><span class="p">,</span><span class="w">  </span><span class="c1">//(2)!</span>
+<span class="w">  </span><span class="nt">&quot;end_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">  </span><span class="c1">//(3)!</span>
+<span class="w">  </span><span class="nt">&quot;echo_level&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="c1">//(4)!</span>
+<span class="w">  </span><span class="nt">&quot;parallel_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OpenMP&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">//(5)!</span>
+<span class="w">  </span><span class="nt">&quot;number_of_threads&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span><span class="c1">//(6)!</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>Name of this problem case</li>
+<li>The start time of this stage in seconds</li>
+<li>The end time of this stage in seconds</li>
+<li>Level of logging.</li>
+<li>Method of parallel computation: "OpenMP"</li>
+<li>Number of threads for parallel computation</li>
+</ol>
+<h3 id="solver_settings-block-structure-format">solver_settings block structure format</h3>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;solver_settings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;solver_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Pw&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">//(1)!</span>
+<span class="w">    </span><span class="nt">&quot;model_part_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PorousDomain&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">//(2)!</span>
+<span class="w">    </span><span class="nt">&quot;domain_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">  </span><span class="c1">//(3)!</span>
+<span class="w">    </span><span class="nt">&quot;model_import_settings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;input_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mdpa&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">//(4)!</span>
+<span class="w">      </span><span class="nt">&quot;input_filename&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mesh&quot;</span><span class="w">  </span><span class="c1">//(5)!</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;material_import_settings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;materials_filename&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MaterialParameters.json&quot;</span><span class="w">  </span><span class="c1">//(6)!</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;time_stepping&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">//(7)!</span>
+<span class="w">      </span><span class="nt">&quot;time_step&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">  </span><span class="c1">//(8)!</span>
+<span class="w">      </span><span class="nt">&quot;max_delta_time_factor&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1e9</span><span class="w">  </span><span class="c1">//(9)!</span>
+<span class="w">      </span><span class="nt">&quot;minimum_allowable_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.001</span><span class="w">  </span><span class="c1">//(10)!</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;buffer_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">  </span><span class="c1">//(11)!</span>
+<span class="w">    </span><span class="nt">&quot;echo_level&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="c1">//(12)!</span>
+<span class="w">    </span><span class="nt">&quot;clear_storage&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">  </span><span class="c1">//(13)!</span>
+<span class="w">    </span><span class="nt">&quot;compute_reactions&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">//(14)!</span>
+<span class="w">    </span><span class="nt">&quot;move_mesh_flag&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">//(15)!</span>
+<span class="w">    </span><span class="nt">&quot;reform_dofs_at_each_step&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">//(16)!</span>
+<span class="w">    </span><span class="nt">&quot;block_builder&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">//(17)!</span>
+<span class="w">    </span><span class="nt">&quot;solution_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;K0-Procedure&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">//(18)!</span>
+<span class="w">    </span><span class="nt">&quot;scheme_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Newmark&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">//(19)!</span>
+<span class="w">    </span><span class="nt">&quot;reset_displacements&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">//(20)!</span>
+<span class="w">    </span><span class="nt">&quot;strategy_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;line_search&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">//(21)!</span>
+<span class="w">    </span><span class="nt">&quot;convergence_criterion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;displacement_criterion&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">//(22)!</span>
+<span class="w">    </span><span class="nt">&quot;water_pressure_relative_tolerance&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0E-4</span><span class="p">,</span><span class="w"> </span><span class="c1">//(23)!</span>
+<span class="w">    </span><span class="nt">&quot;water_pressure_absolute_tolerance&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0E-9</span><span class="p">,</span><span class="w"> </span><span class="c1">//(24)!</span>
+<span class="w">    </span><span class="nt">&quot;displacement_relative_tolerance&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0E-4</span><span class="p">,</span><span class="w"> </span><span class="c1">//(25)!</span>
+<span class="w">    </span><span class="nt">&quot;displacement_absolute_tolerance&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0E-9</span><span class="p">,</span><span class="w"> </span><span class="c1">//(26)!</span>
+<span class="w">    </span><span class="nt">&quot;residual_relative_tolerance&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0E-4</span><span class="p">,</span><span class="w"> </span><span class="c1">//(27)!</span>
+<span class="w">    </span><span class="nt">&quot;residual_absolute_tolerance&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0E-9</span><span class="p">,</span><span class="w"> </span><span class="c1">//(28)!</span>
+<span class="w">    </span><span class="nt">&quot;min_iterations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="c1">//(29)!</span>
+<span class="w">    </span><span class="nt">&quot;max_iterations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="c1">//(30)!</span>
+<span class="w">    </span><span class="nt">&quot;number_cycles&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="c1">//(31)!</span>
+<span class="w">    </span><span class="nt">&quot;reduction_factor&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="c1">//(32)!</span>
+<span class="w">    </span><span class="nt">&quot;increase_factor&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w"> </span><span class="c1">//(33)!</span>
+<span class="w">    </span><span class="nt">&quot;desired_iterations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="c1">//(34)!</span>
+<span class="w">    </span><span class="nt">&quot;max_radius_factor&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="w"> </span><span class="c1">//(35)!</span>
+<span class="w">    </span><span class="nt">&quot;min_radius_factor&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="w"> </span><span class="c1">//(36)!</span>
+<span class="w">    </span><span class="nt">&quot;calculate_reactions&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">//(37)!</span>
+<span class="w">    </span><span class="nt">&quot;max_line_search_iterations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="c1">//(38)!</span>
+<span class="w">    </span><span class="nt">&quot;first_alpha_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="c1">//(39)!</span>
+<span class="w">    </span><span class="nt">&quot;second_alpha_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="c1">//(40)!</span>
+<span class="w">    </span><span class="nt">&quot;min_alpha&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w"> </span><span class="c1">//(41)!</span>
+<span class="w">    </span><span class="nt">&quot;max_alpha&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w"> </span><span class="c1">//(42)!</span>
+<span class="w">    </span><span class="nt">&quot;line_search_tolerance&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="c1">//(43)!</span>
+<span class="w">    </span><span class="nt">&quot;rotation_dofs&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">//(44)!</span>
+<span class="w">    </span><span class="nt">&quot;linear_solver_settings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//(45)!</span>
+<span class="w">      </span><span class="nt">&quot;solver_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LinearSolversApplication.sparse_lu&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">//(46)!</span>
+<span class="w">      </span><span class="nt">&quot;scaling&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c1">//(47)!</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;problem_domain_sub_model_part_list&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">],</span><span class="w">  </span><span class="c1">//(48)!</span>
+<span class="w">    </span><span class="nt">&quot;processes_sub_model_part_list&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">],</span><span class="w">  </span><span class="c1">//(49)!</span>
+<span class="w">    </span><span class="nt">&quot;body_domain_sub_model_part_list&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">],</span><span class="w">  </span><span class="c1">//(50)!</span>
+<span class="w">    </span><span class="nt">&quot;newmark_beta&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.25</span><span class="p">,</span><span class="w">   </span><span class="c1">//(51)!</span>
+<span class="w">    </span><span class="nt">&quot;newmark_gamma&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">   </span><span class="c1">//(52)!</span>
+<span class="w">    </span><span class="nt">&quot;newmark_theta&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">   </span><span class="c1">//(53)!</span>
+<span class="w">    </span><span class="nt">&quot;rayleigh_m&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">   </span><span class="c1">//(54)!</span>
+<span class="w">    </span><span class="nt">&quot;rayleigh_k&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="p">},</span><span class="w">  </span><span class="c1">//(55)!</span>
+<span class="w">    </span><span class="nt">&quot;max_piping_iterations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">  </span><span class="c1">//(56)!</span>
+<span class="w">  </span><span class="p">},</span>
+</code></pre></div>
+<ol>
+<li>Analysis type, here denoted as solver type: </br>
+If "OpenMP": <code>u_pw == geomechanics_u_pw_solver == twophase</code>, <code>pw==geomechanics_pw_solver</code>, dynamic, scipy </br>
+If "MPI": dynamic</li>
+<li>Selection of model parts to use for the computation.</li>
+<li>Working space dimension</li>
+<li>Model input format</li>
+<li>Model input file Name</li>
+<li>Material parameter file</li>
+<li>Time-stepping information</li>
+<li>Initial time step size</li>
+<li>Maximum scaling factor for next time step</li>
+<li>Tolerance to avoid very small final time steps</li>
+<li>Number of solution vectors to keep</li>
+<li>Level of logging.</li>
+<li>Solver storage behavior</li>
+<li>Compute stress/internal/reaction forces</li>
+<li>Update nodal positions with displacement</li>
+<li>Rebuild system at each step</li>
+<li>Builder and solver block mode</li>
+<li>Calculation type: <code>quasi_static</code>, <code>dynamic</code>, <code>k0_procedure</code>, <code>transient_groundwater_flow</code>, <code>steady_state_groundwater_flow</code></li>
+<li>Time integration scheme: <code>newmark</code>, <code>backward_euler</code></li>
+<li>Reset total displacements/rotations at stage start</li>
+<li>Iterative strategy: <code>newton_raphson</code>, <code>newton_raphson_with_piping</code>, <code>line_search</code>, <code>arc_length</code></li>
+<li>Convergence criterion type: <code>displacement_criterion</code>, <code>water_pressure_criterion</code>, <code>residual_criterion</code></li>
+<li>Relative tolerance for displacement criterion</li>
+<li>Absolute tolerance for displacement criterion</li>
+<li>Relative tolerance for water pressure criterion</li>
+<li>Absolute tolerance for water pressure criterion</li>
+<li>Relative tolerance for residual force criterion</li>
+<li>Absolute tolerance for residual force criterion</li>
+<li>Increase next step if converged below this iteration count</li>
+<li>Maximum number of iterations</li>
+<li>Maximum number of scaled-down retry cycles</li>
+<li>Time-step reduction factor</li>
+<li>Time-step increase factor</li>
+<li>Arc-length parameter</li>
+<li>Arc-length parameter</li>
+<li>Arc-length parameter</li>
+<li>Reaction calculation toggle</li>
+<li>Line-search parameter</li>
+<li>Line-search parameter</li>
+<li>Line-search parameter</li>
+<li>Line-search parameter</li>
+<li>Line-search parameter</li>
+<li>Line-search parameter</li>
+<li>Include rotational degrees of freedom</li>
+<li>Linear equation solver settings</li>
+<li>Supported options include <code>amgcl</code>, <code>bicgstab</code>, <code>cg</code>, <code>sparse_lu</code>, <code>sparse_qr</code>, <code>tfqmr</code> and others</li>
+<li>Solver scaling toggle</li>
+<li>List of elements e.g. soil, beams, anchors, and interfaces</li>
+<li>List of conditions e.g. boundary conditions, loads, water conditions and etc.</li>
+<li>List of elements e.g. soils, beams, anchors</li>
+<li>GN22 Average constant acceleration (Middle point rule) is obtained by setting <span class="arithmatex">\(\gamma\)</span> = 0.5 and <span class="arithmatex">\(\beta\)</span> = 0.25</li>
+<li>GN22 Average constant acceleration (Middle point rule) is obtained by setting <span class="arithmatex">\(\gamma\)</span> = 0.5 and <span class="arithmatex">\(\beta\)</span> = 0.25</li>
+<li>GN11 used for the time integration of the water pressure D.O.F.</li>
+<li>Factor for the mass matrix contribution to the damping matrix</li>
+<li>Factor for the stiffness matrix contribution to the damping matrix</li>
+<li>Maximum number of piping iterations</li>
+</ol>
+<h3 id="output_processes-block-structure-format">output_processes block structure format</h3>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;output_processes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;gid_output&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span><span class="c1">//(1)!</span>
+<span class="w">        </span><span class="nt">&quot;python_module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gid_output_process&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;kratos_module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;KratosMultiphysics&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;process_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;GiDOutputProcess&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;Parameters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;model_part_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PorousDomain.porous_computational_model_part&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;output_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mesh&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;postprocess_parameters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;result_file_configuration&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;gidpost_flags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;WriteDeformedMeshFlag&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WriteUndeformed&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;WriteConditionsFlag&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WriteElementsOnly&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;GiDPostMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;GiD_PostAscii&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">//(2)!</span>
+<span class="w">                </span><span class="nt">&quot;MultiFileFlag&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SingleFile&quot;</span>
+<span class="w">              </span><span class="p">},</span>
+<span class="w">              </span><span class="nt">&quot;file_label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;step&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;output_control_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;step&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;output_interval&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;body_output&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;node_output&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;skin_output&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;nodal_results&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">],</span><span class="w">  </span><span class="c1">//(3)!</span>
+<span class="w">              </span><span class="nt">&quot;gauss_point_results&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">]</span><span class="w">  </span><span class="c1">//(4)!</span>
+
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+</code></pre></div>
+<ol>
+<li>Description of output file writer for the GiD postprocessor</li>
+<li>Write results in GiD binary or ASCII</li>
+<li>Nodal output results</li>
+<li>Gauss-point output results</li>
+</ol>
+<h3 id="processes-block-structure-format">processes block structure format</h3>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;output_processes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;constraints_process_list&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="c1">//(1)!</span>
+<span class="w">    </span><span class="nt">&quot;loads_process_list&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="c1">//(2)!</span>
+<span class="w">    </span><span class="nt">&quot;auxiliar_process_list&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="c1">//(3)!</span>
+<span class="w">  </span><span class="p">},</span>
+</code></pre></div>
+<ol>
+<li>Constraint process list <a href="#constraints_process_list-block-structure-format">Details</a></li>
+<li>Load process list <a href="#loads_process_list-block-structure-format">Details</a></li>
+<li>Auxiliary process list <a href="#auxiliar_process_list-block-structure-format">Details</a></li>
+</ol>
+<h4 id="constraints_process_list-block-structure-format">constraints_process_list block structure format</h4>
+<p>Displacement boundary conditions processes are used for displacement boundary conditions such as fixities, sliders, rollers, and hinges.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;python_module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;apply_vector_constraint_table_process&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;kratos_module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;KratosMultiphysics.GeoMechanicsApplication&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;process_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ApplyVectorConstraintTableProcess&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;Parameters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;model_part_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PorousDomain.xxx&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">//(1)!</span>
+<span class="w">    </span><span class="nt">&quot;variable_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DISPLACEMENT&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">//(2)!</span>
+<span class="w">    </span><span class="nt">&quot;active&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">],</span><span class="w"> </span><span class="c1">//(3)!</span>
+<span class="w">    </span><span class="nt">&quot;is_fixed&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">],</span><span class="w"> </span><span class="c1">//(4)!</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">],</span><span class="w"> </span><span class="c1">//(5)!</span>
+<span class="w">    </span><span class="nt">&quot;table&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="c1">//(6)!</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>Body part to apply the process to. <code>PorousDomain.XXX</code> is required.</li>
+<li>Kratos vector variable.</li>
+<li>Activation per vector component (X, Y, Z)</li>
+<li>Fix/free per vector component (X, Y, Z)</li>
+<li>Prescribed value per component</li>
+<li>Time-table reference per component</li>
+</ol>
+<p>Hydrostatic water pressure boundary conditions process are used for pore water pressure boundary conditions with hydrostatic increase in depth direction.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;python_module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;apply_scalar_constraint_table_process&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;kratos_module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;KratosMultiphysics.GeoMechanicsApplication&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;process_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ApplyScalarConstraintTableProcess&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;Parameters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;model_part_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PorousDomain.xxx&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">//(1)!</span>
+<span class="w">    </span><span class="nt">&quot;variable_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WATER_PRESSURE&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">//(2)!</span>
+<span class="w">    </span><span class="nt">&quot;is_fixed&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">//(3)!</span>
+<span class="w">    </span><span class="nt">&quot;fluid_pressure_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hydrostatic&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">//(5)!</span>
+<span class="w">    </span><span class="nt">&quot;gravity_direction&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="c1">//(4)!</span>
+<span class="w">    </span><span class="nt">&quot;reference_coordinate&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-25.0</span><span class="p">,</span><span class="w"> </span><span class="c1">//(6)!</span>
+<span class="w">    </span><span class="nt">&quot;table&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="c1">//(7)!</span>
+<span class="w">    </span><span class="nt">&quot;pressure_tension_cut_off&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="c1">//(8)!</span>
+<span class="w">    </span><span class="nt">&quot;specific_weight&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">9810.0</span><span class="w"> </span><span class="c1">//(9)!</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>Body part to apply the process to. <code>PorousDomain.XXX</code> is required.</li>
+<li>Kratos vector variable.</li>
+<li>Dirichlet (<code>true</code>) or initial value (<code>false</code>)</li>
+<li><code>Hydrostatic</code>, <code>Uniform</code>, etc.</li>
+<li>0, 1, 2 for X, Y, Z</li>
+<li>Phreatic surface coordinate in gravity direction</li>
+<li>Time-table reference per component</li>
+<li>Threshold value to eliminate suction</li>
+<li>Density of water times gravity</li>
+</ol>
+<h4 id="loads_process_list-block-structure-format">loads_process_list block structure format</h4>
+<p>Gravity load process are used for gravity/self-weight/body-acceleration loads.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;python_module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;apply_vector_constraint_table_process&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;kratos_module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;KratosMultiphysics.GeoMechanicsApplication&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;process_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ApplyVectorConstraintTableProcess&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;Parameters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;model_part_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PorousDomain.xxx&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">//(1)!</span>
+<span class="w">    </span><span class="nt">&quot;variable_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VOLUME_ACCELERATION&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">//(2)!</span>
+<span class="w">    </span><span class="nt">&quot;active&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">],</span><span class="w"> </span><span class="c1">//(3)!</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">-9.81</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">],</span><span class="w"> </span><span class="c1">//(4)!</span>
+<span class="w">    </span><span class="nt">&quot;table&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="c1">//(5)!</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>Body part to apply the process to. <code>PorousDomain.XXX</code> is required.</li>
+<li>Kratos vector variable.</li>
+<li>Activation per vector component (X, Y, Z)</li>
+<li>Prescribed value per component</li>
+<li>Time-table reference per component</li>
+</ol>
+<h4 id="auxiliar_process_list-block-structure-format">auxiliar_process_list block structure format</h4>
+<p>K0 procedure process is used for K0 procedure after stress initialization.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;python_module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;apply_k0_procedure_process&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;kratos_module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;KratosMultiphysics.GeoMechanicsApplication&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;process_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ApplyK0ProcedureProcess&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;Parameters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;model_part_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PorousDomain.xxx&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">//(1)!</span>
+<span class="w">    </span><span class="nt">&quot;variable_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CAUCHY_STRESS_TENSOR&quot;</span><span class="w"> </span><span class="c1">//(2)!</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>Body part to apply the process to. <code>PorousDomain.XXX</code> is required.</li>
+<li>Kratos tensor variable for K0, usually <code>CAUCHY_STRESS_TENSOR</code></li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Deltares
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": {"json": [".s2"]}, "base": "../..", "features": ["content.code.annotate", "content.code.copy", "toc.integrate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
