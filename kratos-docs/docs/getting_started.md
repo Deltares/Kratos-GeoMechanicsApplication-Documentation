@@ -1,14 +1,38 @@
 # Getting Started
 
+This section assumes that you are working on a Windows system.
+
+
 ## Installing Kratos
+
+To follow along with this tutorial, please make sure that you have a recent Python version (3.11 up to and including 3.14) installed on your system.  When you don't have Python installed yet, please download the latest Python installer from the [official Python website](https://www.python.org/) and follow the on-screen instructions to install it.
+
+
+### Setting up and activating a Python venv
+
+It is generally recommended to install the GeoMechanicsApplication in a [Python virtual environment](https://docs.python.org/3/glossary.html#term-virtual-environment) (or "venv", for short). To create and activate such an environment, please carry out the following steps:
+
+- Open a Command Prompt.
+- Double-check whether Python is available by executing `python --version`.  In this way, you can also verify which Python version you are using.
+- Create a folder where you would like to install the GeoMechanicsApplication, e.g. `mkdir GeoMechanicsApplication`.
+- Change the current working directory to this new folder: `cd GeoMechanicsApplication`.
+- Create a new Python venv: `python -m venv .venv`. Optionally, when you have multiple Python versions installed, you may want to use the [Python launcher](https://docs.python.org/3/using/windows.html#python-launcher-for-windows-deprecated) to indicate which Python version you would like to use. For instance, if you would like to use Python 3.12, execute the following command: `py -3.12 -m venv .venv`.
+- Activate the Python venv: `.venv\Scripts\activate`.
+
 
 ### Using pypi
 
-KratosGeoMechanicsApplication can be installed via pypi. The latest release (currently version 10.4.0) can be downloaded from [the pypi website](https://pypi.org/project/KratosGeoMechanicsApplication/). This page also contains instructions on how to install it using `pip`.
+KratosGeoMechanicsApplication can be installed via pypi. The latest release (currently version 10.4.2) can be downloaded and installed from [the pypi website](https://pypi.org/project/KratosGeoMechanicsApplication/). In the Command Prompt, execute `pip install KratosGeoMechanicsApplication`.
+
 
 ### Using Python wheels
 
-More recent versions of the main-development branch can be obtained by sending a mail to the Kratos team.
+More recent versions of the main-development branch can be obtained by sending an e-mail to the Kratos team. In that case, please mention which Python version you are using. Once you have received the appropriate `zip` archive, proceed as follows:
+
+- Extract the archive in the `GeoMechanicsApplication` folder that you have created earlier on. This results in a new subdirectory named `wheels`, which contains the `.whl` files.
+- Change the current working directory to this new subdirectory: `cd wheels`.
+- Install the Python wheels by executing the Windows batch script: `.\install`.
+- Install an additional required Python package: `pip install matplotlib`.
 
 ### Building Kratos from scratch
 
