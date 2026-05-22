@@ -73,7 +73,7 @@
                         "input_type": "use_input_model_part"
                     },
                     "material_import_settings": {
-                        "materials_filename": "linear_elastic_materials.json"
+                        "materials_filename": "initial_materials.json"
                     },
                     "buffer_size": 2,
                     "clear_storage": false,
@@ -247,7 +247,7 @@
                         "input_type": "use_input_model_part"
                     },
                     "material_import_settings": {
-                        "materials_filename": "linear_elastic_materials.json"
+                        "materials_filename": "Mohr_Coulomb_materials.json"
                     },
                     "buffer_size": 2,
                     "clear_storage": false,
@@ -260,7 +260,7 @@
                     "residual_relative_tolerance": 1.0e-04,
                     "residual_absolute_tolerance": 1.0e-09,
                     "min_iterations": 6,
-                    "max_iterations": 15,
+                    "max_iterations": 150,
                     "number_cycles": 1,
                     "reduction_factor": 0.5,
                     "increase_factor": 2.0,
@@ -421,7 +421,7 @@
                         "input_type": "use_input_model_part"
                     },
                     "material_import_settings": {
-                        "materials_filename": "linear_elastic_materials.json"
+                        "materials_filename": "Mohr_Coulomb_materials.json"
                     },
                     "buffer_size": 2,
                     "clear_storage": false,
@@ -431,10 +431,10 @@
                     "block_builder": true,
                     "reset_displacements": true,
                     "convergence_criterion": "residual_criterion",
-                    "residual_relative_tolerance": 1.0e-04,
+                    "residual_relative_tolerance": 1.0e-03,
                     "residual_absolute_tolerance": 1.0e-09,
                     "min_iterations": 6,
-                    "max_iterations": 15,
+                    "max_iterations": 150,
                     "number_cycles": 1,
                     "reduction_factor": 0.5,
                     "increase_factor": 2.0,
@@ -656,7 +656,7 @@
                         "input_type": "use_input_model_part"
                     },
                     "material_import_settings": {
-                        "materials_filename": "linear_elastic_materials.json"
+                        "materials_filename": "Mohr_Coulomb_materials.json"
                     },
                     "buffer_size": 2,
                     "clear_storage": false,
@@ -666,10 +666,10 @@
                     "block_builder": true,
                     "reset_displacements": false,
                     "convergence_criterion": "residual_criterion",
-                    "residual_relative_tolerance": 1.0e-04,
+                    "residual_relative_tolerance": 1.0e-03,
                     "residual_absolute_tolerance": 1.0e-09,
                     "min_iterations": 6,
-                    "max_iterations": 15,
+                    "max_iterations": 500,
                     "number_cycles": 1,
                     "reduction_factor": 0.5,
                     "increase_factor": 2.0,
@@ -902,7 +902,7 @@
                         "input_type": "use_input_model_part"
                     },
                     "material_import_settings": {
-                        "materials_filename": "linear_elastic_materials.json"
+                        "materials_filename": "Mohr_Coulomb_materials.json"
                     },
                     "buffer_size": 2,
                     "clear_storage": false,
@@ -912,10 +912,10 @@
                     "block_builder": true,
                     "reset_displacements": false,
                     "convergence_criterion": "residual_criterion",
-                    "residual_relative_tolerance": 1.0e-04,
+                    "residual_relative_tolerance": 1.0e-02,
                     "residual_absolute_tolerance": 1.0e-09,
                     "min_iterations": 6,
-                    "max_iterations": 15,
+                    "max_iterations": 150,
                     "number_cycles": 1,
                     "reduction_factor": 0.5,
                     "increase_factor": 2.0,
@@ -1156,7 +1156,7 @@
                         "input_type": "use_input_model_part"
                     },
                     "material_import_settings": {
-                        "materials_filename": "linear_elastic_materials.json"
+                        "materials_filename": "Mohr_Coulomb_materials.json"
                     },
                     "buffer_size": 2,
                     "clear_storage": false,
@@ -1166,10 +1166,10 @@
                     "block_builder": true,
                     "reset_displacements": false,
                     "convergence_criterion": "residual_criterion",
-                    "residual_relative_tolerance": 1.0e-04,
+                    "residual_relative_tolerance": 1.0e-02,
                     "residual_absolute_tolerance": 1.0e-09,
                     "min_iterations": 6,
-                    "max_iterations": 15,
+                    "max_iterations": 150,
                     "number_cycles": 1,
                     "reduction_factor": 0.5,
                     "increase_factor": 2.0,
@@ -1410,7 +1410,7 @@
                         "input_type": "use_input_model_part"
                     },
                     "material_import_settings": {
-                        "materials_filename": "linear_elastic_materials.json"
+                        "materials_filename": "Mohr_Coulomb_materials.json"
                     },
                     "buffer_size": 2,
                     "clear_storage": false,
@@ -1420,10 +1420,10 @@
                     "block_builder": true,
                     "reset_displacements": false,
                     "convergence_criterion": "residual_criterion",
-                    "residual_relative_tolerance": 1.0e-04,
+                    "residual_relative_tolerance": 1.0e-02,
                     "residual_absolute_tolerance": 1.0e-09,
                     "min_iterations": 6,
-                    "max_iterations": 15,
+                    "max_iterations": 150,
                     "number_cycles": 1,
                     "reduction_factor": 0.5,
                     "increase_factor": 2.0,
