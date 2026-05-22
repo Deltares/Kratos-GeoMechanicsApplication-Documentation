@@ -47,7 +47,7 @@ Once Kratos has been installed, we can proceed as follows to run the first geome
 
 First, we need a set of input files, which consists of a model file (`.mdpa`), an analysis file (`.json`) and two material properties files (`.json`). For demonstration purposes, we will analyse the staged construction of a building pit, known as the CROW case. Create a folder where you will store the input files, e.g. `CROW_case`, and save the following files there:
 
-- [`crow_validation_gid.mdpa`](examples/crow_case/KratosCROW_7Stage_MohrCoulomb/crow_validation_gid.mdpa)
+- [`CROW_case_clay-sand.mdpa`](examples/crow_case/KratosCROW_7Stage_MohrCoulomb/CROW_case_clay-sand.mdpa)
 - [`staged_construction.json`](examples/crow_case/KratosCROW_7Stage_MohrCoulomb/staged_construction.json)
 - [`initial_materials.json`](examples/crow_case/KratosCROW_7Stage_MohrCoulomb/initial_materials.json)
 - [`Mohr_Coulomb_materials.json`](examples/crow_case/KratosCROW_7Stage_MohrCoulomb/Mohr_Coulomb_materials.json)
