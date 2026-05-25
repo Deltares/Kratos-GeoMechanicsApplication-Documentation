@@ -79,11 +79,22 @@ def _plot_bending_moments(nodes_of_sheet_pile_wall):
     )
 
 
+def _plot_shear_forces(nodes_of_sheet_pile_wall):
+    _make_result_plot(
+        nodes_of_sheet_pile_wall,
+        "SHEAR_FORCE",
+        "Shear force [kN/m]",
+        Path("shear_forces.svg"),
+    )
+
+
 def _generate_plots(model):
     print("About to generate plots")
 
     nodes_of_sheet_pile_wall = model.GetModelPart("PorousDomain.Sheet_Pile_Wall").Nodes
+
     _plot_bending_moments(nodes_of_sheet_pile_wall)
+    _plot_shear_forces(nodes_of_sheet_pile_wall)
 
 
 def _main():
