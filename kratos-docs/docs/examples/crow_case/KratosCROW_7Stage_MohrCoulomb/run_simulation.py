@@ -26,7 +26,13 @@ def _generate_plots(model):
     y_coordinates = [node.Y for node in sheet_pile_wall.Nodes]
 
     data_series_per_stage = []
-    stages_to_plot = ["wall_installation", "first_excavation", "strut_installation", "second_excavation", "third_excavation"]
+    stages_to_plot = [
+        "wall_installation",
+        "first_excavation",
+        "strut_installation",
+        "second_excavation",
+        "third_excavation",
+    ]
     for stage_name in stages_to_plot:
         stage_data_series = []
         base_name = stages_info[stage_name]["base_name"]
@@ -34,15 +40,33 @@ def _generate_plots(model):
         with open(json_output_path, "r") as f:
             results = json.load(f)
 
-        bending_moments = [results[f"NODE_{node.Id}"]["BENDING_MOMENT"][0] / 1000.0 for node in sheet_pile_wall.Nodes]
+        bending_moments = [
+            results[f"NODE_{node.Id}"]["BENDING_MOMENT"][0] / 1000.0
+            for node in sheet_pile_wall.Nodes
+        ]
 
-        sorted_y_coordinates, sorted_bending_moments = zip(*sorted(zip(y_coordinates, bending_moments)))
-        stage_data_series.append(plot_utils.DataSeries(zip(sorted_bending_moments, sorted_y_coordinates), label="Kratos (current simulation)", line_style="-", marker="."))
+        sorted_y_coordinates, sorted_bending_moments = zip(
+            *sorted(zip(y_coordinates, bending_moments))
+        )
+        stage_data_series.append(
+            plot_utils.DataSeries(
+                zip(sorted_bending_moments, sorted_y_coordinates),
+                label="Kratos (current simulation)",
+                line_style="-",
+                marker=".",
+            )
+        )
 
         data_series_per_stage.append(stage_data_series)
 
     plot_titles = [stages_info[stage]["base_name"] for stage in stages_to_plot]
-    plot_utils.make_sub_plots(data_series_per_stage, Path("bending_moments.svg"), titles=plot_titles, xlabel="Bending moment [kNm/m]", ylabel="y [m]")
+    plot_utils.make_sub_plots(
+        data_series_per_stage,
+        Path("bending_moments.svg"),
+        titles=plot_titles,
+        xlabel="Bending moment [kNm/m]",
+        ylabel="y [m]",
+    )
 
 
 def _main():
