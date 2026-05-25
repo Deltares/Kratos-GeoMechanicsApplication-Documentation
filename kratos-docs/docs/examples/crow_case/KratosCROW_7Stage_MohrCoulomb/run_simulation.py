@@ -48,7 +48,9 @@ def _make_data_series_list_for_all_stages(
     return result
 
 
-def _plot_bending_moments(nodes_of_sheet_pile_wall):
+def _make_result_plot(
+    nodes_of_sheet_pile_wall, result_item_label, xlabel, plot_file_path
+):
     names_of_stages_to_be_plotted = [
         "3_Wall_installation",
         "4_First_excavation",
@@ -59,12 +61,21 @@ def _plot_bending_moments(nodes_of_sheet_pile_wall):
 
     plot_utils.make_sub_plots(
         _make_data_series_list_for_all_stages(
-            names_of_stages_to_be_plotted, nodes_of_sheet_pile_wall, "BENDING_MOMENT"
+            names_of_stages_to_be_plotted, nodes_of_sheet_pile_wall, result_item_label
         ),
-        Path("bending_moments.svg"),
+        plot_file_path,
         titles=names_of_stages_to_be_plotted,
-        xlabel="Bending moment [kNm/m]",
+        xlabel=xlabel,
         ylabel="y [m]",
+    )
+
+
+def _plot_bending_moments(nodes_of_sheet_pile_wall):
+    _make_result_plot(
+        nodes_of_sheet_pile_wall,
+        "BENDING_MOMENT",
+        "Bending moment [kNm/m]",
+        Path("bending_moments.svg"),
     )
 
 
