@@ -8,44 +8,32 @@ from KratosMultiphysics.project import Project
 import KratosMultiphysics.GeoMechanicsApplication.geo_plot_utilities as plot_utils
 
 
-def _plot_bending_moments(model):
-    stages_info = {
-        "initial_stage": {"end_time": -1.0, "base_name": "1_Initial_stage"},
-        "null_step": {"end_time": 0.0, "base_name": "2_Null_step"},
-        "wall_installation": {"end_time": 1.0, "base_name": "3_Wall_installation"},
-        "first_excavation": {"end_time": 2.0, "base_name": "4_First_excavation"},
-        "strut_installation": {"end_time": 3.0, "base_name": "5_Anchor_installation"},
-        "second_excavation": {"end_time": 4.0, "base_name": "6_Second_excavation"},
-        "third_excavation": {"end_time": 5.0, "base_name": "7_Third_excavation"},
-    }
+def _make_bending_moment_data_series_list_for_all_stages(
+    stage_names, nodes_of_sheet_pile_wall
+):
+    """
+    Returns a list with one item per stage. Each item is a list of one data
+    series that corresponds to the result of the current simulation.
+    """
+    y_coordinates = [node.Y for node in nodes_of_sheet_pile_wall]
 
-    sheet_pile_wall = model.GetModelPart("PorousDomain.Sheet_Pile_Wall")
-
-    y_coordinates = [node.Y for node in sheet_pile_wall.Nodes]
-
-    data_series_per_stage = []
-    stages_to_plot = [
-        "wall_installation",
-        "first_excavation",
-        "strut_installation",
-        "second_excavation",
-        "third_excavation",
-    ]
-    for stage_name in stages_to_plot:
+    result = []
+    for name in stage_names:
         stage_data_series = []
-        base_name = stages_info[stage_name]["base_name"]
-        json_output_path = Path(f"{base_name}__output_wall.json")
-        with open(json_output_path, "r") as f:
-            results = json.load(f)
 
+        json_output_path = Path(f"{name}__output_wall.json")
+        with open(json_output_path, "r") as f:
+            analysis_results = json.load(f)
         bending_moments = [
-            results[f"NODE_{node.Id}"]["BENDING_MOMENT"][0] / 1000.0
-            for node in sheet_pile_wall.Nodes
+            analysis_results[f"NODE_{node.Id}"]["BENDING_MOMENT"][0] / 1000.0
+            for node in nodes_of_sheet_pile_wall
         ]
 
+        # Sort data points by Y coordinate
         sorted_y_coordinates, sorted_bending_moments = zip(
             *sorted(zip(y_coordinates, bending_moments))
         )
+
         stage_data_series.append(
             plot_utils.DataSeries(
                 zip(sorted_bending_moments, sorted_y_coordinates),
@@ -55,13 +43,29 @@ def _plot_bending_moments(model):
             )
         )
 
-        data_series_per_stage.append(stage_data_series)
+        result.append(stage_data_series)
 
-    plot_titles = [stages_info[stage]["base_name"] for stage in stages_to_plot]
+    return result
+
+
+def _plot_bending_moments(nodes_of_sheet_pile_wall):
+    names_of_stages_to_be_plotted = [
+        "3_Wall_installation",
+        "4_First_excavation",
+        "5_Anchor_installation",
+        "6_Second_excavation",
+        "7_Third_excavation",
+    ]
+    bending_moment_data_series_per_stage = (
+        _make_bending_moment_data_series_list_for_all_stages(
+            names_of_stages_to_be_plotted, nodes_of_sheet_pile_wall
+        )
+    )
+
     plot_utils.make_sub_plots(
-        data_series_per_stage,
+        bending_moment_data_series_per_stage,
         Path("bending_moments.svg"),
-        titles=plot_titles,
+        titles=names_of_stages_to_be_plotted,
         xlabel="Bending moment [kNm/m]",
         ylabel="y [m]",
     )
@@ -70,7 +74,8 @@ def _plot_bending_moments(model):
 def _generate_plots(model):
     print("About to generate plots")
 
-    _plot_bending_moments(model)
+    nodes_of_sheet_pile_wall = model.GetModelPart("PorousDomain.Sheet_Pile_Wall").Nodes
+    _plot_bending_moments(nodes_of_sheet_pile_wall)
 
 
 def _main():
