@@ -1,3 +1,4 @@
+import csv
 import importlib
 import json
 import sys
@@ -8,12 +9,38 @@ from KratosMultiphysics.project import Project
 import KratosMultiphysics.GeoMechanicsApplication.geo_plot_utilities as plot_utils
 
 
+csv_field_name_node = "node"
+csv_field_name_bending_moment = "bending_moment_in_Nm_per_m"
+csv_field_name_shear_force = "shear_force_in_N_per_m"
+csv_field_name_horizontal_displacement = "horizontal_displacement_in_m"
+
+
 def unit_to_kilo_unit(value):
     return value / 1000.0
 
 
+def get_nodal_data_from_csv(csv_file_path):
+    result_field_names = [
+        csv_field_name_bending_moment,
+        csv_field_name_shear_force,
+        csv_field_name_horizontal_displacement,
+    ]
+    with open(csv_file_path, newline="") as csv_file:
+        reader = csv.DictReader(csv_file)
+        return {
+            int(row[csv_field_name_node]): {
+                field_name: float(row[field_name]) for field_name in result_field_names
+            }
+            for row in reader
+        }
+
+
 def _make_data_series_list_for_all_stages(
-    stage_names, nodes_of_sheet_pile_wall, result_item_label, transform_value=None
+    stage_names,
+    nodes_of_sheet_pile_wall,
+    result_item_label,
+    transform_value=None,
+    csv_field_name=None,
 ):
     """
     Returns a list with one item per stage. Each item is a list of one data
@@ -50,6 +77,27 @@ def _make_data_series_list_for_all_stages(
             )
         )
 
+        if csv_field_name is not None:
+            nodal_data = get_nodal_data_from_csv(Path(f"{name}__base_line_wall.csv"))
+            base_line_values = [
+                transform_value(nodal_data[node.Id][csv_field_name])
+                for node in nodes_of_sheet_pile_wall
+            ]
+
+            # Sort data points by Y coordinate
+            sorted_y_coordinates, sorted_base_line_values = zip(
+                *sorted(zip(y_coordinates, base_line_values))
+            )
+
+            stage_data_series.append(
+                plot_utils.DataSeries(
+                    zip(sorted_base_line_values, sorted_y_coordinates),
+                    label="Kratos (base line)",
+                    line_style="-",
+                    marker="1",
+                )
+            )
+
         result.append(stage_data_series)
 
     return result
@@ -61,6 +109,7 @@ def _make_result_plot(
     xlabel,
     plot_file_path,
     transform_value=None,
+    csv_field_name=None,
 ):
     names_of_stages_to_be_plotted = [
         "3_Wall_installation",
@@ -76,6 +125,7 @@ def _make_result_plot(
             nodes_of_sheet_pile_wall,
             result_item_label,
             transform_value=transform_value,
+            csv_field_name=csv_field_name,
         ),
         plot_file_path,
         titles=names_of_stages_to_be_plotted,
@@ -91,6 +141,7 @@ def _plot_bending_moments(nodes_of_sheet_pile_wall):
         "Bending moment [kNm/m]",
         Path("bending_moments.svg"),
         transform_value=unit_to_kilo_unit,
+        csv_field_name=csv_field_name_bending_moment,
     )
 
 
@@ -101,6 +152,7 @@ def _plot_shear_forces(nodes_of_sheet_pile_wall):
         "Shear force [kN/m]",
         Path("shear_forces.svg"),
         transform_value=unit_to_kilo_unit,
+        csv_field_name=csv_field_name_shear_force,
     )
 
 
