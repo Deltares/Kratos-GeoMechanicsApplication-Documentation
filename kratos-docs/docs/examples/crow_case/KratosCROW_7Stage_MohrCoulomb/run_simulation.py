@@ -8,9 +8,7 @@ from KratosMultiphysics.project import Project
 import KratosMultiphysics.GeoMechanicsApplication.geo_plot_utilities as plot_utils
 
 
-def _generate_plots(model):
-    print("About to generate plots")
-
+def _plot_bending_moments(model):
     stages_info = {
         "initial_stage": {"end_time": -1.0, "base_name": "1_Initial_stage"},
         "null_step": {"end_time": 0.0, "base_name": "2_Null_step"},
@@ -67,6 +65,12 @@ def _generate_plots(model):
         xlabel="Bending moment [kNm/m]",
         ylabel="y [m]",
     )
+
+
+def _generate_plots(model):
+    print("About to generate plots")
+
+    _plot_bending_moments(model)
 
 
 def _main():
