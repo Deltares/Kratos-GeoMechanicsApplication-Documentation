@@ -43,7 +43,7 @@ If you want to compile Kratos as well, see the instructions on the [Kratos websi
 
 Once Kratos has been installed, we can proceed as follows to run the first geomechanical analysis.
 
-### Downloading and preparing the input files
+### Downloading the required files
 
 First, we need a set of input files, which consists of a model file (`.mdpa`), an analysis file (`.json`) and two material properties files (`.json`). For demonstration purposes, we will analyse the staged construction of a building pit, known as the CROW case. Create a folder where you will store the input files, e.g. `CROW_case`, and save the following files there:
 
@@ -52,61 +52,17 @@ First, we need a set of input files, which consists of a model file (`.mdpa`), a
 - [`initial_materials.json`](examples/crow_case/KratosCROW_7Stage_MohrCoulomb/initial_materials.json)
 - [`Mohr_Coulomb_materials.json`](examples/crow_case/KratosCROW_7Stage_MohrCoulomb/Mohr_Coulomb_materials.json)
 
-Now that we have the input files in-place, the next step is to write a Python script that can actually run the simulation.
+In addition, to compare the simulation results, we will need the following set of CSV files with base line results:
 
-```py
-import importlib
-import sys
-from pathlib import Path
+- [`3_Wall_installation__base_line_wall.csv`](examples/crow_case/KratosCROW_7Stage_MohrCoulomb/3_Wall_installation__base_line_wall.csv)
+- [`4_First_excavation__base_line_wall.csv`](examples/crow_case/KratosCROW_7Stage_MohrCoulomb/4_First_excavation__base_line_wall.csv)
+- [`5_Anchor_installation__base_line_wall.csv`](examples/crow_case/KratosCROW_7Stage_MohrCoulomb/5_Anchor_installation__base_line_wall.csv)
+- [`6_Second_excavation__base_line_wall.csv`](examples/crow_case/KratosCROW_7Stage_MohrCoulomb/6_Second_excavation__base_line_wall.csv)
+- [`7_Third_excavation__base_line_wall.csv`](examples/crow_case/KratosCROW_7Stage_MohrCoulomb/7_Third_excavation__base_line_wall.csv)
 
-import KratosMultiphysics as Kratos
-from KratosMultiphysics.project import Project
-import KratosMultiphysics.GeoMechanicsApplication.geo_plot_utilities as plot_utils
-
-
-def _generate_plots():
-    print("About to generate plots")
-
-    stages_info = {
-        "initial_stage": {"end_time": -1.0, "base_name": "1_Initial_stage"},
-        "null_step": {"end_time": 0.0, "base_name": "2_Null_step"},
-        "wall_installation": {"end_time": 1.0, "base_name": "3_Wall_installation"},
-        "first_excavation": {"end_time": 2.0, "base_name": "4_First_excavation"},
-        "strut_installation": {"end_time": 3.0, "base_name": "5_Anchor_installation"},
-        "second_excavation": {"end_time": 4.0, "base_name": "6_Second_excavation"},
-        "third_excavation": {"end_time": 5.0, "base_name": "7_Third_excavation"},
-    }
+Finally, we will need a Python script that runs the geomechanical analysis. [The Python script that we have prepared](examples/crow_case/KratosCROW_7Stage_MohrCoulomb/run_simulation.py) also makes plots (SVG files) that show the bending moments, shear forces, normal forces and horizontal total displacements of the sheet pile wall for the various stages. Save this script in the same folder, too.
 
 
-def _main():
-    with open(Path("staged_construction.json")) as analysis_file:
-        analysis_parameters = Kratos.Parameters(analysis_file.read())
+### Running the analysis
 
-    try:
-        project = Project(analysis_parameters)
-        orchestrator_reg_entry = Kratos.Registry[
-            project.GetSettings()["orchestrator"]["name"].GetString()
-        ]
-        orchestrator_module = importlib.import_module(
-            orchestrator_reg_entry["ModuleName"]
-        )
-        orchestrator_class = getattr(
-            orchestrator_module, orchestrator_reg_entry["ClassName"]
-        )
-        orchestrator_instance = orchestrator_class(project)
-        orchestrator_instance.Run()
-
-        _generate_plots()
-
-    except Exception as e:
-        print(f"Error: {str(e)}")
-        return 1
-
-    return 0
-
-
-if __name__ == "__main__":
-    sys.exit(_main())
-```
-
-Save the above Python code in a file that is located in the same folder as the input files, e.g. `run_simulation.py`. Then, you can run the simulation from the Command Prompt by executing `python run_simulation.py`.
+To run the simulation from the Command Prompt, execute `python run_simulation.py`. This will produce several files, including JSON files with analysis results and SVG files with plots.
