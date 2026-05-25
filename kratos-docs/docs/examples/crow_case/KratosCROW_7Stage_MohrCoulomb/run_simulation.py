@@ -66,7 +66,7 @@ def _make_result_plot(
         plot_file_path,
         titles=names_of_stages_to_be_plotted,
         xlabel=xlabel,
-        ylabel="y [m]",
+        ylabel=r"$y$ [m]",
     )
 
 
