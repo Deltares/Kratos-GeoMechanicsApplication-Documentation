@@ -8,13 +8,20 @@ from KratosMultiphysics.project import Project
 import KratosMultiphysics.GeoMechanicsApplication.geo_plot_utilities as plot_utils
 
 
+def unit_to_kilo_unit(value):
+    return value / 1000.0
+
+
 def _make_data_series_list_for_all_stages(
-    stage_names, nodes_of_sheet_pile_wall, result_item_label
+    stage_names, nodes_of_sheet_pile_wall, result_item_label, transform_value=None
 ):
     """
     Returns a list with one item per stage. Each item is a list of one data
     series that corresponds to the result of the current simulation.
     """
+    if transform_value is None:
+        transform_value = lambda value: value
+
     y_coordinates = [node.Y for node in nodes_of_sheet_pile_wall]
 
     result = []
@@ -25,7 +32,7 @@ def _make_data_series_list_for_all_stages(
         with open(json_output_path, "r") as f:
             analysis_results = json.load(f)
         result_values = [
-            analysis_results[f"NODE_{node.Id}"][result_item_label][0] / 1000.0
+            transform_value(analysis_results[f"NODE_{node.Id}"][result_item_label][0])
             for node in nodes_of_sheet_pile_wall
         ]
 
@@ -49,7 +56,11 @@ def _make_data_series_list_for_all_stages(
 
 
 def _make_result_plot(
-    nodes_of_sheet_pile_wall, result_item_label, xlabel, plot_file_path
+    nodes_of_sheet_pile_wall,
+    result_item_label,
+    xlabel,
+    plot_file_path,
+    transform_value=None,
 ):
     names_of_stages_to_be_plotted = [
         "3_Wall_installation",
@@ -61,7 +72,10 @@ def _make_result_plot(
 
     plot_utils.make_sub_plots(
         _make_data_series_list_for_all_stages(
-            names_of_stages_to_be_plotted, nodes_of_sheet_pile_wall, result_item_label
+            names_of_stages_to_be_plotted,
+            nodes_of_sheet_pile_wall,
+            result_item_label,
+            transform_value=transform_value,
         ),
         plot_file_path,
         titles=names_of_stages_to_be_plotted,
@@ -76,6 +90,7 @@ def _plot_bending_moments(nodes_of_sheet_pile_wall):
         "BENDING_MOMENT",
         "Bending moment [kNm/m]",
         Path("bending_moments.svg"),
+        transform_value=unit_to_kilo_unit,
     )
 
 
@@ -85,6 +100,7 @@ def _plot_shear_forces(nodes_of_sheet_pile_wall):
         "SHEAR_FORCE",
         "Shear force [kN/m]",
         Path("shear_forces.svg"),
+        transform_value=unit_to_kilo_unit,
     )
 
 
@@ -94,17 +110,28 @@ def _plot_normal_forces(nodes_of_sheet_pile_wall):
         "AXIAL_FORCE",
         "Normal force [kN/m]",
         Path("normal_forces.svg"),
+        transform_value=unit_to_kilo_unit,
     )
 
 
-def _generate_plots(model):
-    print("About to generate plots")
+def _plot_horizontal_total_displacements(nodes_of_sheet_pile_wall):
+    _make_result_plot(
+        nodes_of_sheet_pile_wall,
+        "TOTAL_DISPLACEMENT_X",
+        "Horizontal total displacement [m]",
+        Path("horizontal_total_displacements.svg"),
+    )
+
+
+def _make_plots(model):
+    print("Making plots...")
 
     nodes_of_sheet_pile_wall = model.GetModelPart("PorousDomain.Sheet_Pile_Wall").Nodes
 
     _plot_bending_moments(nodes_of_sheet_pile_wall)
     _plot_shear_forces(nodes_of_sheet_pile_wall)
     _plot_normal_forces(nodes_of_sheet_pile_wall)
+    _plot_horizontal_total_displacements(nodes_of_sheet_pile_wall)
 
 
 def _main():
@@ -125,7 +152,7 @@ def _main():
         orchestrator_instance = orchestrator_class(project)
         orchestrator_instance.Run()
 
-        _generate_plots(project.GetModel())
+        _make_plots(project.GetModel())
 
     except Exception as e:
         print(f"Error: {str(e)}")
