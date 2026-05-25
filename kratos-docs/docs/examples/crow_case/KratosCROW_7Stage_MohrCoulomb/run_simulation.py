@@ -88,6 +88,15 @@ def _plot_shear_forces(nodes_of_sheet_pile_wall):
     )
 
 
+def _plot_normal_forces(nodes_of_sheet_pile_wall):
+    _make_result_plot(
+        nodes_of_sheet_pile_wall,
+        "AXIAL_FORCE",
+        "Normal force [kN/m]",
+        Path("normal_forces.svg"),
+    )
+
+
 def _generate_plots(model):
     print("About to generate plots")
 
@@ -95,6 +104,7 @@ def _generate_plots(model):
 
     _plot_bending_moments(nodes_of_sheet_pile_wall)
     _plot_shear_forces(nodes_of_sheet_pile_wall)
+    _plot_normal_forces(nodes_of_sheet_pile_wall)
 
 
 def _main():
