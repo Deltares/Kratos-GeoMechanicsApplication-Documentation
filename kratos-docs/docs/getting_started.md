@@ -3,21 +3,32 @@
 This section assumes that you are working on a Windows system.
 
 
-## Installing Kratos
+## Preparing your system
 
-To follow along with this tutorial, please make sure that you have a recent Python version (3.11 up to and including 3.14) installed on your system.  When you don't have Python installed yet, please download the latest Python installer from the [official Python website](https://www.python.org/) and follow the on-screen instructions to install it.
+To follow along with this tutorial, please make sure that you have a recent Python version (3.11 up to and including 3.14) installed on your system. When you don't have Python installed yet, please download the latest Python installer from the [official Python website](https://www.python.org/) and follow the on-screen instructions to install it.
 
 
-### Setting up and activating a Python venv
+### Creating a Python venv
 
-It is generally recommended to install the GeoMechanicsApplication in a [Python virtual environment](https://docs.python.org/3/glossary.html#term-virtual-environment) (or "venv", for short). To create and activate such an environment, please carry out the following steps:
+It is generally recommended to install the GeoMechanicsApplication in a [Python virtual environment](https://docs.python.org/3/glossary.html#term-virtual-environment) (or "venv", for short). To create such an environment, please carry out the following steps:
 
 - Open a Command Prompt.
-- Double-check whether Python is available by executing `python --version`.  In this way, you can also verify which Python version you are using.
+- Double-check whether Python is available by executing `python --version`. In this way, you can also verify which Python version you are using.
 - Create a folder where you would like to install the GeoMechanicsApplication, e.g. `mkdir GeoMechanicsApplication`.
 - Change the current working directory to this new folder: `cd GeoMechanicsApplication`.
 - Create a new Python venv: `python -m venv .venv`. Optionally, when you have multiple Python versions installed, you may want to use the [Python launcher](https://docs.python.org/3/using/windows.html#python-launcher-for-windows-deprecated) to indicate which Python version you would like to use. For instance, if you would like to use Python 3.12, execute the following command: `py -3.12 -m venv .venv`.
-- Activate the Python venv: `.venv\Scripts\activate`.
+
+
+### Activating the Python venv
+
+The next step is to activate the Python venv by executing the following command: `.venv\Scripts\activate`.
+
+Note that when you start a new Command Prompt session where you would like to run GeoMechanicsApplication, you will need to activate this Python venv again, using the above command. There is no need to repeat the steps to create the venv, since it will still be there (unless you have removed it).
+
+
+## Installing Kratos
+
+You can conveniently install the GeoMechanicsApplication in one of two ways: (1) by using the binaries distributed through [pypi.org](https://pypi.org/), or (2) by installing a set of Python wheels that have been shared with you by the Kratos team at Deltares. In general, you are recommended to use the former. However, there may be cases where you need a more recent or custom build, which would require the latter.
 
 
 ### Using pypi
@@ -32,20 +43,25 @@ More recent versions of the main-development branch can be obtained by sending a
 - Extract the archive in the `GeoMechanicsApplication` folder that you have created earlier on. This results in a new subdirectory named `wheels`, which contains the `.whl` files.
 - Change the current working directory to this new subdirectory: `cd wheels`.
 - Install the Python wheels by executing the Windows batch script: `.\install`.
-- Install an additional required Python package: `pip install matplotlib`.
 
-### Building Kratos from scratch
 
-If you want to compile Kratos as well, see the instructions on the [Kratos website](https://kratosmultiphysics.github.io/Kratos/pages/Kratos/For_Users/How_To_Get_Kratos/Binaries.html).
+### Additional dependency
+
+The results of the geomechanical analysis that will be run shortly, will be presented to you by means of a set of plots. To generate these plots, we need to install an additional Python package: `pip install matplotlib`.
+
+Note that this additional dependency is required, regardless of how you installed GeoMechanicsApplication (either through pypi or by using a set of Python wheels).
 
 
 ## Running a Kratos simulation
 
 Once Kratos has been installed, we can proceed as follows to run the first geomechanical analysis.
 
+For demonstration purposes, we will analyse the staged construction of a building pit, known as the CROW case. For details about this example, you are referred to the documentation of the corresponding [validation test](https://github.com/KratosMultiphysics/Kratos/blob/master/applications/GeoMechanicsApplication/tests/crow_validation/CROW_documentation.md).
+
+
 ### Downloading the required files
 
-First, we need a set of input files, which consists of a model file (`.mdpa`), an analysis file (`.json`) and two material properties files (`.json`). For demonstration purposes, we will analyse the staged construction of a building pit, known as the CROW case. Create a folder where you will store the input files, e.g. `CROW_case`, and save the following files there:
+First, you will need a set of input files, which consists of a model file (`.mdpa`), an analysis file (`.json`) and two material properties files (`.json`). Create a folder where you will store the input files, e.g. `CROW_case`, and save the following files there:
 
 - [`CROW_case_clay-sand.mdpa`](examples/crow_case/KratosCROW_7Stage_MohrCoulomb/CROW_case_clay-sand.mdpa)
 - [`staged_construction.json`](examples/crow_case/KratosCROW_7Stage_MohrCoulomb/staged_construction.json)
@@ -65,4 +81,4 @@ Finally, we will need a Python script that runs the geomechanical analysis. [The
 
 ### Running the analysis
 
-To run the simulation from the Command Prompt, execute `python run_simulation.py`. This will produce several files, including JSON files with analysis results and SVG files with plots.
+To run the simulation from the Command Prompt, first change to the directory where you have saved the downloaded files, e.g. `cd CROW_case`. Then carry out the analysis by executing `python run_simulation.py`. Depending on the available system resources, this may take a minute or more. Running the simulation will produce several output files, including JSON files with analysis results and SVG files with plots.
