@@ -12,7 +12,7 @@ import KratosMultiphysics.GeoMechanicsApplication.geo_plot_utilities as plot_uti
 csv_field_name_node = "node"
 csv_field_name_bending_moment = "bending_moment_in_Nm_per_m"
 csv_field_name_shear_force = "shear_force_in_N_per_m"
-csv_field_name_horizontal_displacement = "horizontal_displacement_in_m"
+csv_field_name_horizontal_total_displacement = "horizontal_total_displacement_in_m"
 
 
 def unit_to_kilo_unit(value):
@@ -23,7 +23,7 @@ def get_nodal_data_from_csv(csv_file_path):
     result_field_names = [
         csv_field_name_bending_moment,
         csv_field_name_shear_force,
-        csv_field_name_horizontal_displacement,
+        csv_field_name_horizontal_total_displacement,
     ]
     with open(csv_file_path, newline="") as csv_file:
         reader = csv.DictReader(csv_file)
@@ -172,6 +172,7 @@ def _plot_horizontal_total_displacements(nodes_of_sheet_pile_wall):
         "TOTAL_DISPLACEMENT_X",
         "Horizontal total displacement [m]",
         Path("horizontal_total_displacements.svg"),
+        csv_field_name=csv_field_name_horizontal_total_displacement,
     )
 
 
