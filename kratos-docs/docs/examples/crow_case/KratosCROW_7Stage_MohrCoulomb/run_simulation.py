@@ -12,6 +12,7 @@ import KratosMultiphysics.GeoMechanicsApplication.geo_plot_utilities as plot_uti
 csv_field_name_node = "node"
 csv_field_name_bending_moment = "bending_moment_in_Nm_per_m"
 csv_field_name_shear_force = "shear_force_in_N_per_m"
+csv_field_name_normal_force = "normal_force_in_N_per_m"
 csv_field_name_horizontal_total_displacement = "horizontal_total_displacement_in_m"
 
 
@@ -23,6 +24,7 @@ def get_nodal_data_from_csv(csv_file_path):
     result_field_names = [
         csv_field_name_bending_moment,
         csv_field_name_shear_force,
+        csv_field_name_normal_force,
         csv_field_name_horizontal_total_displacement,
     ]
     with open(csv_file_path, newline="") as csv_file:
@@ -163,6 +165,7 @@ def _plot_normal_forces(nodes_of_sheet_pile_wall):
         "Normal force [kN/m]",
         Path("normal_forces.svg"),
         transform_value=unit_to_kilo_unit,
+        csv_field_name=csv_field_name_normal_force,
     )
 
 
