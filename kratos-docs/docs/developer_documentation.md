@@ -1,3 +1,5 @@
 # Developer Documentation
 
-For contributors and internal developers. Build instructions, testing, contribution workflow, and maybe some notes on structure as well. Rather than repeating what’s documented in the Kratos repository, we may provide links to the relevant pages there. This page may serve as an entry point for the developer documentation that is maintained in the Kratos repository.
+This section is intended for contributors and internal developers.
+
+If you want to build Kratos from scratch, please follow the instructions on the [Kratos website](https://kratosmultiphysics.github.io/Kratos/pages/Kratos/For_Users/How_To_Get_Kratos/Binaries.html).
