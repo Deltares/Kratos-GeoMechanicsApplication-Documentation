@@ -1,3 +1,21 @@
+# material parameters
+ignore_undrained: If `true` keeps all the pressure field unchanged
+density_solid: The density of soil (kg/m^3^) as non-porous material
+density_water: The density of water (kg/m^3^)
+porosity: Porosity ratio
+bulk_modulus_solid: The measure of the decrease in solid volume with an increase in pressure (N/m^2^)
+bulk_modulus_fluid: The measure of the decrease in fluid volume with an increase in pressure (N/m^2^), for water input 2.2x10^9^
+permeability_xx: Intrinsic permeability in the XX direction (m^2^)
+permeability_yy: Intrinsic permeability in the YY direction (m^2^)
+permeability_xy: Intrinsic permeability in the XY direction (m^2^)
+permeability_change_inverse_factor: If > 0 the permeability will be updated depending on the volumetric strain
+dynamic_viscosity: Dynamic viscosity (kg/m s)
+biot_coefficient: Biot alpha coefficient
+retention_law: Water retention law `SaturatedLaw`, `VanGenuchtenLaw`, `SaturatedBelowPheraticLevelLaw`
+saturated_saturation: Maximum pore fill by water (0 to 1), higher than `RESIDUAL_SATURATION`
+residual_saturation: Minimum pore fill trapped in the soil (0 to 1), lower than `SATURATED_SATURATION`
+minimum_relative_permeability: Minimum relative permeability
+# project parameters
 echo_level: "Level of logging."
 model_part_name: "Body part to apply the process to. `PorousDomain.XXX` is required."
 variable_name: "Kratos vector variable."

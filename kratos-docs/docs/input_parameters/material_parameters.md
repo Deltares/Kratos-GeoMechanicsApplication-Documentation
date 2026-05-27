@@ -1,54 +1,107 @@
 # MaterialParameters.json file description
 
-**Note: The user is responsible for giving all material parameters a consistent set of parameters.**
+The material parameters json-file contains as description of all the materials and there properties of the Kratos simulation. 
+The user is responsible for giving all material parameters a consistent set of parameters.
+
+By clicking on an annotation (1) the user is provided more detailed information about a property.
+{ .annotate }
+
+1. Here more information about an annotation can be found.
+
+## MaterialParameters.json structure format
+The strucal format of the MaterialParameters.json is as follows:
+
+```json
+{
+  "properties": [ //(1)!
+    {
+      "model_part_name": "PorousDomain.Soil-0", //(2)!
+	  "properties_id": 0, //(3)!
+      "Material": { //(4)!
+        "constitutive_law": { //(5)!
+          "name": "GeoLinearElasticPlaneStrain2DLaw" //(6)!
+        },
+        "Variables": { } //(7)!
+      }
+    },
+}
+```
+
+1. Start of the properties list
+2. Name of the material
+3. ID number assigned to your material
+4. Start of material description
+5. Define soil constitutive law
+6. The name of soil constitutive law e.g. [`GeoLinearElasticPlaneStrain2DLaw`](#constitutive-law-geolinearelasticplanestrain2dlaw) [`SmallStrainUDSM2DPlaneStrainLaw`](#constitutive-law-smallstrainudsm2dplanestrainlaw)
+7. Begin of material variables
+
+For multiple material in one project, multiple item can be added to the properties list, each having there own unique id and possibility varying constitutive laws or material properties.
+For various constitutive laws, there properties (variable sections) are defined below.
 
 ## Constitutive law: GeoLinearElasticPlaneStrain2DLaw
 
-| Parameters | Description |
-| --- | --- |
-| `{ "properties": [{` | Start of the properties list |
-| `"model_part_name":` | Name of your material |
-| `"properties_id":` | ID number assigned to your material |
-| `"Material": {` | Start of material description |
-| `"constitutive_law": {` | Define soil constitutive law |
-| `"name":` | Name of soil constitutive law |
-| `"Variables": {` | Begin of material variables |
-| `"IGNORE_UNDRAINED":` | If `true`: keeps all the pressure field unchanged |
-| `"YOUNG_MODULUS":` | Young Modulus (kPa) |
-| `"POISSON_RATIO":` | Poisson Ratio |
-| `"DENSITY_SOLID":` | The density of soil (kg/m<sup>3</sup>) or (Mg/m<sup>3</sup> = g/cm<sup>3</sup>) as non-porous material |
-| `"DENSITY_WATER":` | The density of water, input: `1000` (kg/m<sup>3</sup>) or `1` (Mg/m<sup>3</sup> = g/cm<sup>3</sup>) |
-| `"POROSITY":` | Porosity ratio |
-| `"BULK_MODULUS_SOLID":` | The measure of the decrease in solid volume with an increase in pressure (N/m<sup>2</sup>) |
-| `"BULK_MODULUS_FLUID":` | The measure of the decrease in fluid volume with an increase in pressure (N/m<sup>2</sup>), for water input: 2.2x10<sup>9</sup> |
-| `"PERMEABILITY_XX":` | Intrinsic permeability in the XX direction (m<sup>2</sup>) |
-| `"PERMEABILITY_YY":` | Intrinsic permeability in the YY direction (m<sup>2</sup>) |
-| `"PERMEABILITY_XY":` | Intrinsic permeability in the XY direction (m<sup>2</sup>) |
-| `"PERMEABILITY_CHANGE_INVERSE_FACTOR":` | If > 0 the permeability will be updated depending on the volumetric strain |
-| `"DYNAMIC_VISCOSITY":` | Dynamic viscosity (kg/m.s) |
-| `"THICKNESS":` | Not specified in source document |
-| `"K0_MAIN_DIRECTION":` | Input `0` for X, `1` for Y, and `2` for Z direction |
-| `"K0_VALUE_XX":` | K0 value in the XX direction |
-| `"K0_VALUE_YY":` | K0 value in the YY direction |
-| `"K0_VALUE_ZZ":` | K0 value in the ZZ direction |
-| `"BIOT_COEFFICIENT":` | Biot alpha coefficient |
-| `"RETENTION_LAW":` | Water retention law: `SaturatedLaw`, `VanGenuchtenLaw`, `SaturatedBelowPheraticLevelLaw` |
-| `"SATURATED_SATURATION":` | Maximum pore fill by water (0 to 1), higher than `RESIDUAL_SATURATION` |
-| `"RESIDUAL_SATURATION":` | Minimum pore fill trapped in the soil (0 to 1), lower than `SATURATED_SATURATION` |
-| `"VAN_GENUCHTEN_AIR_ENTRY_PRESSURE":` | Coefficient for Van Genuchten curve |
-| `"VAN_GENUCHTEN_GN":` | Coefficient for Van Genuchten curve |
-| `"VAN_GENUCHTEN_GL":` | Coefficient for Van Genuchten curve |
-| `"MINIMUM_RELATIVE_PERMEABILITY":` | Minimum relative permeability |
-| `"Tables": {}` | Optional tables |
+When `GeoLinearElasticPlaneStrain2DLaw` is set as the name of the constitutive law, the strucal format `Variables`-block is as follows:
 
+```json
+{
+  "IGNORE_UNDRAINED": false, //(1)!
+  "YOUNG_MODULUS": 10000, //(2)!
+  "POISSON_RATIO": 0.2, //(3)!
+  "DENSITY_SOLID": 2650, //(4)!
+  "DENSITY_WATER": 1000, //(5)!
+  "POROSITY": 0.3, //(6)!
+  "BULK_MODULUS_SOLID": 20000000000, //(7)!
+  "BULK_MODULUS_FLUID": 2200000000, //(8)!
+  "PERMEABILITY_XX": 6.901970778117567E-11, //(9)!
+  "PERMEABILITY_YY": 6.901970778117567E-11, //(10)!
+  "PERMEABILITY_XY": 0, //(11)!
+  "PERMEABILITY_CHANGE_INVERSE_FACTOR": 0, //(12)!
+  "DYNAMIC_VISCOSITY": 0.0013, //(13)!
+  "THICKNESS": 1,
+  "K0_MAIN_DIRECTION": 1, //(14)!
+  "K0_VALUE_XX": 0, //(15)!
+  "K0_VALUE_YY": 0, //(16)!
+  "K0_VALUE_ZZ": 0, //(17)!
+  "BIOT_COEFFICIENT": 1, //(18)!
+  "RETENTION_LAW": "SaturatedLaw", //(19)!
+  "SATURATED_SATURATION": 1 //(20)!
+  "RESIDUAL_SATURATION": 0 //(21)!
+  "VAN_GENUCHTEN_AIR_ENTRY_PRESSURE": 0 //(22)!
+  "VAN_GENUCHTEN_GN": 0 //(23)!
+  "VAN_GENUCHTEN_GL": 0 //(24)!
+  "MINIMUM_RELATIVE_PERMEABILITY": 0 //(25)!
+  "Tables": {} //(26)!
+}
+```
 
-### Parameters for K0 procedure
+1. {{ ignore_undrained }}
+2. Young Modulus (Pa)
+3. Poisson Ratio
+4. {{ density_solid }}
+5. {{ density_water }}
+6. {{ porosity }}
+7. {{ bulk_modulus_solid }}
+8. {{ bulk_modulus_fluid }}
+9. {{ permeability_xx }}
+10. {{ permeability_yy }}
+11. {{ permeability_xy }}
+12. {{ permeability_change_inverse_factor }}
+13. {{ dynamic_viscosity }} 
+14. Input `0` for X, `1` for Y, and `2` for Z direction. Direction (v) from which stress in perpendicular directions (h) is derived: `sigma_hh = K0 * sigma_vv`
+15. K0 value in the XX direction
+16. K0 value in the YY direction
+17. K0 value in the ZZ direction
+18. {{ biot_coefficient }}
+19. {{ retention_law }}
+20. {{ saturated_saturation }}
+21. {{ residual_saturation }}
+22. Coefficient for Van Genuchten curve
+23. Coefficient for Van Genuchten curve
+24. Coefficient for Van Genuchten curve
+25. {{ minimum_relative_permeability }}
+26. Optional tables
 
-| Parameters | Description |
-| --- | --- |
-| `"K0_MAIN_DIRECTION":` | Input `0` for X, `1` for Y, and `2` for Z direction. Direction (v) from which stress in perpendicular directions (h) is derived: `sigma_hh = K0 * sigma_vv` |
-
-#### 3 alternatives for the input of the K0 value
+<!-- #### 3 alternatives for the input of the K0 value
 
 See: https://publicwiki.deltares.nl/x/joSHDw
 
@@ -60,43 +113,102 @@ See: https://publicwiki.deltares.nl/x/joSHDw
 | `"K0_VALUE_YY":` | K0 value in YY direction |
 | `"K0_VALUE_ZZ":` | K0 value in ZZ direction |
 | `"OCR": >= 1` (optional) | Over consolidation ratio |
-| `"POISSON_UNLOADING_RELOADING": (-1 to 0.5)` (optional) | Poisson's ratio under unloading and reloading |
-
-### Parameters for water flow
-
-| Parameters | Description |
-| --- | --- |
-| `"PERMEABILITY_XX":` | Intrinsic permeability in the XX direction (m<sup>2</sup>) |
-| `"PERMEABILITY_YY":` | Intrinsic permeability in the YY direction (m<sup>2</sup>) |
-| `"PERMEABILITY_XY":` | Intrinsic permeability in the XY direction (m<sup>2</sup>) |
-| `"DYNAMIC_VISCOSITY":` | Dynamic viscosity (kg/m.s) or (kPa.s) |
-| `"RETENTION_LAW":` | Water retention law: `SaturatedLaw`, `VanGenuchtenLaw`, `SaturatedBelowPheraticLevelLaw` |
-| `"SATURATED_SATURATION":` | Maximum pore fill by water (0 to 1), higher than `RESIDUAL_SATURATION` |
-| `"RESIDUAL_SATURATION":` | Minimum pore fill trapped in the soil (0 to 1), lower than `SATURATED_SATURATION` |
-| `"VAN_GENUCHTEN_AIR_ENTRY_PRESSURE":` | Coefficient for Van Genuchten curve |
-| `"VAN_GENUCHTEN_GN":` | Coefficient for Van Genuchten curve |
-| `"VAN_GENUCHTEN_GL":` | Coefficient for Van Genuchten curve |
-| `"MINIMUM_RELATIVE_PERMEABILITY":` | Minimum relative permeability |
-
-### Parameters for soil-water interaction
-
-| Parameters | Description |
-| --- | --- |
-| `"IGNORE_UNDRAINED":` | If `true`: keeps all the pressure field unchanged |
-| `"BULK_MODULUS_SOLID":` | The measure of the decrease in solid volume with an increase in pressure (N/m<sup>2</sup>) |
-| `"BULK_MODULUS_FLUID":` | The measure of the decrease in fluid volume with an increase in pressure (N/m<sup>2</sup>), for water input: 2.2x10<sup>9</sup> |
-| `"BIOT_COEFFICIENT":` | Biot alpha coefficient |
-| `"PERMEABILITY_CHANGE_INVERSE_FACTOR":` | If > 0 the permeability will be updated depending on the volumetric strain |
-| `"THICKNESS":` | Not specified in source document |
+| `"POISSON_UNLOADING_RELOADING": (-1 to 0.5)` (optional) | Poisson's ratio under unloading and reloading | -->
 
 ## Constitutive law: SmallStrainUDSM2DPlaneStrainLaw
 
+When `SmallStrainUDSM2DPlaneStrainLaw` is set as the name of the constitutive law, the strucal format `Variables`-block is as follows:
+
+```json
+{
+  "IGNORE_UNDRAINED": false, //(1)!
+  "DENSITY_SOLID": 2650, //(2)!
+  "DENSITY_WATER": 1000, //(3)!
+  "POROSITY": 0.3, //(4)!
+  "BULK_MODULUS_SOLID": 20000000000, //(5)!
+  "BULK_MODULUS_FLUID": 2200000000, //(6)!
+  "PERMEABILITY_XX": 6.901970778117567E-11, //(7)!
+  "PERMEABILITY_YY": 6.901970778117567E-11, //(8)!
+  "PERMEABILITY_XY": 0, //(9)!
+  "PERMEABILITY_CHANGE_INVERSE_FACTOR": 0, //(10)!
+  "DYNAMIC_VISCOSITY": 0.0013, //(11)!
+  "BIOT_COEFFICIENT": 1, //(12)!
+  "RETENTION_LAW": "SaturatedLaw", //(13)!
+  "SATURATED_SATURATION": 1 //(14)!
+  "RESIDUAL_SATURATION": 0 //(15)!
+  "MINIMUM_RELATIVE_PERMEABILITY": 0 //(16)!
+  "UDSM_NAME": "UDSM.dll", //(17)!
+  "UDSM_NUMBER": 1, //(18)!
+  "IS_FORTRAN_UDSM": true, //(19)!
+  "UMAT_PARAMETERS": [ ], //(20)!
+  "USE_HENCKY_STRAIN": false  //(21)!
+  "Tables": {} //(22)!
+}
+```
+
+1. {{ ignore_undrained }}
+2. {{ density_solid }}
+3. {{ density_water }}
+4. {{ porosity }}
+5. {{ bulk_modulus_solid }}
+6. {{ bulk_modulus_fluid }}
+7. {{ permeability_xx }}
+8. {{ permeability_yy }}
+9. {{ permeability_xy }}
+10. {{ permeability_change_inverse_factor }}
+11. {{ dynamic_viscosity }}
+12. {{ biot_coefficient }}
+13. {{ retention_law }}
+14. {{ saturated_saturation }}
+15. {{ residual_saturation }}
+16. {{ minimum_relative_permeability }}
+17. Name of the UDSM (`.dll`) soil file
+18. Set to 1
+19. Set `true` if the UDSM file is in Fortran
+20. The umat parameters. For various commenly used soil models there parameters are described [below](#solver_settings-block-structure-format)
+21. If `true`: use Hencky strain measure (natural/logarithmic strain). Should be used together with `move_mesh_flag` [solver setting block of the ProjectParameters.json](../project_parameters/#solver_settings-block-structure-format) and have the same value
+22. Optional tables
+
+### UMAT parameters format
+
+Here are the input parameters described for some soil models that are commonly used within Deltares. See [Soil Models](../../theory/soil_models/) for more background about the soil models that how to use and obtain them.
+
+#### abc-Isotache natural strain: `UDSM.dll`
+
+For abc-Isotache natural strain soil model, `UDSM.dll`, the following parameters are expected:
+
 | Parameters | Description |
 | --- | --- |
-| `"UDSM_NAME":` | Name of the UDSM (`.dll`) soil file |
-| `"UDSM_NUMBER":` | Set to `1` |
-| `"IS_FORTRAN_UDSM":` | Set `true` if the UDSM file is in Fortran |
-| `"UMAT_PARAMETERS"` (for abc-Isotache natural strains) | `a`: modified natural swelling index; `b`: modified natural compression index; `c`: modified natural secondary compression constant; `t`: time = 1.0; `OCR`: overconsolidation ratio |
-| `"UMAT_PARAMETERS"` (for Mohr-Coulomb model in `MohrCoulomb64.dll`) | `1: E` Young's modulus (kN/m<sup>2</sup>), `2: Nu` Poisson's ratio unloading/reloading, `3: C` cohesion (kN/m<sup>2</sup>), `4: Phi` friction angle (degrees), `5: Psi` dilation angle (degrees), `6: Tens` allowable tensile stress (kN/m<sup>2</sup>), `7: Yield` yield function index (1 for Mohr-Coulomb), `8: Nu_undr` undrained Poisson's ratio |
-| `"UMAT_PARAMETERS"` (for Mohr-Coulomb model in `example64.dll`) | `1: G` shear modulus (kN/m<sup>2</sup>), `2: Nu` Poisson's ratio unloading/reloading, `3: C` cohesion (kN/m<sup>2</sup>), `4: Phi` friction angle (degrees), `5: Psi` dilation angle (degrees), `6: Tens` allowable tensile stress (kN/m<sup>2</sup>) |
-| `"USE_HENCKY_STRAIN":` | If `true`: use Hencky strain measure (natural/logarithmic strain). Should be used together with `move_mesh_flag` in ProjectParameters.json and have the same value |
+| `a` | modified natural swelling index |
+| `b` | modified natural compression index |
+| `c` | modified natural secondary compression constant |
+| `t` | time = 1.0 |
+| `OCR` | overconsolidation ratio |
+
+#### Mohr-Coulomb model: `MohrCoulomb64.dll`
+
+For Mohr-Coulomb model in `MohrCoulomb64.dll`, the following parameters are expected:
+
+| Parameters | Description |
+| --- | --- |
+| `E` | Young's modulus (kN/m^2^) | 
+| `Nu` | Poisson's ratio unloading/reloading | 
+| `C` | cohesion (kN/m^2^) | 
+| `Phi` | friction angle (°) | 
+| `Psi` | dilation angle (°) |
+| `Tens` | allowable tensile stress (kN/m^2^) |
+| `Yield` | yield function index (1 for Mohr-Coulomb) | 
+| `Nu_undr` | undrained Poisson's ratio |
+
+#### Mohr-Coulomb model: `example64.dll`
+
+For Mohr-Coulomb model in `example64.dll`, the following parameters are expected:
+
+| Parameters | Description |
+| --- | --- |
+| `G` | shear modulus (kN/m^2^) | 
+| `Nu` | Poisson's ratio unloading/reloading | 
+| `C` | cohesion (kN/m^2^) | 
+| `Phi` | friction angle (°) | 
+| `Psi` | dilation angle (°) |
+| `Tens` | allowable tensile stress (kN/m^2^) |

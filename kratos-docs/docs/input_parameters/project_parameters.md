@@ -3,6 +3,11 @@
 The project parameters json-file contains as description of the input of the Kratos simulation. More information can be found on the [Kratos website](https://github.com/KratosMultiphysics/Kratos/wiki/Kratos-input-files-and-IO#3-the-project-parameters-file).
 The user is responsible for giving all material parameters a consistent set of parameters.
 
+By clicking on an annotation (1) the user is provided more detailed information about a property.
+{ .annotate }
+
+1. Here more information about an annotation can be found.
+
 ## ProjectParameter.json structure format
 The strucal format of the ProjectParameter.json is described on the Kratos website:
 
