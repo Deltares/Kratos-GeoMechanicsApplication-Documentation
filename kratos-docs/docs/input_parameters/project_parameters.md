@@ -9,7 +9,6 @@ By clicking on an annotation (1) the user is provided more detailed information 
 1. Here more information about an annotation can be found.
 
 ## ProjectParameter.json structure format
-The strucal format of the ProjectParameter.json is described on the Kratos website:
 
 ```json
 {
@@ -110,7 +109,7 @@ The strucal format of the ProjectParameter.json is described on the Kratos websi
     "newmark_gamma": 0.5,   //(52)!
     "newmark_theta": 0.5,   //(53)!
     "rayleigh_m": 0.0,   //(54)!
-    "rayleigh_k": 0.0 },  //(55)!
+    "rayleigh_k": 0.0,  //(55)!
 	"max_piping_iterations": 500,  //(56)!
   },
 ```

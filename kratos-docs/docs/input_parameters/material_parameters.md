@@ -135,7 +135,7 @@ When `SmallStrainUDSM2DPlaneStrainLaw` is set as the name of the constitutive la
   "UDSM_NUMBER": 1, //(18)!
   "IS_FORTRAN_UDSM": true, //(19)!
   "UMAT_PARAMETERS": [ ], //(20)!
-  "USE_HENCKY_STRAIN": false  //(21)!
+  "USE_HENCKY_STRAIN": false,  //(21)!
   "Tables": {} //(22)!
 }
 ```
