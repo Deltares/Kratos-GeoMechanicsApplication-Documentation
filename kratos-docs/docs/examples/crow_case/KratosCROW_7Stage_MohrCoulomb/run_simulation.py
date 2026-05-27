@@ -1,6 +1,7 @@
 import csv
 import importlib
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -9,11 +10,31 @@ from KratosMultiphysics.project import Project
 import KratosMultiphysics.GeoMechanicsApplication.geo_plot_utilities as plot_utils
 
 
+bending_moment_label = "BENDING_MOMENT"
+shear_force_label = "SHEAR_FORCE"
+normal_force_label = "AXIAL_FORCE"
+horizontal_total_displacement_label = "TOTAL_DISPLACEMENT_X"
+
 csv_field_name_node = "node"
 csv_field_name_bending_moment = "bending_moment_in_Nm_per_m"
 csv_field_name_shear_force = "shear_force_in_N_per_m"
 csv_field_name_normal_force = "normal_force_in_N_per_m"
 csv_field_name_horizontal_total_displacement = "horizontal_total_displacement_in_m"
+
+plot_file_paths_by_result = {
+    bending_moment_label: Path("bending_moments.svg"),
+    shear_force_label: Path("shear_forces.svg"),
+    normal_force_label: Path("normal_forces.svg"),
+    horizontal_total_displacement_label: Path("horizontal_total_displacements.svg"),
+}
+
+
+def remove_output_and_plot_files():
+    for file_path in plot_file_paths_by_result.values():
+        try:
+            os.remove(file_path)
+        except FileNotFoundError:
+            pass
 
 
 def unit_to_kilo_unit(value):
@@ -66,13 +87,13 @@ def _make_data_series_list_for_all_stages(
         ]
 
         # Sort data points by Y coordinate
-        sorted_y_coordinates, sorted_bending_moments = zip(
+        sorted_y_coordinates, sorted_result_values = zip(
             *sorted(zip(y_coordinates, result_values))
         )
 
         stage_data_series.append(
             plot_utils.DataSeries(
-                zip(sorted_bending_moments, sorted_y_coordinates),
+                zip(sorted_result_values, sorted_y_coordinates),
                 label="Kratos (current simulation)",
                 line_style="-",
                 marker=".",
@@ -109,10 +130,11 @@ def _make_result_plot(
     nodes_of_sheet_pile_wall,
     result_item_label,
     xlabel,
-    plot_file_path,
     transform_value=None,
     csv_field_name=None,
 ):
+    plot_file_path = plot_file_paths_by_result[result_item_label]
+
     names_of_stages_to_be_plotted = [
         "3_Wall_installation",
         "4_First_excavation",
@@ -139,9 +161,8 @@ def _make_result_plot(
 def _plot_bending_moments(nodes_of_sheet_pile_wall):
     _make_result_plot(
         nodes_of_sheet_pile_wall,
-        "BENDING_MOMENT",
+        bending_moment_label,
         "Bending moment [kNm/m]",
-        Path("bending_moments.svg"),
         transform_value=unit_to_kilo_unit,
         csv_field_name=csv_field_name_bending_moment,
     )
@@ -150,9 +171,8 @@ def _plot_bending_moments(nodes_of_sheet_pile_wall):
 def _plot_shear_forces(nodes_of_sheet_pile_wall):
     _make_result_plot(
         nodes_of_sheet_pile_wall,
-        "SHEAR_FORCE",
+        shear_force_label,
         "Shear force [kN/m]",
-        Path("shear_forces.svg"),
         transform_value=unit_to_kilo_unit,
         csv_field_name=csv_field_name_shear_force,
     )
@@ -161,9 +181,8 @@ def _plot_shear_forces(nodes_of_sheet_pile_wall):
 def _plot_normal_forces(nodes_of_sheet_pile_wall):
     _make_result_plot(
         nodes_of_sheet_pile_wall,
-        "AXIAL_FORCE",
+        normal_force_label,
         "Normal force [kN/m]",
-        Path("normal_forces.svg"),
         transform_value=unit_to_kilo_unit,
         csv_field_name=csv_field_name_normal_force,
     )
@@ -172,9 +191,8 @@ def _plot_normal_forces(nodes_of_sheet_pile_wall):
 def _plot_horizontal_total_displacements(nodes_of_sheet_pile_wall):
     _make_result_plot(
         nodes_of_sheet_pile_wall,
-        "TOTAL_DISPLACEMENT_X",
+        horizontal_total_displacement_label,
         "Horizontal total displacement [m]",
-        Path("horizontal_total_displacements.svg"),
         csv_field_name=csv_field_name_horizontal_total_displacement,
     )
 
@@ -191,6 +209,8 @@ def _make_plots(model):
 
 
 def _main():
+    remove_output_and_plot_files()
+
     with open(Path("staged_construction.json")) as analysis_file:
         analysis_parameters = Kratos.Parameters(analysis_file.read())
 
