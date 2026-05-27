@@ -160,12 +160,12 @@ When `SmallStrainUDSM2DPlaneStrainLaw` is set as the name of the constitutive la
 18. Set to 1
 19. Set `true` if the UDSM file is in Fortran
 20. The umat parameters. For various commonly used soil models see [Details](#umat-parameters-format)
-21. If `true`: use Hencky strain measure (natural/logarithmic strain). Should be used together with `move_mesh_flag` [solver setting block of the ProjectParameters.json](../project_parameters/#solver_settings-block-structure-format) and have the same value
+21. If `true`: use Hencky strain measure (natural/logarithmic strain). Should be used together with `move_mesh_flag` [solver setting block of the ProjectParameters.json](project_parameters.md#solver_settings-block-structure-format) and have the same value
 22. Optional tables
 
 ### UMAT parameters format
 
-Here are the input parameters described for some soil models that are commonly used within Deltares. See [Soil Models](../../theory/soil_models/) for more background about the soil models that how to use and obtain them.
+Here are the input parameters described for some soil models that are commonly used within Deltares. See [Soil Models](../theory/soil_models.md) for more background about the soil models that how to use and obtain them.
 
 #### abc-Isotache natural strain: `UDSM.dll`
 
