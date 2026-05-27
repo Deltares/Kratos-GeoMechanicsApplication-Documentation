@@ -28,9 +28,23 @@ plot_file_paths_by_result = {
     horizontal_total_displacement_label: Path("horizontal_total_displacements.svg"),
 }
 
+names_of_stages_to_be_plotted = [
+    "3_Wall_installation",
+    "4_First_excavation",
+    "5_Anchor_installation",
+    "6_Second_excavation",
+    "7_Third_excavation",
+]
+
+
+def json_output_file_path_for_stage(stage_name):
+    return Path(f"{stage_name}__output_wall.json")
+
 
 def remove_output_and_plot_files():
-    for file_path in plot_file_paths_by_result.values():
+    for file_path in [
+        json_output_file_path_for_stage(name) for name in names_of_stages_to_be_plotted
+    ] + list(plot_file_paths_by_result.values()):
         try:
             os.remove(file_path)
         except FileNotFoundError:
@@ -59,7 +73,6 @@ def get_nodal_data_from_csv(csv_file_path):
 
 
 def _make_data_series_list_for_all_stages(
-    stage_names,
     nodes_of_sheet_pile_wall,
     result_item_label,
     transform_value=None,
@@ -75,11 +88,10 @@ def _make_data_series_list_for_all_stages(
     y_coordinates = [node.Y for node in nodes_of_sheet_pile_wall]
 
     result = []
-    for name in stage_names:
+    for name in names_of_stages_to_be_plotted:
         stage_data_series = []
 
-        json_output_path = Path(f"{name}__output_wall.json")
-        with open(json_output_path, "r") as f:
+        with open(json_output_file_path_for_stage(name), "r") as f:
             analysis_results = json.load(f)
         result_values = [
             transform_value(analysis_results[f"NODE_{node.Id}"][result_item_label][0])
@@ -133,25 +145,14 @@ def _make_result_plot(
     transform_value=None,
     csv_field_name=None,
 ):
-    plot_file_path = plot_file_paths_by_result[result_item_label]
-
-    names_of_stages_to_be_plotted = [
-        "3_Wall_installation",
-        "4_First_excavation",
-        "5_Anchor_installation",
-        "6_Second_excavation",
-        "7_Third_excavation",
-    ]
-
     plot_utils.make_sub_plots(
         _make_data_series_list_for_all_stages(
-            names_of_stages_to_be_plotted,
             nodes_of_sheet_pile_wall,
             result_item_label,
             transform_value=transform_value,
             csv_field_name=csv_field_name,
         ),
-        plot_file_path,
+        plot_file_paths_by_result[result_item_label],
         titles=names_of_stages_to_be_plotted,
         xlabel=xlabel,
         ylabel=r"$y$ [m]",
