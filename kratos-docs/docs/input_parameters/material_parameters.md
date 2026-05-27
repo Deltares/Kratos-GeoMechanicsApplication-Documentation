@@ -59,18 +59,22 @@ When `GeoLinearElasticPlaneStrain2DLaw` is set as the name of the constitutive l
   "DYNAMIC_VISCOSITY": 0.0013, //(13)!
   "THICKNESS": 1,
   "K0_MAIN_DIRECTION": 1, //(14)!
-  "K0_VALUE_XX": 0, //(15)!
-  "K0_VALUE_YY": 0, //(16)!
-  "K0_VALUE_ZZ": 0, //(17)!
-  "BIOT_COEFFICIENT": 1, //(18)!
-  "RETENTION_LAW": "SaturatedLaw", //(19)!
-  "SATURATED_SATURATION": 1 //(20)!
-  "RESIDUAL_SATURATION": 0 //(21)!
-  "VAN_GENUCHTEN_AIR_ENTRY_PRESSURE": 0 //(22)!
-  "VAN_GENUCHTEN_GN": 0 //(23)!
-  "VAN_GENUCHTEN_GL": 0 //(24)!
-  "MINIMUM_RELATIVE_PERMEABILITY": 0 //(25)!
-  "Tables": {} //(26)!
+  "K0_NC": 0, //(15)!
+  "INDEX_OF_UMAT_PHI_PARAMETER": 1, //(16)!
+  "K0_VALUE_XX": 0, //(17)!
+  "K0_VALUE_YY": 0, //(18)!
+  "K0_VALUE_ZZ": 0, //(19)!
+  "OCR": 1.3, //((20)!
+  "POISSON_UNLOADING_RELOADING": 0.3 , //((21)!
+  "BIOT_COEFFICIENT": 1, //(22)!
+  "RETENTION_LAW": "SaturatedLaw", //(23)!
+  "SATURATED_SATURATION": 1 //(24)!
+  "RESIDUAL_SATURATION": 0 //(25)!
+  "VAN_GENUCHTEN_AIR_ENTRY_PRESSURE": 0 //(26)!
+  "VAN_GENUCHTEN_GN": 0 //(27)!
+  "VAN_GENUCHTEN_GL": 0 //(28)!
+  "MINIMUM_RELATIVE_PERMEABILITY": 0 //(29)!
+  "Tables": {} //(30)!
 }
 ```
 
@@ -88,32 +92,22 @@ When `GeoLinearElasticPlaneStrain2DLaw` is set as the name of the constitutive l
 12. {{ permeability_change_inverse_factor }}
 13. {{ dynamic_viscosity }} 
 14. Input `0` for X, `1` for Y, and `2` for Z direction. Direction (v) from which stress in perpendicular directions (h) is derived: `sigma_hh = K0 * sigma_vv`
-15. K0 value in the XX direction
-16. K0 value in the YY direction
-17. K0 value in the ZZ direction
-18. {{ biot_coefficient }}
-19. {{ retention_law }}
-20. {{ saturated_saturation }}
-21. {{ residual_saturation }}
-22. Coefficient for Van Genuchten curve
-23. Coefficient for Van Genuchten curve
-24. Coefficient for Van Genuchten curve
-25. {{ minimum_relative_permeability }}
-26. Optional tables
-
-<!-- #### 3 alternatives for the input of the K0 value
-
-See: https://publicwiki.deltares.nl/x/joSHDw
-
-| Parameters | Description |
-| --- | --- |
-| `"K0_NC":` | K0 value for normal consolidation |
-| `"INDEX_OF_UMAT_PHI_PARAMETER":` | The index of phi in the UMAT parameters |
-| `"K0_VALUE_XX":` | K0 value in XX direction |
-| `"K0_VALUE_YY":` | K0 value in YY direction |
-| `"K0_VALUE_ZZ":` | K0 value in ZZ direction |
-| `"OCR": >= 1` (optional) | Over consolidation ratio |
-| `"POISSON_UNLOADING_RELOADING": (-1 to 0.5)` (optional) | Poisson's ratio under unloading and reloading | -->
+15. K0 value for normal consolidation
+16. The index of phi in the UMAT parameters
+17. K0 value in the XX direction
+18. K0 value in the YY direction
+19. K0 value in the ZZ direction
+20. (Optional) Over consolidation ratio
+21. (Optional) Poisson's ratio under unloading and reloading
+22. {{ biot_coefficient }}
+23. {{ retention_law }}
+24. {{ saturated_saturation }}
+25. {{ residual_saturation }}
+26. Coefficient for Van Genuchten curve
+27. Coefficient for Van Genuchten curve
+28. Coefficient for Van Genuchten curve
+29. {{ minimum_relative_permeability }}
+30. Optional tables
 
 ## Constitutive law: SmallStrainUDSM2DPlaneStrainLaw
 
@@ -162,10 +156,10 @@ When `SmallStrainUDSM2DPlaneStrainLaw` is set as the name of the constitutive la
 14. {{ saturated_saturation }}
 15. {{ residual_saturation }}
 16. {{ minimum_relative_permeability }}
-17. Name of the UDSM (`.dll`) soil file
+17. Name of the UDSM (`.dll`) soil file. For various commonly used soil models see [Details](#umat-parameters-format)
 18. Set to 1
 19. Set `true` if the UDSM file is in Fortran
-20. The umat parameters. For various commenly used soil models there parameters are described [below](#solver_settings-block-structure-format)
+20. The umat parameters. For various commonly used soil models see [Details](#umat-parameters-format)
 21. If `true`: use Hencky strain measure (natural/logarithmic strain). Should be used together with `move_mesh_flag` [solver setting block of the ProjectParameters.json](../project_parameters/#solver_settings-block-structure-format) and have the same value
 22. Optional tables
 
