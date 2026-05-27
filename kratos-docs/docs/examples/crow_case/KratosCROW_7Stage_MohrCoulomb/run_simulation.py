@@ -72,6 +72,45 @@ def get_nodal_data_from_csv(csv_file_path):
         }
 
 
+def make_data_series_sorted_by_y_coordinate(
+    y_coordinates, result_values, label, line_style, marker
+):
+    sorted_y_coordinates, sorted_result_values = zip(
+        *sorted(zip(y_coordinates, result_values))
+    )
+
+    return plot_utils.DataSeries(
+        zip(sorted_result_values, sorted_y_coordinates),
+        label=label,
+        line_style=line_style,
+        marker=marker,
+    )
+
+
+def make_sorted_data_series_from_analysis_output(
+    stage_name,
+    y_coordinates,
+    nodes_of_sheet_pile_wall,
+    result_item_label,
+    transform_value,
+):
+    with open(json_output_file_path_for_stage(stage_name), "r") as f:
+        analysis_results = json.load(f)
+
+    result_values = [
+        transform_value(analysis_results[f"NODE_{node.Id}"][result_item_label][0])
+        for node in nodes_of_sheet_pile_wall
+    ]
+
+    return make_data_series_sorted_by_y_coordinate(
+        y_coordinates,
+        result_values,
+        label="Kratos (current simulation)",
+        line_style="-",
+        marker=".",
+    )
+
+
 def _make_data_series_list_for_all_stages(
     nodes_of_sheet_pile_wall,
     result_item_label,
@@ -91,26 +130,21 @@ def _make_data_series_list_for_all_stages(
     for name in names_of_stages_to_be_plotted:
         stage_data_series = []
 
-        with open(json_output_file_path_for_stage(name), "r") as f:
-            analysis_results = json.load(f)
-        result_values = [
-            transform_value(analysis_results[f"NODE_{node.Id}"][result_item_label][0])
-            for node in nodes_of_sheet_pile_wall
-        ]
-
-        # Sort data points by Y coordinate
-        sorted_y_coordinates, sorted_result_values = zip(
-            *sorted(zip(y_coordinates, result_values))
-        )
-
-        stage_data_series.append(
-            plot_utils.DataSeries(
-                zip(sorted_result_values, sorted_y_coordinates),
-                label="Kratos (current simulation)",
-                line_style="-",
-                marker=".",
+        try:
+            stage_data_series.append(
+                make_sorted_data_series_from_analysis_output(
+                    name,
+                    y_coordinates,
+                    nodes_of_sheet_pile_wall,
+                    result_item_label,
+                    transform_value,
+                )
             )
-        )
+        except Exception as e:
+            print(
+                f"WARNING: no '{result_item_label}' data series for stage '{name}': {str(e)}"
+            )
+            continue
 
         if csv_field_name is not None:
             nodal_data = get_nodal_data_from_csv(Path(f"{name}__base_line_wall.csv"))
@@ -119,14 +153,10 @@ def _make_data_series_list_for_all_stages(
                 for node in nodes_of_sheet_pile_wall
             ]
 
-            # Sort data points by Y coordinate
-            sorted_y_coordinates, sorted_base_line_values = zip(
-                *sorted(zip(y_coordinates, base_line_values))
-            )
-
             stage_data_series.append(
-                plot_utils.DataSeries(
-                    zip(sorted_base_line_values, sorted_y_coordinates),
+                make_data_series_sorted_by_y_coordinate(
+                    y_coordinates,
+                    base_line_values,
                     label="Kratos (base line)",
                     line_style="-",
                     marker="1",
@@ -209,33 +239,39 @@ def _make_plots(model):
     _plot_horizontal_total_displacements(nodes_of_sheet_pile_wall)
 
 
+def run_analysis(project):
+    orchestrator_reg_entry = Kratos.Registry[
+        project.GetSettings()["orchestrator"]["name"].GetString()
+    ]
+    orchestrator_module = importlib.import_module(orchestrator_reg_entry["ModuleName"])
+    orchestrator_class = getattr(
+        orchestrator_module, orchestrator_reg_entry["ClassName"]
+    )
+    orchestrator_instance = orchestrator_class(project)
+    orchestrator_instance.Run()
+
+
 def _main():
+    exit_code = 0
+
     remove_output_and_plot_files()
 
-    with open(Path("staged_construction.json")) as analysis_file:
-        analysis_parameters = Kratos.Parameters(analysis_file.read())
+    try:
+        with open(Path("staged_construction.json")) as analysis_file:
+            analysis_parameters = Kratos.Parameters(analysis_file.read())
+        project = Project(analysis_parameters)
+        run_analysis(project)
+    except Exception as e:
+        print(f"Analysis ERROR: {str(e)}")
+        exit_code = 1
 
     try:
-        project = Project(analysis_parameters)
-        orchestrator_reg_entry = Kratos.Registry[
-            project.GetSettings()["orchestrator"]["name"].GetString()
-        ]
-        orchestrator_module = importlib.import_module(
-            orchestrator_reg_entry["ModuleName"]
-        )
-        orchestrator_class = getattr(
-            orchestrator_module, orchestrator_reg_entry["ClassName"]
-        )
-        orchestrator_instance = orchestrator_class(project)
-        orchestrator_instance.Run()
-
         _make_plots(project.GetModel())
-
     except Exception as e:
-        print(f"Error: {str(e)}")
-        return 1
+        print(f"Plotting ERROR: {str(e)}")
+        exit_code = 2 if exit_code == 0 else exit_code
 
-    return 0
+    return exit_code
 
 
 if __name__ == "__main__":
