@@ -23,7 +23,7 @@ It is generally recommended to install the GeoMechanicsApplication in a [Python 
 
 The next step is to activate the Python venv by executing the following command: `.venv\Scripts\activate`.
 
-Note that when you start a new Command Prompt session where you would like to run GeoMechanicsApplication, you will need to activate this Python venv again, using the above command. There is no need to repeat the steps to create the venv, since it will still be there (unless you have removed it).
+**Note:** When you start a new Command Prompt session where you would like to run GeoMechanicsApplication, you will need to activate this Python venv again, using the above command. There is no need to repeat the steps to create the venv, since it will still be there (unless you have removed it).
 
 
 ## Installing Kratos
@@ -33,7 +33,7 @@ You can conveniently install the GeoMechanicsApplication in one of two ways: (1)
 
 ### Using pypi
 
-KratosGeoMechanicsApplication can be installed via pypi. The latest release (currently version 10.4.2) can be downloaded and installed from [the pypi website](https://pypi.org/project/KratosGeoMechanicsApplication/). In the Command Prompt, execute `pip install KratosGeoMechanicsApplication`.
+To install the latest release of GeoMechanicsApplication (currently version 10.4.2) available from [pypi](https://pypi.org/project/KratosGeoMechanicsApplication/), run `pip install KratosGeoMechanicsApplication` in the Command Prompt.
 
 
 ### Using Python wheels
