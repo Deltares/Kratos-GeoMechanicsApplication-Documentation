@@ -9,7 +9,7 @@ By clicking on an annotation (1) the user is provided more detailed information 
 1. Here more information about an annotation can be found.
 
 ## MaterialParameters.json structure format
-The strucal format of the MaterialParameters.json is as follows:
+The structural format of the MaterialParameters.json is as follows:
 
 ```json
 {
@@ -35,12 +35,12 @@ The strucal format of the MaterialParameters.json is as follows:
 6. The name of soil constitutive law e.g. [`GeoLinearElasticPlaneStrain2DLaw`](#constitutive-law-geolinearelasticplanestrain2dlaw) [`SmallStrainUDSM2DPlaneStrainLaw`](#constitutive-law-smallstrainudsm2dplanestrainlaw)
 7. Begin of material variables
 
-For multiple material in one project, multiple item can be added to the properties list, each having there own unique id and possibility varying constitutive laws or material properties.
+For multiple material in one project, multiple item can be added to the properties list, each having their own unique id and possibility varying constitutive laws or material properties.
 For various constitutive laws, there properties (variable sections) are defined below.
 
 ## Constitutive law: GeoLinearElasticPlaneStrain2DLaw
 
-When `GeoLinearElasticPlaneStrain2DLaw` is set as the name of the constitutive law, the strucal format `Variables`-block is as follows:
+When `GeoLinearElasticPlaneStrain2DLaw` is set as the name of the constitutive law, the structural format `Variables`-block is as follows:
 
 ```json
 {
@@ -111,7 +111,7 @@ When `GeoLinearElasticPlaneStrain2DLaw` is set as the name of the constitutive l
 
 ## Constitutive law: SmallStrainUDSM2DPlaneStrainLaw
 
-When `SmallStrainUDSM2DPlaneStrainLaw` is set as the name of the constitutive law, the strucal format `Variables`-block is as follows:
+When `SmallStrainUDSM2DPlaneStrainLaw` is set as the name of the constitutive law, the structural format `Variables`-block is as follows:
 
 ```json
 {
