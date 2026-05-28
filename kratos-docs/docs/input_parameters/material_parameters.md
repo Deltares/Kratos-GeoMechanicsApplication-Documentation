@@ -1,6 +1,6 @@
 # MaterialParameters.json file description
 
-The material parameters json-file contains as description of all the materials and there properties of the Kratos simulation. 
+The material parameters json-file contains descriptions of several material models and their properties which can be adopted by a Kratos simulation. 
 The user is responsible for giving all material parameters a consistent set of parameters.
 
 By clicking on an annotation (1) the user is provided more detailed information about a property.
@@ -23,20 +23,21 @@ The structural format of the MaterialParameters.json is as follows:
         },
         "Variables": { } //(7)!
       }
-    },
+    }
+  ]
 }
 ```
 
 1. Start of the properties list
-2. Name of the material
+2. Name of the model part to which this material will be assigned.
 3. ID number assigned to your material
 4. Start of material description
 5. Define soil constitutive law
 6. The name of soil constitutive law e.g. [`GeoLinearElasticPlaneStrain2DLaw`](#constitutive-law-geolinearelasticplanestrain2dlaw) [`SmallStrainUDSM2DPlaneStrainLaw`](#constitutive-law-smallstrainudsm2dplanestrainlaw)
 7. Begin of material variables
 
-For multiple material in one project, multiple item can be added to the properties list, each having their own unique id and possibility varying constitutive laws or material properties.
-For various constitutive laws, there properties (variable sections) are defined below.
+When a project needs various materials, multiple items can be added to the properties list, each having their own unique id and possibly varying constitutive laws or material properties.
+For several constitutive laws, their properties (variable sections) are defined below.
 
 ## Constitutive law: GeoLinearElasticPlaneStrain2DLaw
 
@@ -79,8 +80,8 @@ When `GeoLinearElasticPlaneStrain2DLaw` is set as the name of the constitutive l
 ```
 
 1. {{ ignore_undrained }}
-2. Young Modulus (Pa)
-3. Poisson Ratio
+2. Young's modulus (Pa)
+3. Poisson's ratio
 4. {{ density_solid }}
 5. {{ density_water }}
 6. {{ porosity }}
@@ -165,7 +166,7 @@ When `SmallStrainUDSM2DPlaneStrainLaw` is set as the name of the constitutive la
 
 ### UMAT parameters format
 
-Here are the input parameters described for some soil models that are commonly used within Deltares. See [Soil Models](../theory/soil_models.md) for more background about the soil models that how to use and obtain them.
+Here are the input parameters described for some soil models that are commonly used within Deltares. See [Soil Models](../theory/soil_models.md) for more background about how to obtain and use them.
 
 #### abc-Isotache natural strain: `UDSM.dll`
 
@@ -204,5 +205,5 @@ For Mohr-Coulomb model in `example64.dll`, the following parameters are expected
 | `Nu` | Poisson's ratio unloading/reloading | 
 | `C` | cohesion (kN/m^2^) | 
 | `Phi` | friction angle (°) | 
-| `Psi` | dilation angle (°) |
+| `Psi` | dilatancy angle (°) |
 | `Tens` | allowable tensile stress (kN/m^2^) |
