@@ -15,7 +15,7 @@ By clicking on an annotation (1) the user is provided more detailed information 
     "settings": { } //(2)!
   },
   "stages": {
-	"*name of the stage*": { //(3)!
+	"Stage_1": { //(3)!
 		"stage_preprocess": { }, //(4)!
 		"stage_settings": { } // (5)!
 	}
@@ -28,7 +28,7 @@ Type: string. </br>
 Allowed values: `Orchestrators.KratosMultiphysics.SequentialOrchestrator`
 2. Settings for the orchestrator. [Details](#orchestrator-settings-block-structure-format).
 3. Stage names as defined in the "execution list". [Details](#orchestrator-settings-block-structure-format).
-4. Processes executed before the stage begins. For example meshing and (de)activation of model parts. [Details](#stage-preprocess-block-structure-format).
+4. Processes executed before the stage begins. For example importing a model from a file and (de)activation of model parts. [Details](#stage-preprocess-block-structure-format).
 5. Settings for the current stage. [Details](#stage-settings-block-structure-format).
 ### Orchestrator settings block structure format
 ```json
@@ -51,7 +51,7 @@ Allowed values: `Orchestrators.KratosMultiphysics.SequentialOrchestrator`
 		{
 			"name": "Modelers.KratosMultiphysics.ImportMDPAModeler", //(2)!
 			"Parameters": {
-				"input_filename": "../../common/crow_validation_gid", //(3)!
+				"input_filename": "my_mesh_file", //(3)!
 				"model_part_name": "PorousDomain" //(4)!
 			}
 		}
@@ -61,8 +61,8 @@ Allowed values: `Orchestrators.KratosMultiphysics.SequentialOrchestrator`
 			"name": "Operations.KratosMultiphysics.GeoMechanicsApplication.DeactivateModelPartOperation", //(6)!
 			"Parameters": { 
 				"model_part_name_list": [ //(7)!
-					"PorousDomain.Interface_Top_Right",
-					"PorousDomain.Interface_Bottom_Right"
+					"PorousDomain.Right_Soil",
+					"PorousDomain.Left_Soil"
 				] 
 			}
 		}
@@ -71,28 +71,30 @@ Allowed values: `Orchestrators.KratosMultiphysics.SequentialOrchestrator`
 ```
 
 1. List of modelers performing preprocessing tasks such as importing a mesh file or setting up a geometry. Type: array of objects.
-2. Name of the modeler. Type: string. Allowed values: "Modelers.KratosMultiphysics.ImportMDPAModeler".
-3. Path to (relative or absolute) the model file (.mdpa). Type: string.
-4. Name of the model part. Type: string.
+2. Name of the modeler. Type: string. </br> 
+Allowed values: `Modelers.KratosMultiphysics.ImportMDPAModeler`.
+3. Path to (relative or absolute) the model file (.mdpa). Type: string. Note: do not put .mdpa at the end of the filename.
+4. Name of the overarching model part. Type: string.
 5. List of operations performing preprocessing tasks such as activating and deactivating model parts. Type: array of objects.
 6. Name of the operation. Type: string. Allowed values: "...DeactivateModelPartOperation", "...ActivateModelPartOperation"
-7. List of model parts that need to be activated or deactivated. Type: array of strings. Allowed values: Each entry should start with the above defined model part name, followed by the sub-part name as defined in the mesh file.
+7. List of model parts that need to be activated or deactivated. Type: array of strings. Allowed values: Each entry should start with the above defined overarching model part name, followed by the sub-part name as defined in the mesh file.
 ### Stage settings block structure format
 ```json
 "stage_settings": {
 	"analysis_stage": "Stages.KratosMultiphysics.GeoMechanicsApplication.GeoMechanicsAnalysis", //(1)!
 	"problem_data": { },  //(2)!
 	"solver_settings": { },  //(3)!
-	"output_processes": { },  //(4)!
-	"processes": { }  //(5)!
+	"processes": { }  //(4)!
+	"output_processes": { },  //(5)!
 }
 ```
 
-1. 
+1. The kind of analysis stage used for the simulation. Type: string. Allowed values: `Stages.KratosMultiphysics.GeoMechanicsApplication.GeoMechanicsAnalysis`.
 2. General settings for the Kratos run. [Details](#problem_data-block-structure-format)
 3. Settings for the solvers, like analysis type, linear solver, etc. [Details](#solver_settings-block-structure-format)
-4. Settings for the output  [Details](#output_processes-block-structure-format)
-5. Processes to e.g. apply boundary conditions.
+4. Processes to e.g. apply boundary conditions. [Details](#processes-block-structure-format)
+5. Settings for the output. [Details](#output_processes-block-structure-format).
+
 ### problem_data block structure format
 
 ```json
