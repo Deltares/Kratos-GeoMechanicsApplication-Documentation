@@ -16,7 +16,7 @@ saturated_saturation: Maximum pore fill by water (0 to 1), higher than `RESIDUAL
 residual_saturation: Minimum pore fill trapped in the soil (0 to 1), lower than `SATURATED_SATURATION`
 minimum_relative_permeability: Minimum relative permeability
 # project parameters
-echo_level: "Level of logging."
+echo_level: "Level of logging. Type: integer."
 model_part_name: "Body part to apply the process to. `PorousDomain.XXX` is required."
 variable_name: "Kratos vector variable."
 active: "Activation per vector component (X, Y, Z)"
