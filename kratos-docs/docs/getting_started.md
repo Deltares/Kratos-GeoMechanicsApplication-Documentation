@@ -38,6 +38,8 @@ To install the latest release of GeoMechanicsApplication (currently version 10.4
 
 ### Using Python wheels
 
+_If you have installed GeoMechanicsApplication [using pypi](#using-pypi), you need to **skip** this section.  In that case, please move on to the [next section](#additional-dependency)._
+
 More recent versions of the main-development branch can be obtained by sending an e-mail to the Kratos team. In that case, please mention which Python version you are using. Once you have received the appropriate `zip` archive, proceed as follows:
 
 - Extract the archive in the `GeoMechanicsApplication` folder that you have created earlier on. This results in a new subdirectory named `wheels`, which contains the `.whl` files.
