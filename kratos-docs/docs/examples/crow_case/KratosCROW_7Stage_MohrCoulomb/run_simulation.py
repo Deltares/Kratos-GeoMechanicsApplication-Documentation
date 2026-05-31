@@ -130,22 +130,6 @@ def _make_data_series_list_for_all_stages(
     for name in names_of_stages_to_be_plotted:
         stage_data_series = []
 
-        try:
-            stage_data_series.append(
-                make_sorted_data_series_from_analysis_output(
-                    name,
-                    y_coordinates,
-                    nodes_of_sheet_pile_wall,
-                    result_item_label,
-                    transform_value,
-                )
-            )
-        except Exception as e:
-            print(
-                f"WARNING: no '{result_item_label}' data series for stage '{name}': {str(e)}"
-            )
-            continue
-
         if csv_field_name is not None:
             nodal_data = get_nodal_data_from_csv(Path(f"{name}__base_line_wall.csv"))
             base_line_values = [
@@ -161,6 +145,21 @@ def _make_data_series_list_for_all_stages(
                     line_style="-",
                     marker="1",
                 )
+            )
+
+        try:
+            stage_data_series.append(
+                make_sorted_data_series_from_analysis_output(
+                    name,
+                    y_coordinates,
+                    nodes_of_sheet_pile_wall,
+                    result_item_label,
+                    transform_value,
+                )
+            )
+        except Exception as e:
+            print(
+                f"WARNING: no '{result_item_label}' data series for stage '{name}': {str(e)}"
             )
 
         result.append(stage_data_series)
