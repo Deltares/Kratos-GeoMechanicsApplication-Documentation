@@ -8,7 +8,9 @@ By clicking on an annotation (1) the user is provided more detailed information 
 
 1. Here more information about an annotation can be found.
 
+
 ## MaterialParameters.json structure format
+
 The structural format of the MaterialParameters.json is as follows:
 
 ```json
@@ -16,7 +18,7 @@ The structural format of the MaterialParameters.json is as follows:
   "properties": [ //(1)!
     {
       "model_part_name": "PorousDomain.Soil-0", //(2)!
-	  "properties_id": 0, //(3)!
+      "properties_id": 0, //(3)!
       "Material": { //(4)!
         "constitutive_law": { //(5)!
           "name": "GeoLinearElasticPlaneStrain2DLaw" //(6)!
@@ -28,18 +30,20 @@ The structural format of the MaterialParameters.json is as follows:
 }
 ```
 
-1. Start of the properties list
-2. Name of the model part to which this material will be assigned.
-3. ID number assigned to your material
-4. Start of material description
-5. Define soil constitutive law
-6. The name of soil constitutive law e.g. [`GeoLinearElasticPlaneStrain2DLaw`](#constitutive-law-geolinearelasticplanestrain2dlaw) [`SmallStrainUDSM2DPlaneStrainLaw`](#constitutive-law-smallstrainudsm2dplanestrainlaw)
-7. Begin of material variables
+1. Start of the properties list.
+2. Name of the model part to which this material will be assigned. Type: string.
+3. Unique ID of this material. Type: integer.
+4. Start of the material description.
+5. Definition of the constitutive law.
+6. Name of the soil constitutive law. Type: string. Supported names include [`GeoLinearElasticPlaneStrain2DLaw`](#incremental-linear-elastic-law-for-plane-strain-models),  [`SmallStrainUDSM2DPlaneStrainLaw`](#constitutive-law-smallstrainudsm2dplanestrainlaw)
+7. Material properties relevant for the current constitutive law.
 
-When a project needs various materials, multiple items can be added to the properties list, each having their own unique id and possibly varying constitutive laws or material properties.
-For several constitutive laws, their properties (variable sections) are defined below.
+When a project needs various materials, multiple items can be added to the properties list, each having its own unique ID and possibly varying constitutive laws and/or material properties.
 
-## Constitutive law: GeoLinearElasticPlaneStrain2DLaw
+For several constitutive laws, their material properties (the "Variables" section) are detailed below.
+
+
+## Incremental linear elastic law for plane strain models
 
 When `GeoLinearElasticPlaneStrain2DLaw` is set as the name of the constitutive law, the structural format `Variables`-block is as follows:
 
