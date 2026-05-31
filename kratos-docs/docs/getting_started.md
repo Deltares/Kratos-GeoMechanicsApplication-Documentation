@@ -63,6 +63,8 @@ For demonstration purposes, we will analyse the staged construction of a buildin
 
 ### Downloading the required files
 
+_For your convenience, **during [DSD-NL 2026](https://softwaredagen.deltares.nl/)** you can download a ZIP archive containing the required files related to the CROW case. It is available from [SURFfilesender](https://filesender.surf.nl/?s=download&token=fa2a6e0c-9da1-4b2e-beb7-ed1fa334788d) until June 05, 2026. When you have downloaded this ZIP archive, extract it to the `GeoMechanicsApplication` folder, resulting in a sub-directory named `CROW_case`. It contains the ten files described in the remainder of this section._
+
 First, you will need a set of input files, which consists of a model file (`.mdpa`), an analysis file (`.json`) and two material properties files (`.json`). Create a folder where you will store the input files, e.g. `CROW_case`, and save the following files there:
 
 - [`CROW_case_clay-sand.mdpa`](examples/crow_case/KratosCROW_7Stage_MohrCoulomb/CROW_case_clay-sand.mdpa)
