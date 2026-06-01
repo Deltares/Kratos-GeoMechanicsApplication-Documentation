@@ -41,7 +41,7 @@ When a project needs various materials, multiple items can be added to the prope
 For geomechanical materials, the "Variables" section consists of three parts:
 
 1. `GEO_DRAINAGE_TYPE`: {{ geo_drainage_type }} Details can be found [here](#drainage-types).
-2. [Material properties of the soil skeleton](#material-properties-of-the-soil-skeleton).
+2. [General material properties of the soil](#general-material-properties-of-the-soil).
 3. A description of the groundwater flow. This includes the [permeability](#permeability) and a [retention law](#retention-laws).
 
 
@@ -53,7 +53,7 @@ At present, the GeoMechanicsApplication supports two drainage types:
 2. **Keeping the pore water pressure field constant.** When this type is selected, the simulation will solve for the displacement  field only. The pore water pressure field is kept constant, i.e. the pore water pressure degrees of freedom remain unchanged. Only the effect of the pore water pressure field on the displacement field is taken into account for the coupling.
 
 
-## Material properties of the soil skeleton
+## General material properties of the soil
 
 ```json
 {
@@ -75,6 +75,62 @@ At present, the GeoMechanicsApplication supports two drainage types:
 5. {{ density_water }}
 6. {{ bulk_modulus_solid }}
 7. {{ bulk_modulus_fluid }}
+
+
+## Horizontal stress state initialization
+
+For the initialization of an in-situ stress field, the $K_0$ procedure derives the horizontal effective stresses from a field of vertical effective stresses. To distinguish between the vertical and horizontal stress fields, we need to know the direction of gravity. Furthermore, we need additional input that details how the horizontal stress field is calculated from the vertical one. This can be specified in one of several ways:
+
+- Direct input of $K_{0}^{\mathrm{nc}}$ as described [here](#direct-specification-of-k_0mathrmnc).
+- Derivation of the $K_{0}$ value from the friction angle as described [here](#derivation-of-k_0mathrmnc-from-the-friction-angle).
+- Direct specification of directional $K_{0}$ values as described [here](#direct-specification-of-directional-k_0-coefficients).
+
+
+### Direct specification of $K_0^{\mathrm{nc}}$
+
+```json
+{
+    "K0_MAIN_DIRECTION": 1, //(1)!
+    "K0_NC": 0.62 //(2)!
+}
+```
+
+1. {{ k0_main_direction }}
+2. $K_{0}^{\mathrm{nc}}$: coefficient for normally consolidated soil. Type: float. Range: [0.0, ->.
+
+
+### Derivation of $K_0^{\mathrm{nc}}$ from the friction angle
+
+The $K_0^{\mathrm{nc}}$ can be derived from the friction angle as follows:
+
+$$K_0^{nc} = 1.0 - \sin \phi$$
+
+```json
+{
+    "K0_MAIN_DIRECTION": 1, //(1)!
+    "GEO_FRICTION_ANGLE": 30.0 //(2)!
+}
+```
+
+1. {{ k0_main_direction }}
+2. {{ geo_friction_angle }}
+
+
+### Direct specification of directional $K_0$ coefficients
+
+```json
+{
+    "K0_MAIN_DIRECTION": 1, //(1)!
+    "K0_VALUE_XX": 0.5, //(2)!
+    "K0_VALUE_YY": 1.0, //(3)!
+    "K0_VALUE_ZZ": 0.5 //(4)!
+}
+```
+
+1. {{ k0_main_direction }}
+2. {{ k0_value_xx }}
+3. {{ k0_value_yy }}
+4. {{ k0_value_zz }}
 
 
 ## Permeability

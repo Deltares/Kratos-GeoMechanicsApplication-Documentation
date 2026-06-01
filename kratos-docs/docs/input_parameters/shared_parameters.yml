@@ -21,6 +21,11 @@ saturated_saturation: 'Maximum water content in the pores. Type: float. Range: [
 saturated_saturation_with_minimum_value: 'Maximum water content in the pores. Type: float. Range: [RESIDUAL_SATURATION, 1.0].'
 residual_saturation: 'Minimum water content in the pores. Type: float. Range: [0.0, SATURATED_SATURATION].'
 minimum_relative_permeability: 'Minimum relative permeability. Type: float. Range: [0.0, 1.0].'
+k0_main_direction: 'Direction of gravity. Type: integer. Allowed values: 0, 1, 2 which correspond to X, Y and Z, respectively.'
+k0_value_xx: '$K_0$ coefficient in X direction. Type: float. Range: [0.0, ->.'
+k0_value_yy: '$K_0$ coefficient in Y direction. Type: float. Range: [0.0, ->.'
+k0_value_zz: '$K_0$ coefficient in Z direction. Type: float. Range: [0.0, ->.'
+geo_friction_angle: 'Friction angle **in degrees**. Type: float. Range: [0.0, 90.0).'
 biot_coefficient: Biot alpha coefficient
 # project parameters
 echo_level: "Level of logging."
