@@ -98,11 +98,11 @@ Note that per stage, two data series are being displayed. The dark blue curve sh
 
 After the first successful simulation, you may want to modify some of the input parameters, to see what effect they have on the results. For instance, you may consider to modify any of the following ones (but note that you can try even more variations, if you want to):
 
-- the equivalent thickness of the sheet pile wall;
-- the cross-sectional area of the anchor/strut;
-- the friction angle of the clay or sand layers;
-- the cohesion of the clay or sand layers;
-- surface load.
+- the equivalent thickness of the sheet pile wall (`"THICKNESS"`);
+- the cross-sectional area of the anchor/strut (`"CROSS_AREA"`);
+- the friction angle of the clay or sand layers (`"GEO_FRICTION_ANGLE"`);
+- the cohesion of the clay or sand layers (`"GEO_COHESION"`);
+- surface load (`"LINE_LOAD"`).
 
 As for any nonlinear finite element analysis, there are no guarantees that it will converge. This is common behaviour when no global equilibrium can be established, e.g. when the sheet pile wall has been underdimensioned. To demonstrate this, consider the case where we reduce the Young's modulus of the anchor's steel by a factor of one million. In that case, the stage with the second excavation does not converge. Consequently, we only get results of the current simulation for the stages up to and including the installation of the anchor, as shown by the following image.
 
