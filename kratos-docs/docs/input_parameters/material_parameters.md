@@ -33,7 +33,7 @@ The structural format of the MaterialParameters.json is as follows:
 3. Unique ID of this material. Type: integer.
 4. Start of the material description.
 5. Definition of the constitutive law.
-6. Name of the soil constitutive law. Type: string. Supported names include [`GeoLinearElasticPlaneStrain2DLaw`](#incremental-linear-elastic-law-for-plane-strain-models),  [`SmallStrainUDSM2DPlaneStrainLaw`](#constitutive-law-smallstrainudsm2dplanestrainlaw)
+6. Name of the soil constitutive law. Type: string. Supported names include [`GeoLinearElasticPlaneStrain2DLaw`](#incremental-linear-elastic-law-for-plane-strain-models), [`GeoMohrCoulombWithTensionCutOff2D`](#mohr-coulomb-with-tension-cut-off) and [`SmallStrainUDSM2DPlaneStrainLaw`](#constitutive-law-smallstrainudsm2dplanestrainlaw)
 7. Material properties relevant for the current constitutive law.
 
 When a project needs various materials, multiple items can be added to the properties list, each having its own unique ID and possibly varying constitutive laws and/or material properties.
@@ -227,73 +227,27 @@ This retention law adopts the formulation proposed by Van Genuchten.
 
 ## Incremental linear elastic law for plane strain models
 
-`GeoLinearElasticPlaneStrain2DLaw` is an incremental linear elastic constitutive law that is to be used by plane strain models only. It supports the following set of material properties.
+`GeoLinearElasticPlaneStrain2DLaw` is an incremental linear elastic constitutive law that is to be used by plane strain models only. It does not require any additional input compared to what was described at the top of this page.
+
+
+## Mohr-Coulomb with tension cut-off
+
+`GeoMohrCoulombWithTensionCutOff2D` is a Mohr-Coulomb plastic constitutive law that is to be used by plane strain models only. In addition to the input described at the top of this page, the following input is needed for the shear yield surface and tension cut-off.
 
 ```json
 {
-  "GEO_DRAINAGE_TYPE": "CONSTANT_PW_FIELD", //(1)!
-  "YOUNG_MODULUS": 10000.0, //(2)!
-  "POISSON_RATIO": 0.2, //(3)!
-  "DENSITY_SOLID": 2650.0, //(4)!
-  "DENSITY_WATER": 1000.0, //(5)!
-  "POROSITY": 0.3, //(6)!
-  "BULK_MODULUS_SOLID": 1.0E+10, //(7)!
-  "BULK_MODULUS_FLUID": 2.2E+09, //(8)!
-  "PERMEABILITY_XX": 6.901970778117567E-11, //(9)!
-  "PERMEABILITY_YY": 6.901970778117567E-11, //(10)!
-  "PERMEABILITY_XY": 0, //(11)!
-  "PERMEABILITY_CHANGE_INVERSE_FACTOR": 0, //(12)!
-  "DYNAMIC_VISCOSITY": 0.0013, //(13)!
-  "K0_MAIN_DIRECTION": 1, //(14)!
-  "K0_NC": 0, //(15)!
-  "INDEX_OF_UMAT_PHI_PARAMETER": 1, //(16)!
-  "K0_VALUE_XX": 0, //(17)!
-  "K0_VALUE_YY": 0, //(18)!
-  "K0_VALUE_ZZ": 0, //(19)!
-  "OCR": 1.3, //((20)!
-  "POISSON_UNLOADING_RELOADING": 0.3 , //((21)!
-  "BIOT_COEFFICIENT": 1, //(22)!
-  "RETENTION_LAW": "SaturatedLaw", //(23)!
-  "SATURATED_SATURATION": 1 //(24)!
-  "RESIDUAL_SATURATION": 0 //(25)!
-  "VAN_GENUCHTEN_AIR_ENTRY_PRESSURE": 0 //(26)!
-  "VAN_GENUCHTEN_GN": 0 //(27)!
-  "VAN_GENUCHTEN_GL": 0 //(28)!
-  "MINIMUM_RELATIVE_PERMEABILITY": 0 //(29)!
-  "Tables": {} //(30)!
+    "GEO_COHESION": 3.0e+03, //(1)!
+    "GEO_FRICTION_ANGLE": 22.5, //(2)!
+    "GEO_DILATANCY_ANGLE": 0.0, //(3)!
+    "GEO_TENSILE_STRENGTH": 7.24263e+03 //(4)!
 }
 ```
 
-1. {{ geo_drainage_type }}
-2. {{ youngs_modulus }}
-3. {{ poissons_ratio }}
-4. {{ density_solid }}
-5. {{ density_water }}
-6. {{ porosity }}
-7. {{ bulk_modulus_solid }}
-8. {{ bulk_modulus_fluid }}
-9. {{ permeability_xx }}
-10. {{ permeability_yy }}
-11. {{ permeability_xy }}
-12. {{ permeability_change_inverse_factor }}
-13. {{ dynamic_viscosity }} 
-14. Input `0` for X, `1` for Y, and `2` for Z direction. Direction (v) from which stress in perpendicular directions (h) is derived: `sigma_hh = K0 * sigma_vv`
-15. K0 value for normal consolidation
-16. The index of phi in the UMAT parameters
-17. K0 value in the XX direction
-18. K0 value in the YY direction
-19. K0 value in the ZZ direction
-20. (Optional) Over consolidation ratio
-21. (Optional) Poisson's ratio under unloading and reloading
-22. {{ biot_coefficient }}
-23. {{ retention_law }}
-24. {{ saturated_saturation }}
-25. {{ residual_saturation }}
-26. Coefficient for Van Genuchten curve
-27. Coefficient for Van Genuchten curve
-28. Coefficient for Van Genuchten curve
-29. {{ minimum_relative_permeability }}
-30. Optional tables
+1. {{ geo_cohesion }}
+2. {{ geo_friction_angle }}
+3. {{ geo_dilatancy_angle }}
+4. {{ geo_tensile_strength }}
+
 
 ## Constitutive law: SmallStrainUDSM2DPlaneStrainLaw
 

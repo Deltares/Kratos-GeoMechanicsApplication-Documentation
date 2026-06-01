@@ -25,7 +25,10 @@ k0_main_direction: 'Direction of gravity. Type: integer. Allowed values: 0, 1, 2
 k0_value_xx: '$K_0$ coefficient in X direction. Type: float. Range: [0.0, ->.'
 k0_value_yy: '$K_0$ coefficient in Y direction. Type: float. Range: [0.0, ->.'
 k0_value_zz: '$K_0$ coefficient in Z direction. Type: float. Range: [0.0, ->.'
+geo_cohesion: 'Cohesion (e.g. in Pa). Type: float. Range: [0.0, ->.'
 geo_friction_angle: 'Friction angle **in degrees**. Type: float. Range: [0.0, 90.0).'
+geo_dilatancy_angle: 'Dilatancy angle **in degrees**. Type: float. Range: [0.0, GEO_FRICTION_ANGLE].'
+geo_tensile_strength: 'Tensile strength (e.g. in Pa). Type: float. Range: [0.0, GEO_COHESION / tan(GEO_FRICTION_ANGLE)]'
 biot_coefficient: Biot alpha coefficient
 # project parameters
 echo_level: "Level of logging."
