@@ -185,7 +185,7 @@ Allowed values: `Modelers.KratosMultiphysics.ImportMDPAModeler`.
 2. {{ overarching_model_part_name }}
 3. Working space dimension. Type: integer. Allowed values: 2 for 2D and 3 for 3D.
 4. Format of the model input file. Type: string. </br> Allowed values: `mdpa` or `use_input_model_part`. 
-</br> Note: When the `ImportMDPAModeler` is used in in [modelers](#stage-preprocess-block-structure-format) section, here the input_type should be `use_input_model_part` to avoid reading the input file more than once.
+</br> Note: When the `ImportMDPAModeler` is used in the [modelers](#stage-preprocess-block-structure-format) section, here the input_type should be `use_input_model_part` to avoid reading the input file more than once.
 5. Name of the model input file. Type: string. Only necessary when input_type is set to `mdpa`.
 6. Path to the material parameter file. Type: string.
 7. Settings for time stepping.
@@ -211,7 +211,7 @@ Allowed values: `Modelers.KratosMultiphysics.ImportMDPAModeler`.
 27. Relative tolerance for residual force convergence criterion. Type = float.
 28. Absolute tolerance for residual force convergence criterion. Type = float.
 29. Amount of iterations below which the next time step is scaled up. Type: integer.
-30. Maximum amount of iterations per step. If not converged within this value, the time step will be repeated using a smaller time increment. Type: integer.
+30. Maximum amount of iterations per step. If not converged within this value and the maximum number of cycles has not been reached yet, the time step will be repeated using a smaller time increment. Type: integer.
 31. Maximum number of scaled-down retry cycles. Type: integer.
 32. Reduction factor for the time step. Type: float.
 33. Increase factor for the time step. Type: float.
@@ -360,8 +360,7 @@ As an example of an auxiliary process, the K0 procedure is shown here. The K0 pr
   "process_name": "ApplyK0ProcedureProcess", //(3)!
   "Parameters": { 
     "model_part_name": "PorousDomain", //(4)!
-    "variable_name": "CAUCHY_STRESS_TENSOR", //(5)!
-	"use_standard_procedure": true //(6)!
+	"use_standard_procedure": true //(5)!
   }
 }
 ```
@@ -370,8 +369,7 @@ As an example of an auxiliary process, the K0 procedure is shown here. The K0 pr
 2. Name of the Kratos application containing the python module. Type: string.
 3. Name of the process class. Type: string.
 4. {{ model_part_name }}
-5. {{ variable_name }}
-6. Parameter . Type: boolean. Default value: .
+5. Parameter to only consider the constitutive tensor entries on the main diagonal that relate to the normal stresses/strains. Type: boolean. Default value: true.
 
 ##### Json output list block structure format
 ```json
@@ -395,7 +393,7 @@ As an example of an auxiliary process, the K0 procedure is shown here. The K0 pr
 4. {{ model_part_name }}
 5. Name of the output file. Type: string. Note: .json should be included at the end of the file name.
 6. List of nodal result variables to output. Type: array of strings.
-7. List of Gauss point (integration point) result variables to output. Type: array of strings.
+7. List of integration point result variables (e.g. Gauss) to output. Type: array of strings.
 8. Time frequency of documenting data in the output json. Type: float.
 
 #### Output processes block structure format
