@@ -1,20 +1,27 @@
 # material parameters
+geo_drainage_type: 'Indicates the drainage conditions. Type: string. Supported types include `"FULLY_COUPLED"` and `"CONSTANT_PW_FIELD"`.'
 ignore_undrained: If `true` keeps all the pressure field unchanged
-density_solid: The density of soil (kg/m^3^) as non-porous material
-density_water: The density of water (kg/m^3^)
-porosity: Porosity ratio
-bulk_modulus_solid: The measure of the decrease in solid volume with an increase in pressure (N/m^2^)
-bulk_modulus_fluid: The measure of the decrease in fluid volume with an increase in pressure (N/m^2^), for water input 2.2x10^9^
-permeability_xx: Intrinsic permeability in the XX direction (m^2^)
-permeability_yy: Intrinsic permeability in the YY direction (m^2^)
-permeability_xy: Intrinsic permeability in the XY direction (m^2^)
-permeability_change_inverse_factor: If > 0 the permeability will be updated depending on the volumetric strain
-dynamic_viscosity: Dynamic viscosity (kg/m s)
-biot_coefficient: Biot alpha coefficient
+youngs_modulus: 'Young''s modulus of the soil skeleton (e.g. in Pa). Type: float. Range: (0.0, ->.'
+poissons_ratio: 'Poisson''s ratio of the soil skeleton. Type: float. Range: (-1.0, 0.5).'
+porosity: 'Fraction of the unit volume that represents the pores. Type: float. Range: [0.0, 1.0].'
+density_solid: 'Density of the grain material without the pores (e.g. in kg/m^3^). Type: float. Range: (0.0, ->.'
+density_water: 'Density of the water (e.g. in kg/m^3^). Type: float. Range: (0.0, ->.'
+bulk_modulus_solid: 'Compression modulus of the grain material without pores (e.g. in N/m^2^). Type: float. Range: (0.0, ->.'
+bulk_modulus_fluid: 'Compression modulus of water (e.g. in N/m^2^). Type: float. Range: (0.0, ->.'
+permeability_xx: 'Intrinsic permeability in the XX direction (e.g. in m^2^). Type: float. Range: (0.0, ->.'
+permeability_yy: 'Intrinsic permeability in the YY direction (e.g. in m^2^). Type: float. Range: (0.0, ->.'
+permeability_xy: 'Intrinsic cross permeability in the XY direction (e.g. in m^2^). Type: float. Range: [0.0, ->.'
+permeability_zz: 'Intrinsic permeability in the ZZ direction (e.g. in m^2^). Relevant for three-dimensional models only. Type: float. Range: (0.0, ->.'
+permeability_yz: 'Intrinsic cross permeability in the YZ direction (e.g. in m^2^). Relevant for three-dimensional models only. Type: float. Range: [0.0, ->.'
+permeability_zx: 'Intrinsic cross permeability in the ZX direction (e.g. in m^2^). Relevant for three-dimensional models only. Type: float. Range: [0.0, ->.'
+dynamic_viscosity: 'Dynamic viscosity (e.g. in Pa s). Type: float. Range: (0.0, ->.'
+permeability_change_inverse_factor: 'If greater than 0.0, the permeability will be updated depending on the volumetric strain. Type: float.'
 retention_law: Water retention law `SaturatedLaw`, `VanGenuchtenLaw`, `SaturatedBelowPheraticLevelLaw`
-saturated_saturation: Maximum pore fill by water (0 to 1), higher than `RESIDUAL_SATURATION`
-residual_saturation: Minimum pore fill trapped in the soil (0 to 1), lower than `SATURATED_SATURATION`
-minimum_relative_permeability: Minimum relative permeability
+saturated_saturation: 'Maximum water content in the pores. Type: float. Range: [0.0, 1.0].'
+saturated_saturation_with_minimum_value: 'Maximum water content in the pores. Type: float. Range: [RESIDUAL_SATURATION, 1.0].'
+residual_saturation: 'Minimum water content in the pores. Type: float. Range: [0.0, SATURATED_SATURATION].'
+minimum_relative_permeability: 'Minimum relative permeability. Type: float. Range: [0.0, 1.0].'
+biot_coefficient: Biot alpha coefficient
 # project parameters
 echo_level: "Level of logging."
 model_part_name: "Body part to apply the process to. `PorousDomain.XXX` is required."

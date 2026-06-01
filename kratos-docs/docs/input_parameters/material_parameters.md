@@ -9,8 +9,6 @@ By clicking on an annotation (1) the user is provided more detailed information 
 1. Here more information about an annotation can be found.
 
 
-## MaterialParameters.json structure format
-
 The structural format of the MaterialParameters.json is as follows:
 
 ```json
@@ -40,29 +38,156 @@ The structural format of the MaterialParameters.json is as follows:
 
 When a project needs various materials, multiple items can be added to the properties list, each having its own unique ID and possibly varying constitutive laws and/or material properties.
 
-For several constitutive laws, their material properties (the "Variables" section) are detailed below.
+For geomechanical materials, the "Variables" section consists of three parts:
+
+1. `GEO_DRAINAGE_TYPE`: {{ geo_drainage_type }} Details can be found [here](#drainage-types).
+2. [Material properties of the soil skeleton](#material-properties-of-the-soil-skeleton).
+3. A description of the groundwater flow. This includes the [permeability](#permeability) and a [retention law](#retention-laws).
+
+
+## Drainage types
+
+At present, the GeoMechanicsApplication supports two drainage types:
+
+1. **Fully coupled.** When this type is selected, the simulation will solve for the displacement field as well as the pore water pressure field in a coupled manner. In other words, the displacement field affects the pore water pressure field and vice versa.
+2. **Keeping the pore water pressure field constant.** When this type is selected, the simulation will solve for the displacement  field only. The pore water pressure field is kept constant, i.e. the pore water pressure degrees of freedom remain unchanged. Only the effect of the pore water pressure field on the displacement field is taken into account for the coupling.
+
+
+## Material properties of the soil skeleton
+
+```json
+{
+    "YOUNG_MODULUS": 1.0E+05, //(1)!
+    "POISSON_RATIO": 0.25, //(2)!
+    "POROSITY": 0.45, //(3)!
+    "DENSITY_SOLID": 1.83486e+03, //(4)!
+    "DENSITY_WATER": 1.01937e+03, //(5)!
+    "BULK_MODULUS_SOLID": 1.0e+10, //(6)!
+    "BULK_MODULUS_FLUID": 2.2e+09 //(7)!
+    
+}
+```
+
+1. {{ youngs_modulus }}
+2. {{ poissons_ratio }}
+3. {{ porosity }}
+4. {{ density_solid }}
+5. {{ density_water }}
+6. {{ bulk_modulus_solid }}
+7. {{ bulk_modulus_fluid }}
+
+
+## Permeability
+
+The permeability describes the groundwater flow in the pores.
+
+```json
+{
+  "PERMEABILITY_XX": 7.0E-11, //(1)!
+  "PERMEABILITY_YY": 7.0E-11, //(2)!
+  "PERMEABILITY_XY": 0.0, //(3)!
+  "PERMEABILITY_ZZ": 7.0E-11, //(4)!
+  "PERMEABILITY_YZ": 0.0, //(5)!
+  "PERMEABILITY_ZX": 0.0, //(6)!
+  "DYNAMIC_VISCOSITY": 0.0013, //(7)!
+  "PERMEABILITY_CHANGE_INVERSE_FACTOR": 0.0 //(8)!
+}
+```
+
+1. {{ permeability_xx }}
+2. {{ permeability_yy }}
+3. {{ permeability_xy }}
+4. {{ permeability_zz }}
+5. {{ permeability_yz }}
+6. {{ permeability_zx }}
+7. {{ dynamic_viscosity }}
+8. {{ permeability_change_inverse_factor }}
+
+
+## Retention laws
+
+A retention law determines the pressure-dependent relative conductivity and storage capacity. The GeoMechanicsApplication supports several ways to describe this behavior by supplying one of the following strings for the setting `"RETENTION_LAW"`:
+
+- `"SaturatedLaw"`
+- `"SaturatedBelowPhreaticLevelLaw"`
+- `"VanGenuchtenLaw"`
+
+
+### Fully saturated
+
+For a fully saturated retention law, the relative permeability is always equal to 1.0, and the storage capacity equals 0.0. The saturation always equals the specified value.
+
+```json
+{
+    "RETENTION_LAW": "SaturatedLaw",
+    "SATURATED_SATURATION": 1.0 //(1)!
+}
+```
+
+1. {{ saturated_saturation }}
+
+
+### Saturated below the phreatic level
+
+Below the phreatic level, the pores are assumed to be fully saturated as for the case of a fully saturated retention law. Above the phreatic level, there remains some pore water content indicated by a residual saturation as well as a minimum relative permeability.
+
+```json
+{
+    "RETENTION_LAW": "SaturatedBelowPhreaticLevelLaw",
+    "SATURATED_SATURATION": 1.0, //(1)!
+    "RESIDUAL_SATURATION": 0.1, //(2)!
+    "MINIMUM_RELATIVE_PERMEABILITY": 1.0E-04 //(3)!
+}
+```
+
+1. {{ saturated_saturation_with_minimum_value }}
+2. {{ residual_saturation }}
+3. {{ minimum_relative_permeability }}
+
+
+### Retention law according to Van Genuchten
+
+This retention law adopts the formulation proposed by Van Genuchten.
+
+```json
+{
+    "RETENTION_LAW": "VanGenuchtenLaw",
+    "SATURATED_SATURATION": 1.0, //(1)!
+    "RESIDUAL_SATURATION": 0.1, //(2)!
+    "MINIMUM_RELATIVE_PERMEABILITY": 1.0E-04, //(3)!
+    "VAN_GENUCHTEN_AIR_ENTRY_PRESSURE": 2.561, //(4)!
+    "VAN_GENUCHTEN_GN": 1.377, //(5)!
+    "VAN_GENUCHTEN_GL": 1.25 //(6)!
+}
+```
+
+1. {{ saturated_saturation_with_minimum_value }}
+2. {{ residual_saturation }}
+3. {{ minimum_relative_permeability }}
+4. Air entry pressure (e.g. in Pa). Type: float. Range: (0.0, ->.
+5. Parameter GN. Type: float. Range: (0.0, ->.
+6. Parameter GL. Type: float. Range: (0.0, ->.
 
 
 ## Incremental linear elastic law for plane strain models
 
-When `GeoLinearElasticPlaneStrain2DLaw` is set as the name of the constitutive law, the structural format `Variables`-block is as follows:
+`GeoLinearElasticPlaneStrain2DLaw` is an incremental linear elastic constitutive law that is to be used by plane strain models only. It supports the following set of material properties.
 
 ```json
 {
-  "IGNORE_UNDRAINED": false, //(1)!
-  "YOUNG_MODULUS": 10000, //(2)!
+  "GEO_DRAINAGE_TYPE": "CONSTANT_PW_FIELD", //(1)!
+  "YOUNG_MODULUS": 10000.0, //(2)!
   "POISSON_RATIO": 0.2, //(3)!
-  "DENSITY_SOLID": 2650, //(4)!
-  "DENSITY_WATER": 1000, //(5)!
+  "DENSITY_SOLID": 2650.0, //(4)!
+  "DENSITY_WATER": 1000.0, //(5)!
   "POROSITY": 0.3, //(6)!
-  "BULK_MODULUS_SOLID": 20000000000, //(7)!
-  "BULK_MODULUS_FLUID": 2200000000, //(8)!
+  "BULK_MODULUS_SOLID": 1.0E+10, //(7)!
+  "BULK_MODULUS_FLUID": 2.2E+09, //(8)!
   "PERMEABILITY_XX": 6.901970778117567E-11, //(9)!
   "PERMEABILITY_YY": 6.901970778117567E-11, //(10)!
   "PERMEABILITY_XY": 0, //(11)!
   "PERMEABILITY_CHANGE_INVERSE_FACTOR": 0, //(12)!
   "DYNAMIC_VISCOSITY": 0.0013, //(13)!
-  "THICKNESS": 1,
   "K0_MAIN_DIRECTION": 1, //(14)!
   "K0_NC": 0, //(15)!
   "INDEX_OF_UMAT_PHI_PARAMETER": 1, //(16)!
@@ -83,9 +208,9 @@ When `GeoLinearElasticPlaneStrain2DLaw` is set as the name of the constitutive l
 }
 ```
 
-1. {{ ignore_undrained }}
-2. Young's modulus (Pa)
-3. Poisson's ratio
+1. {{ geo_drainage_type }}
+2. {{ youngs_modulus }}
+3. {{ poissons_ratio }}
 4. {{ density_solid }}
 5. {{ density_water }}
 6. {{ porosity }}
