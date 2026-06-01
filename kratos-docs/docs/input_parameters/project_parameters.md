@@ -84,8 +84,8 @@ Allowed values: `Modelers.KratosMultiphysics.ImportMDPAModeler`.
 	"analysis_stage": "Stages.KratosMultiphysics.GeoMechanicsApplication.GeoMechanicsAnalysis", //(1)!
 	"problem_data": { },  //(2)!
 	"solver_settings": { },  //(3)!
-	"processes": { }  //(4)!
-	"output_processes": { },  //(5)!
+	"processes": { },  //(4)!
+	"output_processes": { }  //(5)!
 }
 ```
 
@@ -265,7 +265,7 @@ Here, an example for a displacement constraint is shown.
 {
   "python_module": "apply_vector_constraint_table_process", //(1)!
   "kratos_module": "KratosMultiphysics.GeoMechanicsApplication", //(2)!
-  "process_name": "ApplyVectorConstraintTableProcess",
+  "process_name": "ApplyVectorConstraintTableProcess", //(3)!
   "Parameters": {
     "model_part_name": "PorousDomain.xxx", //(4)!
     "variable_name": "DISPLACEMENT", //(5)!
@@ -302,7 +302,7 @@ And here, an example for a water pressure constraint is shown.
     "fluid_pressure_type": "Hydrostatic", //(8)!
     "gravity_direction": 1, //(9)!
     "reference_coordinate": -25.0, //(10)!
-    "specific_weight": 1.0E+05, //(11)!
+    "specific_weight": 1.0E+04, //(11)!
     "pressure_tension_cut_off": 0.0 //(12)!
   }
 }
