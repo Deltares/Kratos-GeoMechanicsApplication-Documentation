@@ -1,6 +1,5 @@
 # material parameters
 geo_drainage_type: 'Indicates the drainage conditions. Type: string. Supported types include `"FULLY_COUPLED"` and `"CONSTANT_PW_FIELD"`.'
-ignore_undrained: If `true` keeps all the pressure field unchanged
 youngs_modulus: 'Young''s modulus of the soil skeleton (e.g. in Pa). Type: float. Range: (0.0, ->.'
 poissons_ratio: 'Poisson''s ratio of the soil skeleton. Type: float. Range: (-1.0, 0.5).'
 porosity: 'Fraction of the unit volume that represents the pores. Type: float. Range: [0.0, 1.0].'

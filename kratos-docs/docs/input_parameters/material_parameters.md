@@ -33,7 +33,7 @@ The structural format of the MaterialParameters.json is as follows:
 3. Unique ID of this material. Type: integer.
 4. Start of the material description.
 5. Definition of the constitutive law.
-6. Name of the soil constitutive law. Type: string. Supported names include [`GeoLinearElasticPlaneStrain2DLaw`](#incremental-linear-elastic-law-for-plane-strain-models), [`GeoMohrCoulombWithTensionCutOff2D`](#mohr-coulomb-with-tension-cut-off) and [`SmallStrainUDSM2DPlaneStrainLaw`](#constitutive-law-smallstrainudsm2dplanestrainlaw)
+6. Name of the soil constitutive law. Type: string. Supported names include [`GeoLinearElasticPlaneStrain2DLaw`](#incremental-linear-elastic-law-for-plane-strain-models), [`GeoMohrCoulombWithTensionCutOff2D`](#mohr-coulomb-with-tension-cut-off-for-plane-strain-models) and [`SmallStrainUDSM2DPlaneStrainLaw`](#constitutive-law-smallstrainudsm2dplanestrainlaw)
 7. Material properties relevant for the current constitutive law.
 
 When a project needs various materials, multiple items can be added to the properties list, each having its own unique ID and possibly varying constitutive laws and/or material properties.
@@ -230,7 +230,7 @@ This retention law adopts the formulation proposed by Van Genuchten.
 `GeoLinearElasticPlaneStrain2DLaw` is an incremental linear elastic constitutive law that is to be used by plane strain models only. It does not require any additional input compared to what was described at the top of this page.
 
 
-## Mohr-Coulomb with tension cut-off
+## Mohr-Coulomb with tension cut-off for plane strain models
 
 `GeoMohrCoulombWithTensionCutOff2D` is a Mohr-Coulomb plastic constitutive law that is to be used by plane strain models only. In addition to the input described at the top of this page, the following input is needed for the shear yield surface and tension cut-off.
 
@@ -249,59 +249,26 @@ This retention law adopts the formulation proposed by Van Genuchten.
 4. {{ geo_tensile_strength }}
 
 
-## Constitutive law: SmallStrainUDSM2DPlaneStrainLaw
+## User-defined soil model (UDSM) for plane strain models
 
-When `SmallStrainUDSM2DPlaneStrainLaw` is set as the name of the constitutive law, the structural format `Variables`-block is as follows:
+`SmallStrainUDSM2DPlaneStrainLaw` is a user-defined material model for plane strain models only. In addition to the input described at the top of this page, the following input is needed.
 
 ```json
 {
-  "IGNORE_UNDRAINED": false, //(1)!
-  "DENSITY_SOLID": 2650, //(2)!
-  "DENSITY_WATER": 1000, //(3)!
-  "POROSITY": 0.3, //(4)!
-  "BULK_MODULUS_SOLID": 20000000000, //(5)!
-  "BULK_MODULUS_FLUID": 2200000000, //(6)!
-  "PERMEABILITY_XX": 6.901970778117567E-11, //(7)!
-  "PERMEABILITY_YY": 6.901970778117567E-11, //(8)!
-  "PERMEABILITY_XY": 0, //(9)!
-  "PERMEABILITY_CHANGE_INVERSE_FACTOR": 0, //(10)!
-  "DYNAMIC_VISCOSITY": 0.0013, //(11)!
-  "BIOT_COEFFICIENT": 1, //(12)!
-  "RETENTION_LAW": "SaturatedLaw", //(13)!
-  "SATURATED_SATURATION": 1 //(14)!
-  "RESIDUAL_SATURATION": 0 //(15)!
-  "MINIMUM_RELATIVE_PERMEABILITY": 0 //(16)!
-  "UDSM_NAME": "UDSM.dll", //(17)!
-  "UDSM_NUMBER": 1, //(18)!
-  "IS_FORTRAN_UDSM": true, //(19)!
-  "UMAT_PARAMETERS": [ ], //(20)!
-  "USE_HENCKY_STRAIN": false,  //(21)!
-  "Tables": {} //(22)!
+  "UDSM_NAME": "UDSM.dll", //(1)!
+  "UDSM_NUMBER": 1, //(2)!
+  "IS_FORTRAN_UDSM": true, //(3)!
+  "UMAT_PARAMETERS": [ ] //(4)!
+  "USE_HENCKY_STRAIN": false  //(5)!
 }
 ```
 
-1. {{ ignore_undrained }}
-2. {{ density_solid }}
-3. {{ density_water }}
-4. {{ porosity }}
-5. {{ bulk_modulus_solid }}
-6. {{ bulk_modulus_fluid }}
-7. {{ permeability_xx }}
-8. {{ permeability_yy }}
-9. {{ permeability_xy }}
-10. {{ permeability_change_inverse_factor }}
-11. {{ dynamic_viscosity }}
-12. {{ biot_coefficient }}
-13. {{ retention_law }}
-14. {{ saturated_saturation }}
-15. {{ residual_saturation }}
-16. {{ minimum_relative_permeability }}
-17. Name of the UDSM (`.dll`) soil file. For various commonly used soil models see [Details](#umat-parameters-format)
-18. Set to 1
-19. Set `true` if the UDSM file is in Fortran
-20. The umat parameters. For various commonly used soil models see [Details](#umat-parameters-format)
-21. If `true`: use Hencky strain measure (natural/logarithmic strain). Should be used together with `move_mesh_flag` [solver setting block of the ProjectParameters.json](project_parameters.md#solver_settings-block-structure-format) and have the same value
-22. Optional tables
+1. Path to the UDSM file (`.dll`). For various commonly used soil models see [Details](#umat-parameters-format). Type: string.
+2. Material model ID in the UDSM. Type: integer.
+3. Set to `true` if the UDSM file was written in FORTRAN. Type: boolean.
+4. The UMAT parameters: an array of values. For various commonly used soil models see [Details](#umat-parameters-format)
+5. If `true`, use Hencky strain measure (natural/logarithmic strain). Should be used together with `move_mesh_flag` [solver setting block of the ProjectParameters.json](project_parameters.md#solver_settings-block-structure-format) and have the same value. Type: boolean.
+
 
 ### UMAT parameters format
 
