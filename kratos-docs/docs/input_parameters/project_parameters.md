@@ -28,7 +28,7 @@ Type: string. </br>
 Allowed values: `Orchestrators.KratosMultiphysics.SequentialOrchestrator`
 2. Settings for the orchestrator. [Details](#orchestrator-settings-block-structure-format).
 3. Stage names as defined in the "execution list". [Details](#orchestrator-settings-block-structure-format).
-4. Processes executed before the stage begins. For example importing a model from a file and (de)activation of model parts. [Details](#stage-preprocess-block-structure-format).
+4. Operations executed before the stage begins. For example importing a model from a file and (de)activation of model parts. [Details](#stage-preprocess-block-structure-format).
 5. Settings for the current stage. [Details](#stage-settings-block-structure-format).
 ### Orchestrator settings block structure format
 ```json
@@ -113,7 +113,7 @@ Allowed values: `Modelers.KratosMultiphysics.ImportMDPAModeler`.
 3. The end time of this stage. Type: float. Can also be negative, but must be greater than the start time.
 4. {{ echo_level }}
 5. Method of parallel computation. Type: string. Allowed values: `OpenMP`.
-6. Number of threads for parallel computation. Default = 1.
+6. Number of threads for parallel computation. Type: integer. Default = 1.
 
 #### Solver settings block structure format
 ```json
@@ -130,7 +130,7 @@ Allowed values: `Modelers.KratosMultiphysics.ImportMDPAModeler`.
     },
     "time_stepping": {  //(7)!
       "time_step": 1.0,  //(8)!
-      "max_delta_time_factor": 1.0E+09  //(9)!
+      "max_delta_time_factor": 1.0E+09,  //(9)!
 	  "minimum_allowable_value": 1.0E-03  //(10)!
     },
     "buffer_size": 2,  //(11)!
@@ -157,8 +157,8 @@ Allowed values: `Modelers.KratosMultiphysics.ImportMDPAModeler`.
     "reduction_factor": 0.5, //(32)!
     "increase_factor": 2.0, //(33)!
 	"desired_iterations": 4, //(34)!
-	"max_radius_factor": 10.0 //(35)!
-	"min_radius_factor": 0.1 //(36)!
+	"max_radius_factor": 10.0, //(35)!
+	"min_radius_factor": 0.1, //(36)!
 	"max_line_search_iterations": 5, //(37)!
 	"first_alpha_value": 0.5, //(38)!
 	"second_alpha_value": 1.0, //(39)!
@@ -177,14 +177,15 @@ Allowed values: `Modelers.KratosMultiphysics.ImportMDPAModeler`.
     "newmark_theta": 0.5,   //(51)!
     "rayleigh_m": 0.0,   //(52)!
     "rayleigh_k": 0.0,  //(53)!
-	"max_piping_iterations": 500,  //(54)!
-  },
+	"max_piping_iterations": 500  //(54)!
+  }
 ```
 
 1. Analysis type. Type: string. </br> Allowed values: `U_Pw == geomechanics_U_Pw_solver`, `Pw == geomechanics_pw_solver`, `T == geomechanics_T_solver`.
 2. {{ overarching_model_part_name }}
 3. Working space dimension. Type: integer. Allowed values: 2 for 2D and 3 for 3D.
-4. Format of the model input file. Type: string. Allowed values: `mdpa` or `use_input_model_part`.
+4. Format of the model input file. Type: string. </br> Allowed values: `mdpa` or `use_input_model_part`. 
+</br> Note: When the `ImportMDPAModeler` is used in in [modelers](#stage-preprocess-block-structure-format) section, here the input_type should be `use_input_model_part` to avoid reading the input file more than once.
 5. Name of the model input file. Type: string. Only necessary when input_type is set to `mdpa`.
 6. Path to the material parameter file. Type: string.
 7. Settings for time stepping.
@@ -202,7 +203,7 @@ Allowed values: `Modelers.KratosMultiphysics.ImportMDPAModeler`.
 19. Time integration scheme. Type: string. Allowed values: `newmark`, `backward_euler`.
 20. Function to reset total displacements/rotations at stage start. Type: boolean.
 21. Iterative strategy. Type: string. Allowed values: `newton_raphson`, `newton_raphson_with_piping`, `linear`, `line_search`.
-22. Convergence criterion type. Type: string. Allowed values: `displacement_criterion`, `water_pressure_criterion`, `residual_criterion`.
+22. Convergence criterion type. Type: string. Allowed values: `displacement_criterion`, `water_pressure_criterion`, `residual_criterion`, `temperature_criterion` and `or_criterion`.
 23. Relative tolerance for displacement convergence criterion. Type = float.
 24. Absolute tolerance for displacement convergence criterion. Type = float.
 25. Relative tolerance for water pressure convergence criterion. Type = float.
@@ -241,7 +242,8 @@ Allowed values: `Modelers.KratosMultiphysics.ImportMDPAModeler`.
 "processes": {
     "constraints_process_list": [ ], //(1)!
     "loads_process_list": [ ], //(2)!
-    "auxiliary_process_list": [ ] //(3)!
+    "auxiliary_process_list": [ ], //(3)!
+	"json_output": [ ] //(4)!
 }
 ```
 
@@ -251,10 +253,12 @@ Allowed values: `Modelers.KratosMultiphysics.ImportMDPAModeler`.
 Type: array of objects. [Details](#loads-process-list-block-structure-format)
 3. List of auxiliary processes, such as the k0 procedure. </br>
 Type: array of objects. [Details](#auxiliary-process-list-block-structure-format)
+4. Process to output data in a json format. </br> 
+Type: array of objects. [Details](#json-output-list-block-structure-format)
 
 ##### Constraints process list block structure format
 Constraint processes are used for constraints and boundary conditions in for example the displacement or the water pressure.
-Constraint processes can be either vector (e.g. displacement) or scalar (e.g. pressure), depending on the variable being constrained. </br>
+Constraint processes can be either vector (e.g. displacement) or scalar (e.g. pressure), depending on the variable being constrained.
 Here, an example for a displacement constraint is shown.
 
 ```json
@@ -299,7 +303,7 @@ And here, an example for a water pressure constraint is shown.
     "gravity_direction": 1, //(9)!
     "reference_coordinate": -25.0, //(10)!
     "specific_weight": 1.0E+05, //(11)!
-    "pressure_tension_cut_off": 0.0, //(12)!
+    "pressure_tension_cut_off": 0.0 //(12)!
   }
 }
 ```
@@ -347,7 +351,7 @@ An example is given here.
 8. {{ table }}
 
 ##### Auxiliary process list block structure format
-As an example of an auxiliary process, the K0 procedure showed here. The K0 procedure is used to initialize the horizontal stresses in a soil profile from a given vertical stress profile.
+As an example of an auxiliary process, the K0 procedure is shown here. The K0 procedure is used to initialize the horizontal stresses in a soil profile from a given vertical stress profile.
 
 ```json
 {
@@ -368,6 +372,31 @@ As an example of an auxiliary process, the K0 procedure showed here. The K0 proc
 4. {{ model_part_name }}
 5. {{ variable_name }}
 6. Parameter . Type: boolean. Default value: .
+
+##### Json output list block structure format
+```json
+{
+	"python_module": "json_output_process", //(1)!
+	"kratos_module": "KratosMultiphysics", //(2)!
+	"process_name": "JsonOutputProcess", //(3)!
+	"Parameters": {
+		"model_part_name": "PorousDomain.Slave_side", //(4)!
+		"output_file_name": "3_Wall_installation_interface_output.json", //(5)!
+		"output_variables": ["GEO_EFFECTIVE_TRACTION_VECTOR"], //(6)!
+		"gauss_points_output_variables": [], //(7)!
+		"time_frequency": 0.9999999999 //(8)!
+	}
+}
+```
+
+1. Name of the python module. Type: string.
+2. Name of the Kratos application containing the python module. Type: string.
+3. Name of the process class. Type: string.
+4. {{ model_part_name }}
+5. Name of the output file. Type: string. Note: .json should be included at the end of the file name.
+6. List of nodal result variables to output. Type: array of strings.
+7. List of Gauss point (integration point) result variables to output. Type: array of strings.
+8. Time frequency of documenting data in the output json. Type: float.
 
 #### Output processes block structure format
 ```json
