@@ -143,8 +143,8 @@ The drainage type of your material is given by the parameter `GEO_DRAINAGE_TYPE`
 
 At present, the GeoMechanicsApplication supports two drainage types:
 
-1. **Fully coupled.** With corresponding: `GEO_DRAINAGE_TYPE = "FULLY_COUPLED"`. </br> When this type is selected, the simulation will solve for the displacement field as well as the pore water pressure field in a coupled manner. In other words, the displacement field affects the pore water pressure field and vice versa.
-2. **Keeping the pore water pressure field constant.** With corresponding: `GEO_DRAINAGE_TYPE = "CONSTANT_PW_FIELD"` </br>
+1. **Fully coupled.** With corresponding: `"GEO_DRAINAGE_TYPE" = "FULLY_COUPLED"`. </br> When this type is selected, the simulation will solve for the displacement field as well as the pore water pressure field in a coupled manner. In other words, the displacement field affects the pore water pressure field and vice versa.
+2. **Keeping the pore water pressure field constant.** With corresponding: `"GEO_DRAINAGE_TYPE" = "CONSTANT_PW_FIELD"` </br>
 When this type is selected, the simulation will solve for the displacement  field only. The pore water pressure field is kept constant, i.e. the pore water pressure degrees of freedom remain unchanged. Only the effect of the pore water pressure field on the displacement field is taken into account for the coupling.
 
 
