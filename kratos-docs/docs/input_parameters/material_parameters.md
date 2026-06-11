@@ -313,6 +313,6 @@ This retention law adopts the formulation proposed by Van Genuchten.
 1. {{ saturated_saturation_with_minimum_value }}
 2. {{ residual_saturation }}
 3. {{ minimum_relative_permeability }}
-4. Air entry pressure (e.g. in Pa). Type: float. Range: (0.0, ->).
+4. Air entry pressure [Pa]. Type: float. Range: (0.0, ->).
 5. Parameter GN. Type: float. Range: (0.0, ->).
 6. Parameter GL. Type: float. Range: (0.0, ->).
