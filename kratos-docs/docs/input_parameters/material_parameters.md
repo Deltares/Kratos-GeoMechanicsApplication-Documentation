@@ -1,7 +1,7 @@
 # MaterialParameters.json file description
 
 The material parameters json-file contains descriptions of several material models and their properties which can be adopted by a Kratos simulation. 
-The user is responsible for giving all material parts a consistent set of parameters.
+The user is responsible for providing a consistent set of material parameters.
 
 By clicking on an annotation (1) the user is provided more detailed information about a property.
 { .annotate }
