@@ -87,7 +87,7 @@ When a project needs various materials, multiple items can be added to the prope
 
 Here, the input parameters are described for some soil models that are commonly used within Deltares. See [Soil Models](../theory/soil_models.md) for more background about how to obtain and use them.
 
-#### abc-Isotache natural strain: `UDSM.dll`
+#### abc-Isotache natural strain: `abc64.dll`
 
 For abc-Isotache natural strain soil model, `UDSM.dll`, the following parameters are expected:
 
