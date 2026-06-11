@@ -1,0 +1,1472 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../user_documentation/">
+      
+      
+        <link rel="next" href="../mesh_file_description/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>MaterialParameters.json file description - Kratos Geo Mechanics Application Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M6%2013v-2h8l-3.5-3.5%201.42-1.42L17.84%2012l-5.92%205.92-1.42-1.42L14%2013zm16-1a10%2010%200%200%201-10%2010A10%2010%200%200%201%202%2012%2010%2010%200%200%201%2012%202a10%2010%200%200%201%2010%2010m-2%200a8%208%200%200%200-8-8%208%208%200%200%200-8%208%208%208%200%200%200%208%208%208%208%200%200%200%208-8%22/%3E%3C/svg%3E');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#materialparametersjson-file-description" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Kratos Geo Mechanics Application Documentation" class="md-header__button md-logo" aria-label="Kratos Geo Mechanics Application Documentation" data-md-component="logo">
+      
+  <img src="../../img/favicon.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Kratos Geo Mechanics Application Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MaterialParameters.json file description
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Deltares/Kratos-GeoMechanicsApplication-Documentation/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Deltares/Kratos-GeoMechanicsApplication-Documentation/
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Kratos Geo Mechanics Application Documentation" class="md-nav__button md-logo" aria-label="Kratos Geo Mechanics Application Documentation" data-md-component="logo">
+      
+  <img src="../../img/favicon.ico" alt="logo">
+
+    </a>
+    Kratos Geo Mechanics Application Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Deltares/Kratos-GeoMechanicsApplication-Documentation/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Deltares/Kratos-GeoMechanicsApplication-Documentation/
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theory
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Theory
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/soil_models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Soil Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user_documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File Descriptions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    File Descriptions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MaterialParameters.json file description
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MaterialParameters.json file description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#supported-constitutive-laws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supported constitutive laws
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Supported constitutive laws">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#incremental-linear-elastic-law-for-plane-strain-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Incremental linear elastic law for plane strain models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mohr-coulomb-with-tension-cut-off-for-plane-strain-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mohr-Coulomb with tension cut-off for plane strain models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-defined-soil-model-udsm-for-plane-strain-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User-defined soil model (UDSM) for plane strain models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#umat-parameters-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UMAT parameters format
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UMAT parameters format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abc-isotache-natural-strain-abc64dll" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        abc-Isotache natural strain: abc64.dll
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mohr-coulomb-model-mohrcoulomb64dll" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mohr-Coulomb model: MohrCoulomb64.dll
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mohr-coulomb-model-example64dll" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mohr-Coulomb model: example64.dll
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#drainage-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Drainage types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-material-properties-of-the-soil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        General material properties of the soil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#horizontal-stress-state-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Horizontal stress state initialization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Horizontal stress state initialization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#direct-specification-of-k_0mathrmnc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Direct specification of \(K_0^{\mathrm{nc}}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#derivation-of-k_0mathrmnc-from-the-friction-angle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Derivation of \(K_0^{\mathrm{nc}}\) from the friction angle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#direct-specification-of-directional-k_0-coefficients" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Direct specification of directional \(K_0\) coefficients
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permeability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permeability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retention-laws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retention laws
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Retention laws">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fully-saturated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fully saturated
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#saturated-below-the-phreatic-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Saturated below the phreatic level
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retention-law-according-to-van-genuchten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retention law according to Van Genuchten
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mesh_file_description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mesh.mdpa file description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project_parameters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ProjectParameter.json file description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples_and_tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples and Tutorials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../validation_and_verification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validation and Verification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="materialparametersjson-file-description">MaterialParameters.json file description</h1>
+<p>The material parameters json-file contains descriptions of several material models and their properties which can be adopted by a Kratos simulation. 
+The user is responsible for providing a consistent set of material parameters.</p>
+<p class="annotate">By clicking on an annotation (1) the user is provided with more detailed information about a property.</p>
+<ol>
+<li>Here more information about an annotation can be found.</li>
+</ol>
+<p>The structural format of the MaterialParameters.json is as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="c1">//(1)!</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;model_part_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PorousDomain.Material_1&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">//(2)!</span>
+<span class="w">      </span><span class="nt">&quot;properties_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="c1">//(3)!</span>
+<span class="w">      </span><span class="nt">&quot;Material&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//(4)!</span>
+<span class="w">        </span><span class="nt">&quot;constitutive_law&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//(5)!</span>
+<span class="w">          </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;GeoLinearElasticPlaneStrain2DLaw&quot;</span><span class="w"> </span><span class="c1">//(6)!</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;Variables&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">//(7)!</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>Start of the properties list.</li>
+<li>Name of the model part to which this material will be assigned. Type: string.</li>
+<li>Unique ID of this material. Type: integer.</li>
+<li>Start of the material description.</li>
+<li>Definition of the constitutive law.</li>
+<li>Name of the soil constitutive law. Type: string. <a href="#supported-constitutive-laws">Supported examples.</a></li>
+<li>Material properties relevant for the current constitutive law. <a href="#variables">Details.</a></li>
+</ol>
+<p>When a project needs various materials, multiple items can be added to the properties list, each having its own unique ID and possibly varying constitutive laws and/or material properties.</p>
+<h2 id="supported-constitutive-laws">Supported constitutive laws</h2>
+<h3 id="incremental-linear-elastic-law-for-plane-strain-models">Incremental linear elastic law for plane strain models</h3>
+<p><code>GeoLinearElasticPlaneStrain2DLaw</code> is an incremental linear elastic constitutive law that is to be used by plane strain models only. It does not require any additional input to the variables.</p>
+<h3 id="mohr-coulomb-with-tension-cut-off-for-plane-strain-models">Mohr-Coulomb with tension cut-off for plane strain models</h3>
+<p><code>GeoMohrCoulombWithTensionCutOff2D</code> is a Mohr-Coulomb plastic constitutive law that is to be used by plane strain models only. This model requires the following material specific input in the variables section:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;GEO_COHESION&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0e+03</span><span class="p">,</span><span class="w"> </span><span class="c1">//(1)!</span>
+<span class="w">    </span><span class="nt">&quot;GEO_FRICTION_ANGLE&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">22.5</span><span class="p">,</span><span class="w"> </span><span class="c1">//(2)!</span>
+<span class="w">    </span><span class="nt">&quot;GEO_DILATANCY_ANGLE&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="c1">//(3)!</span>
+<span class="w">    </span><span class="nt">&quot;GEO_TENSILE_STRENGTH&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">7.24263e+03</span><span class="w"> </span><span class="c1">//(4)!</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>Cohesion [Pa]. Type: float. Range: [0.0, -&gt;).</li>
+<li>Friction angle <strong>in degrees</strong>. Type: float. Range: [0.0, 90.0).</li>
+<li>Dilatancy angle <strong>in degrees</strong>. Type: float. Range: [0.0, GEO_FRICTION_ANGLE].</li>
+<li>Tension cut-off stress [Pa]. Type: float. Range: [0.0, GEO_COHESION / tan(GEO_FRICTION_ANGLE)]</li>
+</ol>
+<h3 id="user-defined-soil-model-udsm-for-plane-strain-models">User-defined soil model (UDSM) for plane strain models</h3>
+<p><code>SmallStrainUDSM2DPlaneStrainLaw</code> is a user-defined material model for plane strain models only. This model requires the following material specific input in the variables section:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;UDSM_NAME&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UDSM.dll&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">//(1)!</span>
+<span class="w">  </span><span class="nt">&quot;UDSM_NUMBER&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="c1">//(2)!</span>
+<span class="w">  </span><span class="nt">&quot;IS_FORTRAN_UDSM&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">//(3)!</span>
+<span class="w">  </span><span class="nt">&quot;UMAT_PARAMETERS&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="c1">//(4)!</span>
+<span class="w">  </span><span class="nt">&quot;USE_HENCKY_STRAIN&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">  </span><span class="c1">//(5)!</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>Path to the UDSM file (<code>.dll</code>). For various commonly used soil models see <a href="#umat-parameters-format">Details</a>. Type: string.</li>
+<li>Material model ID in the UDSM. Type: integer.</li>
+<li>Set to <code>true</code> if the UDSM file was written in FORTRAN. Type: boolean.</li>
+<li>The UMAT parameters. Type: array of values. For various commonly used soil models see <a href="#umat-parameters-format">details.</a></li>
+<li>Toggle to use the Hencky strain measure (natural/logarithmic strain). Type: boolean. Note: this should be used together with <code>move_mesh_flag</code> <a href="../project_parameters/#solver_settings-block-structure-format">solver settings in ProjectParameters.json</a> and have the same value.</li>
+</ol>
+<h3 id="umat-parameters-format">UMAT parameters format</h3>
+<p>Here, the input parameters are described for some soil models that are commonly used within Deltares. See <a href="../../theory/soil_models/">Soil Models</a> for more background about how to obtain and use them.</p>
+<h4 id="abc-isotache-natural-strain-abc64dll">abc-Isotache natural strain: <code>abc64.dll</code></h4>
+<p>For abc-Isotache natural strain soil model, <code>abc64.dll</code>, the following parameters are expected:</p>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>a</code></td>
+<td>modified natural swelling index</td>
+</tr>
+<tr>
+<td><code>b</code></td>
+<td>modified natural compression index</td>
+</tr>
+<tr>
+<td><code>c</code></td>
+<td>modified natural secondary compression constant</td>
+</tr>
+<tr>
+<td><code>t</code></td>
+<td>time = 1.0</td>
+</tr>
+<tr>
+<td><code>OCR</code></td>
+<td>overconsolidation ratio</td>
+</tr>
+</tbody>
+</table>
+<h4 id="mohr-coulomb-model-mohrcoulomb64dll">Mohr-Coulomb model: <code>MohrCoulomb64.dll</code></h4>
+<p>The Mohr-Coulomb model in <code>MohrCoulomb64.dll</code> expects the UMAT parameters to be an array with the following components:</p>
+<table>
+<thead>
+<tr>
+<th>Nr.</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.</td>
+<td>Young's modulus [Pa]</td>
+</tr>
+<tr>
+<td>2.</td>
+<td>Poisson's ratio [-]</td>
+</tr>
+<tr>
+<td>3.</td>
+<td>Cohesion [Pa]</td>
+</tr>
+<tr>
+<td>4.</td>
+<td>Friction angle [deg]</td>
+</tr>
+<tr>
+<td>5.</td>
+<td>Dilatancy angle [deg]</td>
+</tr>
+<tr>
+<td>6.</td>
+<td>Tension cut-off stress [Pa]</td>
+</tr>
+<tr>
+<td>7.</td>
+<td>Yield function selector [0: Matsuoka–Nakai Convex, 1: Mohr–Coulomb, 2: Drucker–Prager, 3: Matsuoka–Nakai]</td>
+</tr>
+<tr>
+<td>8.</td>
+<td>Undrained Poisson's ratio [-]</td>
+</tr>
+</tbody>
+</table>
+<h4 id="mohr-coulomb-model-example64dll">Mohr-Coulomb model: <code>example64.dll</code></h4>
+<p>The Mohr-Coulomb model in <code>example64.dll</code> expects the UMAT parameters to be an array with the following components:</p>
+<table>
+<thead>
+<tr>
+<th>Nr.</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.</td>
+<td>Shear modulus [Pa]</td>
+</tr>
+<tr>
+<td>2.</td>
+<td>Poisson's ratio [-]</td>
+</tr>
+<tr>
+<td>3.</td>
+<td>Cohesion [Pa]</td>
+</tr>
+<tr>
+<td>4.</td>
+<td>Friction angle [deg]</td>
+</tr>
+<tr>
+<td>5.</td>
+<td>Dilatancy angle [deg]</td>
+</tr>
+<tr>
+<td>6.</td>
+<td>Tension cut-off stress [Pa]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="variables">Variables</h2>
+<p>For geomechanical materials, the "Variables" section consists of the following parts:</p>
+<ol>
+<li><a href="#drainage-types">Drainage type</a></li>
+<li><a href="#general-material-properties-of-the-soil">General material properties of the soil</a>.</li>
+<li>A description of the groundwater flow. This includes the <a href="#permeability">permeability</a> and a <a href="#retention-laws">retention law</a>.</li>
+<li>K_0 procedure parameters. Only included if a horizontal stress state is initialised. <a href="#horizontal-stress-state-initialization">K_0</a></li>
+</ol>
+<h3 id="drainage-types">Drainage types</h3>
+<p>The drainage type of your material is given by the parameter <code>GEO_DRAINAGE_TYPE</code>. </p>
+<p>At present, the GeoMechanicsApplication supports two drainage types:</p>
+<ol>
+<li><strong>Fully coupled.</strong> With corresponding: <code>"GEO_DRAINAGE_TYPE" = "FULLY_COUPLED"</code>. </br> When this type is selected, the simulation will solve for the displacement field as well as the pore water pressure field in a coupled manner. In other words, the displacement field affects the pore water pressure field and vice versa.</li>
+<li><strong>Keeping the pore water pressure field constant.</strong> With corresponding: <code>"GEO_DRAINAGE_TYPE" = "CONSTANT_PW_FIELD"</code> </br>
+When this type is selected, the simulation will solve for the displacement  field only. The pore water pressure field is kept constant, i.e. the pore water pressure degrees of freedom remain unchanged. Only the effect of the pore water pressure field on the displacement field is taken into account for the coupling.</li>
+</ol>
+<h3 id="general-material-properties-of-the-soil">General material properties of the soil</h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;YOUNG_MODULUS&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0E+05</span><span class="p">,</span><span class="w"> </span><span class="c1">//(1)!</span>
+<span class="w">    </span><span class="nt">&quot;POISSON_RATIO&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.25</span><span class="p">,</span><span class="w"> </span><span class="c1">//(2)!</span>
+<span class="w">    </span><span class="nt">&quot;POROSITY&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.45</span><span class="p">,</span><span class="w"> </span><span class="c1">//(3)!</span>
+<span class="w">    </span><span class="nt">&quot;DENSITY_SOLID&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.83486e+03</span><span class="p">,</span><span class="w"> </span><span class="c1">//(4)!</span>
+<span class="w">    </span><span class="nt">&quot;DENSITY_WATER&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.01937e+03</span><span class="p">,</span><span class="w"> </span><span class="c1">//(5)!</span>
+<span class="w">    </span><span class="nt">&quot;BULK_MODULUS_SOLID&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0e+10</span><span class="p">,</span><span class="w"> </span><span class="c1">//(6)!</span>
+<span class="w">    </span><span class="nt">&quot;BULK_MODULUS_FLUID&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2.2e+09</span><span class="w"> </span><span class="c1">//(7)!</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>Young's modulus of the soil skeleton [Pa]. Type: float. Range: (0.0, -&gt;).</li>
+<li>Poisson's ratio of the soil skeleton [-]. Type: float. Range: (-1.0, 0.5).</li>
+<li>Fraction of the unit volume that represents the pores. Type: float. Range: [0.0, 1.0].</li>
+<li>Density of the grain material without the pores [kg/m^3]. Type: float. Range: (0.0, -&gt;).</li>
+<li>Density of the water [kg/m^3]. Type: float. Range: (0.0, -&gt;).</li>
+<li>Compression modulus of the grain material without pores [N/m^2]. Type: float. Range: (0.0, -&gt;).</li>
+<li>Compression modulus of water [N/m^2]. Type: float. Range: (0.0, -&gt;).</li>
+</ol>
+<h3 id="horizontal-stress-state-initialization">Horizontal stress state initialization</h3>
+<p>For the initialization of an in-situ stress field, the <span class="arithmatex">\(K_0\)</span> procedure derives the horizontal effective stresses from a field of vertical effective stresses. To distinguish between the vertical and horizontal stress fields, we need to know the direction of gravity. Furthermore, we need additional input that details how the horizontal stress field is calculated from the vertical one. This can be specified in one of several ways:</p>
+<ul>
+<li>Direct input of <span class="arithmatex">\(K_{0}^{\mathrm{nc}}\)</span> as described <a href="#direct-specification-of-k_0mathrmnc">here</a>.</li>
+<li>Derivation of the <span class="arithmatex">\(K_{0}\)</span> value from the friction angle as described <a href="#derivation-of-k_0mathrmnc-from-the-friction-angle">here</a>.</li>
+<li>Direct specification of directional <span class="arithmatex">\(K_{0}\)</span> values as described <a href="#direct-specification-of-directional-k_0-coefficients">here</a>.</li>
+</ul>
+<h4 id="direct-specification-of-k_0mathrmnc">Direct specification of <span class="arithmatex">\(K_0^{\mathrm{nc}}\)</span></h4>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;K0_MAIN_DIRECTION&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="c1">//(1)!</span>
+<span class="w">    </span><span class="nt">&quot;K0_NC&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.62</span><span class="w"> </span><span class="c1">//(2)!</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>Direction of gravity. Type: integer. Allowed values: 0, 1, 2 which correspond to X, Y and Z, respectively.</li>
+<li><span class="arithmatex">\(K_{0}^{\mathrm{nc}}\)</span>: coefficient for normally consolidated soil. Type: float. Range: [0.0, -&gt;).</li>
+</ol>
+<h4 id="derivation-of-k_0mathrmnc-from-the-friction-angle">Derivation of <span class="arithmatex">\(K_0^{\mathrm{nc}}\)</span> from the friction angle</h4>
+<p>The <span class="arithmatex">\(K_0^{\mathrm{nc}}\)</span> can be derived from the friction angle as follows:</p>
+<div class="arithmatex">\[K_0^{nc} = 1.0 - \sin \phi\]</div>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;K0_MAIN_DIRECTION&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="c1">//(1)!</span>
+<span class="w">    </span><span class="nt">&quot;GEO_FRICTION_ANGLE&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">30.0</span><span class="w"> </span><span class="c1">//(2)!</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>Direction of gravity. Type: integer. Allowed values: 0, 1, 2 which correspond to X, Y and Z, respectively.</li>
+<li>Friction angle <strong>in degrees</strong>. Type: float. Range: [0.0, 90.0).</li>
+</ol>
+<h4 id="direct-specification-of-directional-k_0-coefficients">Direct specification of directional <span class="arithmatex">\(K_0\)</span> coefficients</h4>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;K0_MAIN_DIRECTION&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="c1">//(1)!</span>
+<span class="w">    </span><span class="nt">&quot;K0_VALUE_XX&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="c1">//(2)!</span>
+<span class="w">    </span><span class="nt">&quot;K0_VALUE_YY&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="c1">//(3)!</span>
+<span class="w">    </span><span class="nt">&quot;K0_VALUE_ZZ&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="w"> </span><span class="c1">//(4)!</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>Direction of gravity. Type: integer. Allowed values: 0, 1, 2 which correspond to X, Y and Z, respectively.</li>
+<li><span class="arithmatex">\(K_0\)</span> coefficient in X direction. Type: float. Range: [0.0, -&gt;).</li>
+<li><span class="arithmatex">\(K_0\)</span> coefficient in Y direction. Type: float. Range: [0.0, -&gt;).</li>
+<li><span class="arithmatex">\(K_0\)</span> coefficient in Z direction. Type: float. Range: [0.0, -&gt;).</li>
+</ol>
+<h3 id="permeability">Permeability</h3>
+<p>The permeability describes the groundwater flow in the pores.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;PERMEABILITY_XX&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">7.0E-11</span><span class="p">,</span><span class="w"> </span><span class="c1">//(1)!</span>
+<span class="w">  </span><span class="nt">&quot;PERMEABILITY_YY&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">7.0E-11</span><span class="p">,</span><span class="w"> </span><span class="c1">//(2)!</span>
+<span class="w">  </span><span class="nt">&quot;PERMEABILITY_XY&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="c1">//(3)!</span>
+<span class="w">  </span><span class="nt">&quot;PERMEABILITY_ZZ&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">7.0E-11</span><span class="p">,</span><span class="w"> </span><span class="c1">//(4)!</span>
+<span class="w">  </span><span class="nt">&quot;PERMEABILITY_YZ&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="c1">//(5)!</span>
+<span class="w">  </span><span class="nt">&quot;PERMEABILITY_ZX&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="c1">//(6)!</span>
+<span class="w">  </span><span class="nt">&quot;DYNAMIC_VISCOSITY&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0013</span><span class="p">,</span><span class="w"> </span><span class="c1">//(7)!</span>
+<span class="w">  </span><span class="nt">&quot;PERMEABILITY_CHANGE_INVERSE_FACTOR&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="c1">//(8)!</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>Intrinsic permeability in the XX direction [m^2]. Type: float. Range: (0.0, -&gt;).</li>
+<li>Intrinsic permeability in the YY direction [m^2]. Type: float. Range: (0.0, -&gt;).</li>
+<li>Intrinsic cross permeability in the XY direction [m^2]. Type: float. Range: [0.0, -&gt;).</li>
+<li>Intrinsic permeability in the ZZ direction [m^2]. Relevant for three-dimensional models only. Type: float. Range: (0.0, -&gt;).</li>
+<li>Intrinsic cross permeability in the YZ direction [m^2]. Relevant for three-dimensional models only. Type: float. Range: [0.0, -&gt;).</li>
+<li>Intrinsic cross permeability in the ZX direction [m^2]. Relevant for three-dimensional models only. Type: float. Range: [0.0, -&gt;).</li>
+<li>Dynamic viscosity [Pa s]. Type: float. Range: (0.0, -&gt;).</li>
+<li>If greater than 0.0, the permeability will be updated depending on the volumetric strain. Type: float.</li>
+</ol>
+<h3 id="retention-laws">Retention laws</h3>
+<p>A retention law determines the pressure-dependent relative conductivity and storage capacity. The GeoMechanicsApplication supports several ways to describe this behavior by supplying one of the following strings for the setting <code>"RETENTION_LAW"</code>:</p>
+<ul>
+<li><code>"SaturatedLaw"</code></li>
+<li><code>"SaturatedBelowPhreaticLevelLaw"</code></li>
+<li><code>"VanGenuchtenLaw"</code></li>
+</ul>
+<h4 id="fully-saturated">Fully saturated</h4>
+<p>For a fully saturated retention law, the relative permeability is always equal to 1.0, and the storage capacity equals 0.0. The saturation always equals the specified value.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;RETENTION_LAW&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SaturatedLaw&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;SATURATED_SATURATION&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="c1">//(1)!</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>Maximum water content in the pores. Type: float. Range: [0.0, 1.0].</li>
+</ol>
+<h4 id="saturated-below-the-phreatic-level">Saturated below the phreatic level</h4>
+<p>Below the phreatic level, the pores are assumed to be fully saturated as for the case of a fully saturated retention law. Above the phreatic level, there remains some pore water content indicated by a residual saturation as well as a minimum relative permeability.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;RETENTION_LAW&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SaturatedBelowPhreaticLevelLaw&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;SATURATED_SATURATION&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="c1">//(1)!</span>
+<span class="w">    </span><span class="nt">&quot;RESIDUAL_SATURATION&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w"> </span><span class="c1">//(2)!</span>
+<span class="w">    </span><span class="nt">&quot;MINIMUM_RELATIVE_PERMEABILITY&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0E-04</span><span class="w"> </span><span class="c1">//(3)!</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>Maximum water content in the pores. Type: float. Range: [RESIDUAL_SATURATION, 1.0].</li>
+<li>Minimum water content in the pores. Type: float. Range: [0.0, SATURATED_SATURATION].</li>
+<li>Minimum relative permeability. Type: float. Range: [0.0, 1.0].</li>
+</ol>
+<h4 id="retention-law-according-to-van-genuchten">Retention law according to Van Genuchten</h4>
+<p>This retention law adopts the formulation proposed by Van Genuchten.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;RETENTION_LAW&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VanGenuchtenLaw&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;SATURATED_SATURATION&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="c1">//(1)!</span>
+<span class="w">    </span><span class="nt">&quot;RESIDUAL_SATURATION&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w"> </span><span class="c1">//(2)!</span>
+<span class="w">    </span><span class="nt">&quot;MINIMUM_RELATIVE_PERMEABILITY&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0E-04</span><span class="p">,</span><span class="w"> </span><span class="c1">//(3)!</span>
+<span class="w">    </span><span class="nt">&quot;VAN_GENUCHTEN_AIR_ENTRY_PRESSURE&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2.561</span><span class="p">,</span><span class="w"> </span><span class="c1">//(4)!</span>
+<span class="w">    </span><span class="nt">&quot;VAN_GENUCHTEN_GN&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.377</span><span class="p">,</span><span class="w"> </span><span class="c1">//(5)!</span>
+<span class="w">    </span><span class="nt">&quot;VAN_GENUCHTEN_GL&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.25</span><span class="w"> </span><span class="c1">//(6)!</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>Maximum water content in the pores. Type: float. Range: [RESIDUAL_SATURATION, 1.0].</li>
+<li>Minimum water content in the pores. Type: float. Range: [0.0, SATURATED_SATURATION].</li>
+<li>Minimum relative permeability. Type: float. Range: [0.0, 1.0].</li>
+<li>Air entry pressure [Pa]. Type: float. Range: (0.0, -&gt;).</li>
+<li>Parameter GN. Type: float. Range: (0.0, -&gt;).</li>
+<li>Parameter GL. Type: float. Range: (0.0, -&gt;).</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Deltares
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": {"json": [".s2"]}, "base": "../..", "features": ["content.code.annotate", "content.code.copy", "toc.integrate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
