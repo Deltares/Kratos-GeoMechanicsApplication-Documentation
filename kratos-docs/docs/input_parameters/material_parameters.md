@@ -89,7 +89,7 @@ Here, the input parameters are described for some soil models that are commonly 
 
 #### abc-Isotache natural strain: `abc64.dll`
 
-For abc-Isotache natural strain soil model, `UDSM.dll`, the following parameters are expected:
+For abc-Isotache natural strain soil model, `abc64.dll`, the following parameters are expected:
 
 | Parameters | Description |
 | --- | --- |
@@ -189,7 +189,7 @@ For the initialization of an in-situ stress field, the $K_0$ procedure derives t
 ```
 
 1. {{ k0_main_direction }}
-2. $K_{0}^{\mathrm{nc}}$: coefficient for normally consolidated soil. Type: float. Range: [0.0, ->].
+2. $K_{0}^{\mathrm{nc}}$: coefficient for normally consolidated soil. Type: float. Range: [0.0, ->).
 
 
 #### Derivation of $K_0^{\mathrm{nc}}$ from the friction angle

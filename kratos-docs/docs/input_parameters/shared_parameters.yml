@@ -15,7 +15,6 @@ permeability_yz: 'Intrinsic cross permeability in the YZ direction [m^2]. Releva
 permeability_zx: 'Intrinsic cross permeability in the ZX direction [m^2]. Relevant for three-dimensional models only. Type: float. Range: [0.0, ->).'
 dynamic_viscosity: 'Dynamic viscosity [Pa s]. Type: float. Range: (0.0, ->).'
 permeability_change_inverse_factor: 'If greater than 0.0, the permeability will be updated depending on the volumetric strain. Type: float.'
-retention_law: Water retention law `SaturatedLaw`, `VanGenuchtenLaw`, `SaturatedBelowPheraticLevelLaw`
 saturated_saturation: 'Maximum water content in the pores. Type: float. Range: [0.0, 1.0].'
 saturated_saturation_with_minimum_value: 'Maximum water content in the pores. Type: float. Range: [RESIDUAL_SATURATION, 1.0].'
 residual_saturation: 'Minimum water content in the pores. Type: float. Range: [0.0, SATURATED_SATURATION].'
@@ -28,7 +27,7 @@ geo_cohesion: 'Cohesion [Pa]. Type: float. Range: [0.0, ->).'
 geo_friction_angle: 'Friction angle **in degrees**. Type: float. Range: [0.0, 90.0).'
 geo_dilatancy_angle: 'Dilatancy angle **in degrees**. Type: float. Range: [0.0, GEO_FRICTION_ANGLE].'
 geo_tensile_strength: 'Tension cut-off stress [Pa]. Type: float. Range: [0.0, GEO_COHESION / tan(GEO_FRICTION_ANGLE)]'
-biot_coefficient: Biot alpha coefficient
+biot_coefficient: 'Biot alpha coefficient [-]. Type: float. Range: [0.0, 1.0].'
 # project parameters
 echo_level: "Level of logging. Type: integer."
 overarching_model_part_name: "Name of the overarching model part. Type: string."
