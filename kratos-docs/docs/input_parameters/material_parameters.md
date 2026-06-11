@@ -111,7 +111,7 @@ The Mohr-Coulomb model in `MohrCoulomb64.dll` expects the UMAT parameters to be 
 | 4. | Friction angle [deg] | 
 | 5. | Dilatancy angle [deg] |
 | 6. | Tension cut-off stress [Pa] |
-| 7. | Yield function selector [0: Matsuoka–Nakai Convex; 1: Mohr–Coulomb, 2: Drucker–Prager, 3: Matsuoka–Nakai] | 
+| 7. | Yield function selector [0: Matsuoka–Nakai Convex, 1: Mohr–Coulomb, 2: Drucker–Prager, 3: Matsuoka–Nakai] | 
 | 8. | Undrained Poisson's ratio [-] |
 
 #### Mohr-Coulomb model: `example64.dll`
