@@ -56,6 +56,11 @@ When a project needs various materials, multiple items can be added to the prope
 }
 ```
 
+1. {{ geo_cohesion }}
+2. {{ geo_friction_angle }}
+3. {{ geo_dilatancy_angle }}
+4. {{ geo_enable_tension_cut_off }}
+
 If the tension cut-off is enabled, the following input is required:
 ```json
 {
