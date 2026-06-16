@@ -38,7 +38,7 @@ To install the latest release of GeoMechanicsApplication (currently version 10.4
 
 ### Using Python wheels
 
-_If you have installed GeoMechanicsApplication [using pypi](#using-pypi), you need to **skip** this section.  In that case, please move on to the [next section](#additional-dependency). For the [DSD-NL 2026](https://softwaredagen.deltares.nl/), please follow the instructions as explained in the previous section. If, however, for some reason that approach doesn't work for you, you can try to download and install the required Python wheels as explained in this section. In that case, the required Python wheels can be downloaded from [SURFfilesender](https://filesender.surf.nl/?s=download&token=41be065a-0b4b-4f37-b193-9fc712932153)._
+_If you have installed GeoMechanicsApplication [using pypi](#using-pypi), you need to **skip** this section.  In that case, please move on to the [next section](#additional-dependency)._
 
 More recent versions of the main-development branch can be obtained by sending an e-mail to the Kratos team. In that case, please mention which Python version you are using. Once you have received the appropriate `zip` archive, proceed as follows:
 
@@ -62,8 +62,6 @@ For demonstration purposes, we will analyse the staged construction of a buildin
 
 
 ### Downloading the required files
-
-_For your convenience, **during [DSD-NL 2026](https://softwaredagen.deltares.nl/)** you can download a ZIP archive containing the required files related to the CROW case. It is available from [SURFfilesender](https://filesender.surf.nl/?s=download&token=fa2a6e0c-9da1-4b2e-beb7-ed1fa334788d) until June 05, 2026. When you have downloaded this ZIP archive, extract it to the `GeoMechanicsApplication` folder, resulting in a sub-directory named `CROW_case`. It contains the ten files described in the remainder of this section._
 
 First, you will need a set of input files, which consists of a model file (`.mdpa`), an analysis file (`.json`) and two material properties files (`.json`). Create a folder where you will store the input files, e.g. `CROW_case`, and save the following files there:
 
