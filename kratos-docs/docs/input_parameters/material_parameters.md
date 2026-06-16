@@ -43,23 +43,35 @@ When a project needs various materials, multiple items can be added to the prope
 
 `GeoLinearElasticPlaneStrain2DLaw` is an incremental linear elastic constitutive law that is to be used by plane strain models only. It does not require any additional input to the variables.
 
-### Mohr-Coulomb with tension cut-off for plane strain models
+### Mohr-Coulomb with optional tension cut-off for plane strain models
 
-`GeoMohrCoulombWithTensionCutOff2D` is a Mohr-Coulomb plastic constitutive law that is to be used by plane strain models only. This model requires the following material specific input in the variables section:
+`GeoMohrCoulombLawPlaneStrain` is a Mohr-Coulomb plastic constitutive law that is to be used by plane strain models only. This model requires the following material specific input in the variables section if the tension cut-off is not enabled:
 
 ```json
 {
     "GEO_COHESION": 3.0e+03, //(1)!
     "GEO_FRICTION_ANGLE": 22.5, //(2)!
     "GEO_DILATANCY_ANGLE": 0.0, //(3)!
-    "GEO_TENSILE_STRENGTH": 7.24263e+03 //(4)!
+    "GEO_ENABLE_TENSION_CUT_OFF": false //(4)!
+}
+```
+
+If the tension cut-off is enabled, the following input is required:
+```json
+{
+    "GEO_COHESION": 3.0e+03, //(1)!
+    "GEO_FRICTION_ANGLE": 22.5, //(2)!
+    "GEO_DILATANCY_ANGLE": 0.0, //(3)!
+    "GEO_ENABLE_TENSION_CUT_OFF": true, //(4)!
+    "GEO_TENSILE_STRENGTH": 5.0e3 //(5)!
 }
 ```
 
 1. {{ geo_cohesion }}
 2. {{ geo_friction_angle }}
 3. {{ geo_dilatancy_angle }}
-4. {{ geo_tensile_strength }}
+4. {{ geo_enable_tension_cut_off }}
+5. {{ geo_tensile_strength }}
 
 
 ### User-defined soil model (UDSM) for plane strain models
