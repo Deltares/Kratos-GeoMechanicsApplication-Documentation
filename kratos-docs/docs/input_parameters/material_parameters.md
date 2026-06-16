@@ -88,7 +88,7 @@ If the tension cut-off is enabled, the following input is required:
   "UDSM_NAME": "UDSM.dll", //(1)!
   "UDSM_NUMBER": 1, //(2)!
   "IS_FORTRAN_UDSM": true, //(3)!
-  "UMAT_PARAMETERS": [ ] //(4)!
+  "UMAT_PARAMETERS": [ ], //(4)!
   "USE_HENCKY_STRAIN": false  //(5)!
 }
 ```
