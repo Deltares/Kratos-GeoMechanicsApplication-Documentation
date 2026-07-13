@@ -9751,7 +9751,7 @@ Begin SubModelPart gravity
   End SubModelPartElements
 End SubModelPart
 
-Begin SubModelPart 0
+Begin SubModelPart CriticalHeadBoundary
   Begin SubModelPartNodes
     4
     5

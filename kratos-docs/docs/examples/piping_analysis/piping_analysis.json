@@ -109,7 +109,7 @@
         "kratos_module": "KratosMultiphysics.GeoMechanicsApplication",
         "process_name": "ApplyScalarConstraintTableProcess",
         "Parameters": {
-          "model_part_name": "PorousDomain.0",
+          "model_part_name": "PorousDomain.CriticalHeadBoundary",
           "variable_name": "WATER_PRESSURE",
           "is_fixed": true,
           "fluid_pressure_type": "Hydrostatic",

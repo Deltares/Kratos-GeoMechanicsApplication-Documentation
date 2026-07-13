@@ -13,7 +13,7 @@ def _main():
     # Additional analysis parameters
     working_dir = "."
     analysis_filename = "piping_analysis.json"
-    critical_head_boundary_model_part_name = "PorousDomain.0"
+    critical_head_boundary_model_part_name = "PorousDomain.CriticalHeadBoundary"
     min_critical_head = 0.6
     max_critical_head = 1.3
     step_critical_head = 0.1
