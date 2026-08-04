@@ -17,7 +17,7 @@ This example demonstrates a backwards erosion piping analysis combined with a st
 
 - [`mesh.mdpa`](examples/piping_analysis/mesh.mdpa)
 - [`MaterialParameters.json`](examples/piping_analysis/MaterialParameters.json)
-- [`piping_analysis.json`](examples/piping_analysis/piping_analysis.json)
+- [`critical_head_analysis.json`](examples/piping_analysis/critical_head_analysis.json)
 
 Download these files to a directory of your choice. In addition, you need to download the [Python script](examples/piping_analysis/run_simulation.py) that will run the analysis and save it to the same directory where you have put the input files. Note that the Python script contains a few additional analysis parameters, including the minimum critical head, the maximum critical head and the head increment. The adopted values have been taken from the corresponding analysis with D-Geo Flow.
 

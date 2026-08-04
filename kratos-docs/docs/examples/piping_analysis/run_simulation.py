@@ -12,7 +12,7 @@ def _clean_up_geo_flow_instance(instance):
 def _main():
     # Additional analysis parameters
     working_dir = "."
-    analysis_filename = "piping_analysis.json"
+    analysis_filename = "critical_head_analysis.json"
     critical_head_boundary_model_part_name = "PorousDomain.CriticalHeadBoundary"
     min_critical_head = 0.6
     max_critical_head = 1.3
