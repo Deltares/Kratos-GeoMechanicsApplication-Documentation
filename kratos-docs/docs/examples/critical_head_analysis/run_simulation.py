@@ -1,6 +1,5 @@
 import atexit
 import sys
-from pathlib import Path
 
 import KratosMultiphysics.GeoMechanicsApplication as GeoMechanicsApplication
 
