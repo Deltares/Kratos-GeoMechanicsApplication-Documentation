@@ -46,7 +46,7 @@
     },
     "problem_domain_sub_model_part_list": [
       "Soil-0",
-      "2"
+      "PipeBoundary-2"
     ],
     "body_domain_sub_model_part_list": [
       "Soil-0"
@@ -97,7 +97,7 @@
         "kratos_module": "KratosMultiphysics.GeoMechanicsApplication",
         "process_name": "ApplyScalarConstraintTableProcess",
         "Parameters": {
-          "model_part_name": "PorousDomain.CriticalHeadBoundary",
+          "model_part_name": "PorousDomain.FixedHeadSearchBoundary-0",
           "variable_name": "WATER_PRESSURE",
           "is_fixed": true,
           "fluid_pressure_type": "Hydrostatic",
@@ -113,7 +113,7 @@
         "kratos_module": "KratosMultiphysics.GeoMechanicsApplication",
         "process_name": "ApplyScalarConstraintTableProcess",
         "Parameters": {
-          "model_part_name": "PorousDomain.1",
+          "model_part_name": "PorousDomain.FixedHeadBoundary-1",
           "variable_name": "WATER_PRESSURE",
           "is_fixed": true,
           "fluid_pressure_type": "Hydrostatic",

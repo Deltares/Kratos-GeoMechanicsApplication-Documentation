@@ -8,42 +8,42 @@
           "name": "GeoLinearElasticPlaneStrain2DLaw"
         },
         "Variables": {
-          "BIOT_COEFFICIENT": 1.0,
-          "YOUNG_MODULUS": 10000.0,
+          "BIOT_COEFFICIENT": 1,
+          "YOUNG_MODULUS": 10000,
           "POISSON_RATIO": 0.2,
-          "DENSITY_SOLID": 2650.0,
-          "DENSITY_WATER": 1000.0,
+          "DENSITY_SOLID": 2650,
+          "DENSITY_WATER": 1000,
           "POROSITY": 0.3,
-          "BULK_MODULUS_SOLID": 20000000000.0,
-          "BULK_MODULUS_FLUID": 2200000000.0,
+          "BULK_MODULUS_SOLID": 20000000000,
+          "BULK_MODULUS_FLUID": 2200000000,
           "PERMEABILITY_XX": 1.5030958583456036E-10,
           "PERMEABILITY_YY": 1.5030958583456036E-10,
-          "PERMEABILITY_XY": 0.0,
+          "PERMEABILITY_XY": 0,
           "DYNAMIC_VISCOSITY": 0.0013,
           "RETENTION_LAW": "SaturatedLaw",
-          "SATURATED_SATURATION": 1.0
+          "SATURATED_SATURATION": 1
         }
       }
     },
     {
       "properties_id": 1,
-      "model_part_name": "PorousDomain.2",
+      "model_part_name": "PorousDomain.PipeBoundary-2",
       "Material": {
         "constitutive_law": {
           "name": "LinearElastic2DInterfaceLaw"
         },
         "Variables": {
-          "BIOT_COEFFICIENT": 1.0,
-          "YOUNG_MODULUS": 100000.0,
+          "BIOT_COEFFICIENT": 1,
+          "YOUNG_MODULUS": 100000,
           "POISSON_RATIO": 0.45,
-          "DENSITY_SOLID": 2650.0,
-          "DENSITY_WATER": 1000.0,
+          "DENSITY_SOLID": 2650,
+          "DENSITY_WATER": 1000,
           "POROSITY": 0.3,
-          "BULK_MODULUS_SOLID": 20000000000.0,
-          "BULK_MODULUS_FLUID": 2200000000.0,
+          "BULK_MODULUS_SOLID": 20000000000,
+          "BULK_MODULUS_FLUID": 2200000000,
           "DYNAMIC_VISCOSITY": 0.0013,
           "RETENTION_LAW": "SaturatedLaw",
-          "SATURATED_SATURATION": 1.0,
+          "SATURATED_SATURATION": 1,
           "MINIMUM_JOINT_WIDTH": 0.001,
           "PIPE_D_70": 0.0001,
           "PIPE_ETA": 0.25,
