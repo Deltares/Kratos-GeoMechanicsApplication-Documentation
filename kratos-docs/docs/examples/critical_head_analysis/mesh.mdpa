@@ -9751,7 +9751,7 @@ Begin SubModelPart gravity
   End SubModelPartElements
 End SubModelPart
 
-Begin SubModelPart CriticalHeadBoundary
+Begin SubModelPart FixedHeadSearchBoundary-0
   Begin SubModelPartNodes
     4
     5
@@ -9861,7 +9861,7 @@ Begin SubModelPart CriticalHeadBoundary
   End SubModelPartNodes
 End SubModelPart
 
-Begin SubModelPart 1
+Begin SubModelPart FixedHeadBoundary-1
   Begin SubModelPartNodes
     2
     3
@@ -9902,7 +9902,7 @@ Begin SubModelPart 1
   End SubModelPartNodes
 End SubModelPart
 
-Begin SubModelPart 2
+Begin SubModelPart PipeBoundary-2
   Begin SubModelPartNodes
     4
     73

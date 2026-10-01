@@ -11,8 +11,8 @@ def _clean_up_geo_flow_instance(instance):
 def _main():
     # Additional analysis parameters
     working_dir = "."
-    analysis_filename = "critical_head_analysis.json"
-    critical_head_boundary_model_part_name = "PorousDomain.CriticalHeadBoundary"
+    analysis_filename = "ProjectParameters_stage1.json"
+    critical_head_boundary_model_part_name = "PorousDomain.FixedHeadSearchBoundary-0"
     min_critical_head = 0.6
     max_critical_head = 1.3
     step_critical_head = 0.1
