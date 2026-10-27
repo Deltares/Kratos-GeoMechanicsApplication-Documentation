@@ -4,19 +4,9 @@ repo_name: Deltares/Kratos-GeoMechanicsApplication-Documentation/
 
 theme:
   name: material
+  custom_dir: deltares/overrides
   favicon: img/favicon.ico
   logo: img/favicon.ico
-  palette: 
-    # Palette toggle for light mode
-    - primary: light blue
-      toggle:
-        icon: material/brightness-7 
-        name: Switch to dark mode
-    # Palette toggle for dark mode
-    - scheme: slate
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
   icon:
     annotation: material/arrow-right-circle-outline
   features:
