@@ -4,6 +4,7 @@ repo_name: Deltares/Kratos-GeoMechanicsApplication-Documentation/
 
 theme:
   name: material
+  custom_dir: deltares/overrides
   favicon: img/favicon.ico
   logo: img/favicon.ico
   palette: 

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block extrahead %}
+  <link rel="stylesheet" href="{{ 'assets/stylesheets/deltares.css' | url }}">
+{% endblock %}
+{% block scripts %}
+  {{ super() }}
+
+{% endblock %}
+
+{% block htmltitle %}
+
+<title>{{ config.site_name }}</title>
+
+{% endblock %}
+
