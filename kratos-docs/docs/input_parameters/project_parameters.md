@@ -342,7 +342,7 @@ Since 10.4.4, `ApplyScalarConstraintTableProcess` also accepts `model_part_name_
 
 ##### Seepage boundary
 
-In 10.4.4, a seepage boundary can switch between zero pressure for outflow and zero flow when the boundary is not discharging. Define `GeoSeepageCondition` conditions on the free boundary in the mesh, include them in a boundary submodel part, and set `"strategy_type": "newton_raphson_with_seepage"` in `solver_settings`. Add the following to a process list:
+In 10.4.4, a seepage boundary can switch between zero pressure for outflow and zero flow when the boundary is not discharging. Define `GeoSeepageCondition` conditions on the free boundary in the mesh and include them in a boundary submodel part. Set `"strategy_type": "newton_raphson_with_seepage"` and `"number_cycles": 1` in `solver_settings`. Multiple cycles are not supported because nodal fixity is not restored when a failed step is reverted. Add the following to a process list:
 
 ```json
 {
@@ -355,7 +355,9 @@ In 10.4.4, a seepage boundary can switch between zero pressure for outflow and z
 }
 ```
 
-For a complete input, including a `GeoSeepageCondition2D2N` mesh, see the [upstream seepage test](https://github.com/KratosMultiphysics/Kratos/tree/v10.4.4/applications/GeoMechanicsApplication/tests/seepage_tests). `NODAL_WATER_FLOW_RATE` can be included in nodal output. In 10.4.4, a failed time step followed by a retry may give incorrect seepage results because nodal fixity is not restored when the step is reverted; check convergence and avoid relying on retried steps for seepage analyses.
+Do not simultaneously fix seepage nodes to a non-zero prescribed water pressure. For example, initialize the water pressure field without fixing its degrees of freedom, as in the [upstream seepage test](https://github.com/KratosMultiphysics/Kratos/tree/v10.4.4/applications/GeoMechanicsApplication/tests/seepage_tests), which also shows a `GeoSeepageCondition2D2N` mesh. `NODAL_WATER_FLOW_RATE` can be included in nodal output.
+
+The strategy switches at most one seepage node per nonlinear iteration and requires another iteration after a switch. Set `max_iterations` high enough for the expected number of switching nodes and convergence. In 10.4.4, a fixed node is released only when its assembled flow rate is less than $-10^{-11}$. This fixed threshold depends on the units and may be significant for low-flow problems.
 
 ##### Loads process list block structure format
 Load processes are used for applying external forces and pressures such as gravity.
