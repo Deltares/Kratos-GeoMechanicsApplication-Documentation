@@ -195,15 +195,15 @@ Allowed values: `Modelers.KratosMultiphysics.ImportMDPAModeler`.
 11. Number of solution vectors to keep for time integration scheme. Type: integer. Here: always 2 (current and previous solutions).
 12. {{ echo_level }}
 13. Solver storage behaviour. Type: boolean.
-14. Function to compute stress/internal/reaction forces. Type: boolean.
+14. Compute reaction forces. Type: boolean.
 15. Update nodal positions with displacement for a geometrically non-linear analysis. Type: boolean.
 16. Function to rebuild the system with its degrees of freedom at each step. Type: boolean.
 17. Implementation detail of Kratos. Type: boolean. Here: always true.
 18. Calculation type. Type: string. Allowed values: `static`, `quasi_static`, `dynamic`, `transient_groundwater_flow`, `steady_state_groundwater_flow`.
 19. Time integration scheme. Type: string. Allowed values: `newmark`, `backward_euler`.
-20. Function to reset total displacements/rotations at stage start. Type: boolean.
-21. Iterative strategy. Type: string. Allowed values: `newton_raphson`, `newton_raphson_with_piping`, `linear`, `line_search`.
-22. Convergence criterion type. Type: string. Allowed values: `displacement_criterion`, `water_pressure_criterion`, `residual_criterion`, `temperature_criterion` and `or_criterion`.
+20. Reset total displacements and rotations at stage start. Type: boolean.
+21. Iterative strategy. Type: string. Options include `newton_raphson`, `newton_raphson_with_piping`, `newton_raphson_with_seepage`, `quasi_newton`, `linear` and `line_search`.
+22. Convergence criterion type. Type: string. For the U_Pw solver, options include `displacement_criterion`, `water_pressure_criterion`, `residual_criterion`, `and_criterion`, `or_criterion` and `displacement_and_water_pressure_criterion`. The available criteria depend on the solver.
 23. Relative tolerance for displacement convergence criterion. Type = float.
 24. Absolute tolerance for displacement convergence criterion. Type = float.
 25. Relative tolerance for water pressure convergence criterion. Type = float.
@@ -236,6 +236,23 @@ Allowed values: `Modelers.KratosMultiphysics.ImportMDPAModeler`.
 54. Rayleigh damping factor for the mass matrix contribution to the damping matrix. Type: float.
 55. Rayleigh damping factor for the stiffness matrix contribution to the damping matrix. Type: float.
 56. Maximum number of piping iterations. Type: integer.
+
+For inputs created before 10.4.4, replace `reset_displacements` with `reset_totals`. The Python solver maps the old setting to the new one with a deprecation warning. The separate `calculate_reactions` setting is deprecated and ignored; remove it and set `compute_reactions` explicitly to the desired value instead.
+
+##### Quasi-Newton strategy
+
+The 10.4.4 release adds `quasi_newton` as a solver strategy. For example:
+
+```json
+{
+    "strategy_type": "quasi_newton",
+    "quasi_newton_type": "lbfgs",
+    "quasi_newton_restart_interval": 100,
+    "quasi_newton_max_rank": 10
+}
+```
+
+`quasi_newton_type` selects `lbfgs` or `broyden`. The positive integer `quasi_newton_restart_interval` controls how often the initial stiffness matrix is rebuilt, and the positive integer `quasi_newton_max_rank` limits stored low-rank updates. The values above are the Python solver defaults. The strategy internally uses a direct sparse LU solver without scaling to reuse the stiffness factorization.
 
 #### Processes block structure format
 ```json
@@ -321,6 +338,24 @@ And here, an example for a water pressure constraint is shown.
 11. Specific weight of water. Type: float.
 12. Cut-off value to prevent negative pressure (suction). Type: float.
 
+Since 10.4.4, `ApplyScalarConstraintTableProcess` also accepts `model_part_name_list`, an array of distinct model part names, instead of `model_part_name`. Supply exactly one of these settings. The legacy `is_seepage` setting is no longer supported in pressure processes; remove it and use the seepage boundary setup below when a seepage boundary is required.
+
+##### Seepage boundary
+
+In 10.4.4, a seepage boundary can switch between zero pressure for outflow and zero flow when the boundary is not discharging. Define `GeoSeepageCondition` conditions on the free boundary in the mesh, include them in a boundary submodel part, and set `"strategy_type": "newton_raphson_with_seepage"` in `solver_settings`. Add the following to a process list:
+
+```json
+{
+    "python_module": "apply_seepage_boundary_process",
+    "kratos_module": "KratosMultiphysics.GeoMechanicsApplication",
+    "process_name": "ApplySeepageBoundaryProcess",
+    "Parameters": {
+        "model_part_name": "PorousDomain.top_boundary"
+    }
+}
+```
+
+For a complete input, including a `GeoSeepageCondition2D2N` mesh, see the [upstream seepage test](https://github.com/KratosMultiphysics/Kratos/tree/v10.4.4/applications/GeoMechanicsApplication/tests/seepage_tests). `NODAL_WATER_FLOW_RATE` can be included in nodal output. In 10.4.4, a failed time step followed by a retry may give incorrect seepage results because nodal fixity is not restored when the step is reverted; check convergence and avoid relying on retried steps for seepage analyses.
 
 ##### Loads process list block structure format
 Load processes are used for applying external forces and pressures such as gravity.

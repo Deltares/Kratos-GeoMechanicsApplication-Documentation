@@ -81,7 +81,7 @@ Since Kratos 10.4.4, setting `GEO_ENABLE_TENSION_CUT_OFF` to `false` disables th
 
 The former names `GeoMohrCoulombWithTensionCutOff2D`, `GeoMohrCoulombWithTensionCutOff3D` and `GeoInterfaceCoulombWithTensionCutOff` remain available as deprecated aliases for `GeoMohrCoulombLawPlaneStrain`, `GeoMohrCoulombLaw3D` and `GeoInterfaceCoulombLawPlaneStrain`, respectively.
 
-For adaptive constitutive substepping, the Mohr-Coulomb and interface Coulomb laws accept `GEO_MAX_RELATIVE_OVERSHOOT` and `GEO_MAX_NUMBER_OF_SUB_STEPS` in the material variables. For example, use `0.1` and `100`, respectively. See the [upstream CROW material example](https://github.com/KratosMultiphysics/Kratos/blob/v10.4.4/applications/GeoMechanicsApplication/tests/crow_validation/mohr_coulomb_clay-sand/MaterialParametersWithSubstepping.json).
+For adaptive constitutive substepping, the Mohr-Coulomb and interface Coulomb laws accept `GEO_MAX_RELATIVE_OVERSHOOT` and `GEO_MAX_NUMBER_OF_SUB_STEPS` in the material variables. The overshoot is a fraction in $(0, 1]$; the maximum number of substeps is an integer of at least 1. Their defaults are 1.0 and 1, respectively (no substepping). For example, use `0.1` and `100`, respectively. See the [upstream CROW material example](https://github.com/KratosMultiphysics/Kratos/blob/v10.4.4/applications/GeoMechanicsApplication/tests/crow_validation/mohr_coulomb_clay-sand/MaterialParametersWithSubstepping.json).
 
 ### Piecewise-linear moment capacity for plane strain beams
 
@@ -122,7 +122,7 @@ Each pair is a curvature and bending moment. The law inserts the origin `(0, 0)`
 2. Material model ID in the UDSM. Type: integer.
 3. Set to `true` if the UDSM file was written in FORTRAN. Type: boolean.
 4. The UMAT parameters. Type: array of values. For various commonly used soil models see [details.](#umat-parameters-format)
-5. Toggle to use the Hencky strain measure (natural/logarithmic strain). Type: boolean. Note: this should be used together with `move_mesh_flag` [solver settings in ProjectParameters.json](project_parameters.md#solver_settings-block-structure-format) and have the same value.
+5. Toggle to use the Hencky strain measure (natural/logarithmic strain). Type: boolean. Note: this should be used together with `move_mesh_flag` [solver settings in ProjectParameters.json](project_parameters.md#solver-settings-block-structure-format) and have the same value.
 
 
 ### UMAT parameters format
