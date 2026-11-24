@@ -142,7 +142,7 @@ Allowed values: `Modelers.KratosMultiphysics.ImportMDPAModeler`.
     "block_builder": true, //(17)!
     "solution_type": "static", //(18)!
     "scheme_type": "newmark", //(19)!
-    "reset_displacements": false, //(20)!
+    "reset_totals": false, //(20)!
 	"strategy_type": "line_search", //(21)!
 	"convergence_criterion": "displacement_criterion", //(22)!
 	"displacement_relative_tolerance": 1.0E-04, //(23)!
