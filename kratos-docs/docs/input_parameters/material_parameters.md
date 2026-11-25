@@ -41,7 +41,7 @@ When a project needs various materials, multiple items can be added to the prope
 ## Supported constitutive laws
 ### Incremental linear elastic law for plane strain models
 
-`GeoLinearElasticPlaneStrain2DLaw` is an incremental linear elastic constitutive law that is to be used by plane strain models only. By default it uses a constant `YOUNG_MODULUS`. Since 10.4.4, a stress-dependent Schanz–Vermeer formulation can be selected in the variables section:
+`GeoLinearElasticPlaneStrain2DLaw` is an incremental linear elastic constitutive law that is to be used by plane strain models only. By default it uses a constant `YOUNG_MODULUS`. A stress-dependent Schanz–Vermeer formulation for the Young's modulus can be selected in the variables section:
 
 ```json
 {
@@ -55,7 +55,7 @@ When a project needs various materials, multiple items can be added to the prope
 }
 ```
 
-`YOUNG_MODULUS` is the reference modulus, `GEO_PRESSURE_REFERENCE` is the reference pressure and `GEO_STRESS_DEPENDENCY_EXPONENT` is the stiffness exponent. The reference pressure, exponent, cohesion and friction angle must be positive. The modulus depends on the finalized minor principal effective stress. Use `"CONSTANT"` or omit `GEO_YOUNGS_MODULUS_FORMULATION` for constant stiffness. See the [upstream formulation](https://github.com/KratosMultiphysics/Kratos/blob/v10.4.4/applications/GeoMechanicsApplication/custom_constitutive/README.md) for details.
+`YOUNG_MODULUS` is the reference modulus, `GEO_PRESSURE_REFERENCE` is the reference pressure and `GEO_STRESS_DEPENDENCY_EXPONENT` is the stiffness exponent. The reference pressure, exponent, cohesion and friction angle must be positive. The modulus depends on the finalized minor principal effective stress. Use `"CONSTANT"` or omit `GEO_YOUNGS_MODULUS_FORMULATION` for constant stiffness. See the [upstream formulation](https://github.com/KratosMultiphysics/Kratos/blob/master/applications/GeoMechanicsApplication/custom_constitutive/README.md) for details.
 
 ### Mohr-Coulomb for plane strain models
 
@@ -77,11 +77,11 @@ When a project needs various materials, multiple items can be added to the prope
 4. {{ geo_tensile_strength }}
 5. Enable the tension cut-off. Type: boolean.
 
-Since Kratos 10.4.4, setting `GEO_ENABLE_TENSION_CUT_OFF` to `false` disables the cut-off; omit `GEO_TENSILE_STRENGTH` in this case. When the flag is `true`, tensile strength is required. If the flag is omitted, the cut-off is enabled when tensile strength is supplied and disabled otherwise.
+Setting `GEO_ENABLE_TENSION_CUT_OFF` to `false` disables the cut-off; omit `GEO_TENSILE_STRENGTH` in this case. When the flag is `true`, tensile strength is required. If the flag is omitted, the cut-off is enabled when tensile strength is supplied and disabled otherwise.
 
 The former names `GeoMohrCoulombWithTensionCutOff2D`, `GeoMohrCoulombWithTensionCutOff3D` and `GeoInterfaceCoulombWithTensionCutOff` remain available as deprecated aliases for `GeoMohrCoulombLawPlaneStrain`, `GeoMohrCoulombLaw3D` and `GeoInterfaceCoulombLawPlaneStrain`, respectively.
 
-For adaptive constitutive substepping, the Mohr-Coulomb and interface Coulomb laws accept `GEO_MAX_RELATIVE_OVERSHOOT` and `GEO_MAX_NUMBER_OF_SUB_STEPS` in the material variables. The overshoot is a fraction in $(0, 1]$; the maximum number of substeps is an integer of at least 1. Their defaults are 1.0 and 1, respectively (no substepping). For example, use `0.1` and `100`, respectively. See the [upstream CROW material example](https://github.com/KratosMultiphysics/Kratos/blob/v10.4.4/applications/GeoMechanicsApplication/tests/crow_validation/mohr_coulomb_clay-sand/MaterialParametersWithSubstepping.json).
+For adaptive constitutive substepping, the Mohr-Coulomb and interface Coulomb laws accept `GEO_MAX_RELATIVE_OVERSHOOT` and `GEO_MAX_NUMBER_OF_SUB_STEPS` in the material variables. The overshoot is a fraction in $(0, 1]$; the maximum number of substeps is an integer of at least 1. Their defaults are 1.0 and 1, respectively (no substepping). For example, use `0.1` and `100`, respectively. See the [upstream CROW material example](https://github.com/KratosMultiphysics/Kratos/blob/master/applications/GeoMechanicsApplication/tests/crow_validation/mohr_coulomb_clay-sand/MaterialParametersWithSubstepping.json).
 
 ### Piecewise-linear moment capacity for plane strain beams
 
@@ -101,7 +101,7 @@ For adaptive constitutive substepping, the Mohr-Coulomb and interface Coulomb la
 }
 ```
 
-Each pair is a curvature and bending moment. The law inserts the origin `(0, 0)`, so the first supplied curvature and moment must be non-zero. Curvatures must increase strictly and moments must be non-decreasing. The backbone is mirrored for negative curvature and remains constant beyond its last point. Optionally, a positive `GEO_UNLOADING_RELOADING_MODULUS` enables unloading and reloading; without it the response follows the backbone. The segment slopes must also satisfy the material checks described in the [implementation](https://github.com/KratosMultiphysics/Kratos/blob/v10.4.4/applications/GeoMechanicsApplication/custom_constitutive/piecewise_linear_moment_capacity_plane_strain_constitutive_law.cpp).
+Each pair is a curvature and bending moment. The law inserts the origin `(0, 0)`, so the first supplied curvature and moment must be non-zero. Curvatures must increase strictly and moments must be non-decreasing. The backbone is mirrored for negative curvature and remains constant beyond its last point. Optionally, a positive `GEO_UNLOADING_RELOADING_MODULUS` enables unloading and reloading; without it the response follows the backbone. The segment slopes must also satisfy the material checks described in the [implementation](https://github.com/KratosMultiphysics/Kratos/blob/master/applications/GeoMechanicsApplication/custom_constitutive/piecewise_linear_moment_capacity_plane_strain_constitutive_law.cpp).
 
 
 ### User-defined soil model (UDSM) for plane strain models
@@ -363,4 +363,4 @@ Kratos uses positive fluid pressure for suction and non-positive pressure for th
 
 $$S_e = \left(1 + (p/p_b)^n\right)^{-m}, \qquad m = 1 - 1/n,$$
 
-where $p_b$ is `VAN_GENUCHTEN_AIR_ENTRY_PRESSURE`. For $p \le 0$, $S_e = 1$. The degree of saturation is $S = S_r + (S_s-S_r)S_e$; relative permeability follows the Mualem–Van Genuchten formulation, bounded below by `MINIMUM_RELATIVE_PERMEABILITY`. The parameter $m$ is derived from $n$, not supplied independently. See the [upstream retention law documentation](https://github.com/KratosMultiphysics/Kratos/blob/v10.4.4/applications/GeoMechanicsApplication/custom_retention/README.md) for the full equations.
+where $p_b$ is `VAN_GENUCHTEN_AIR_ENTRY_PRESSURE`. For $p \le 0$, $S_e = 1$. The degree of saturation is $S = S_r + (S_s-S_r)S_e$; relative permeability follows the Mualem–Van Genuchten formulation, bounded below by `MINIMUM_RELATIVE_PERMEABILITY`. The parameter $m$ is derived from $n$, not supplied independently. See the [upstream retention law documentation](https://github.com/KratosMultiphysics/Kratos/blob/master/applications/GeoMechanicsApplication/custom_retention/README.md) for the full equations.
