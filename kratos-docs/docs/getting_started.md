@@ -33,7 +33,7 @@ You can conveniently install the GeoMechanicsApplication in one of two ways: (1)
 
 ### Using pypi
 
-To install the latest release of GeoMechanicsApplication (currently version 10.4.2) available from [pypi](https://pypi.org/project/KratosGeoMechanicsApplication/), run `pip install KratosGeoMechanicsApplication` in the Command Prompt.
+To install the latest release of GeoMechanicsApplication available from [pypi](https://pypi.org/project/KratosGeoMechanicsApplication/), run `pip install KratosGeoMechanicsApplication` in the Command Prompt. The documentation and examples cover features available in version 10.4.4.
 
 
 ### Using Python wheels
