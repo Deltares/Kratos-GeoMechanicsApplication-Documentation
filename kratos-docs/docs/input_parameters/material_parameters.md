@@ -113,7 +113,7 @@ Each pair is a curvature and bending moment. The law inserts the origin `(0, 0)`
   "UDSM_NAME": "UDSM.dll", //(1)!
   "UDSM_NUMBER": 1, //(2)!
   "IS_FORTRAN_UDSM": true, //(3)!
-  "UMAT_PARAMETERS": [ ] //(4)!
+  "UMAT_PARAMETERS": [ ], //(4)!
   "USE_HENCKY_STRAIN": false  //(5)!
 }
 ```

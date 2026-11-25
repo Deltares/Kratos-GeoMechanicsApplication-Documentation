@@ -26,6 +26,7 @@ k0_value_zz: '$K_0$ coefficient in Z direction. Type: float. Range: [0.0, ->).'
 geo_cohesion: 'Cohesion [Pa]. Type: float. Range: [0.0, ->).'
 geo_friction_angle: 'Friction angle **in degrees**. Type: float. Range: [0.0, 90.0).'
 geo_dilatancy_angle: 'Dilatancy angle **in degrees**. Type: float. Range: [0.0, GEO_FRICTION_ANGLE].'
+geo_enable_tension_cut_off: 'Flag to specify whether tension cut-off is enabled [-]. Type: bool. Range: N/A'
 geo_tensile_strength: 'Tension cut-off stress [Pa]. Type: float. Range: [0.0, GEO_COHESION / tan(GEO_FRICTION_ANGLE)]'
 biot_coefficient: 'Biot alpha coefficient [-]. Type: float. Range: [0.0, 1.0].'
 # project parameters
